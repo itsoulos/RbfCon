@@ -168,8 +168,13 @@ void run()
             printf("Generation %4d Best Error:  %20.10lg \n",i,bestError);
         if(fabs(bestError)<1e-6) break;
     }
+
     old_test_error = program->getTestError();
     str = program->printProgram(genome);
+    NeuralParser *parser = dynamic_cast<NNCNeuralProgram*>(program)->neuralparser;
+    parser->makeVector(str);
+    //cout<<"parser = "<<parser->print()<<endl;
+
     average_train_error+=bestError;
     average_test_error+=old_test_error;
     printf("Iteration: %4d TRAIN ERROR: %20.10lg\n",ik,bestError);

@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -ffast-math -Ofast -O2 -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -ffast-math -Ofast -std=c++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -ffast-math -Ofast -O2 -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -ffast-math -fopt-info -Ofast -std=c++11 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = RbfCon1.0.0
 DISTDIR = /home/sheridan/Desktop/ERGASIES/RbfCon/.tmp/RbfCon1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Core.so -lpthread   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -67,6 +67,40 @@ SOURCES       = CORE/parameter.cpp \
 		GE/rule.cc \
 		GE/sigprogram.cc \
 		GE/symbol.cc \
+		METHODS/adam.cpp \
+		METHODS/armadillo1.cpp \
+		METHODS/armijosearch.cpp \
+		METHODS/bfgs.cpp \
+		METHODS/collection.cpp \
+		METHODS/differentialevolution.cpp \
+		METHODS/doublebox.cpp \
+		METHODS/editlogger.cpp \
+		METHODS/ego.cpp \
+		METHODS/fibonaccisearch.cpp \
+		METHODS/filelogger.cpp \
+		METHODS/genetic.cpp \
+		METHODS/goldensearch.cpp \
+		METHODS/gradientdescent.cpp \
+		METHODS/gwooptimizer.cpp \
+		METHODS/hybridmethod.cpp \
+		METHODS/ipso.cpp \
+		METHODS/kmeanssampler.cpp \
+		METHODS/lbfgs.cpp \
+		METHODS/linesearch.cpp \
+		METHODS/logger.cpp \
+		METHODS/maxwellsampler.cpp \
+		METHODS/mean.cpp \
+		METHODS/multistart.cpp \
+		METHODS/neldermead.cpp \
+		METHODS/ofalgorithm.cpp \
+		METHODS/optimizer.cpp \
+		METHODS/problem.cpp \
+		METHODS/problemsampler.cpp \
+		METHODS/simanmethod.cpp \
+		METHODS/similarity.cpp \
+		METHODS/triangularsampler.cpp \
+		METHODS/uniformsampler.cpp \
+		METHODS/woa.cpp \
 		main.cpp 
 OBJECTS       = parameter.o \
 		parameterlist.o \
@@ -83,6 +117,40 @@ OBJECTS       = parameter.o \
 		rule.o \
 		sigprogram.o \
 		symbol.o \
+		adam.o \
+		armadillo1.o \
+		armijosearch.o \
+		bfgs.o \
+		collection.o \
+		differentialevolution.o \
+		doublebox.o \
+		editlogger.o \
+		ego.o \
+		fibonaccisearch.o \
+		filelogger.o \
+		genetic.o \
+		goldensearch.o \
+		gradientdescent.o \
+		gwooptimizer.o \
+		hybridmethod.o \
+		ipso.o \
+		kmeanssampler.o \
+		lbfgs.o \
+		linesearch.o \
+		logger.o \
+		maxwellsampler.o \
+		mean.o \
+		multistart.o \
+		neldermead.o \
+		ofalgorithm.o \
+		optimizer.o \
+		problem.o \
+		problemsampler.o \
+		simanmethod.o \
+		similarity.o \
+		triangularsampler.o \
+		uniformsampler.o \
+		woa.o \
 		main.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -121,6 +189,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_nfc.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
@@ -161,6 +230,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources_functions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
@@ -182,7 +253,41 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/program.h \
 		GE/rule.h \
 		GE/sigprogram.h \
-		GE/symbol.h CORE/parameter.cpp \
+		GE/symbol.h \
+		METHODS/adam.h \
+		METHODS/armadillo1.h \
+		METHODS/armijosearch.h \
+		METHODS/bfgs.h \
+		METHODS/collection.h \
+		METHODS/differentialevolution.h \
+		METHODS/doublebox.h \
+		METHODS/editlogger.h \
+		METHODS/ego.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/filelogger.h \
+		METHODS/genetic.h \
+		METHODS/goldensearch.h \
+		METHODS/gradientdescent.h \
+		METHODS/gwooptimizer.h \
+		METHODS/hybridmethod.h \
+		METHODS/ipso.h \
+		METHODS/kmeanssampler.h \
+		METHODS/lbfgs.h \
+		METHODS/linesearch.h \
+		METHODS/logger.h \
+		METHODS/maxwellsampler.h \
+		METHODS/mean.h \
+		METHODS/multistart.h \
+		METHODS/neldermead.h \
+		METHODS/ofalgorithm.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		METHODS/problemsampler.h \
+		METHODS/simanmethod.h \
+		METHODS/similarity.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/woa.h CORE/parameter.cpp \
 		CORE/parameterlist.cpp \
 		GE/converter.cc \
 		GE/cprogram.cc \
@@ -197,6 +302,40 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/rule.cc \
 		GE/sigprogram.cc \
 		GE/symbol.cc \
+		METHODS/adam.cpp \
+		METHODS/armadillo1.cpp \
+		METHODS/armijosearch.cpp \
+		METHODS/bfgs.cpp \
+		METHODS/collection.cpp \
+		METHODS/differentialevolution.cpp \
+		METHODS/doublebox.cpp \
+		METHODS/editlogger.cpp \
+		METHODS/ego.cpp \
+		METHODS/fibonaccisearch.cpp \
+		METHODS/filelogger.cpp \
+		METHODS/genetic.cpp \
+		METHODS/goldensearch.cpp \
+		METHODS/gradientdescent.cpp \
+		METHODS/gwooptimizer.cpp \
+		METHODS/hybridmethod.cpp \
+		METHODS/ipso.cpp \
+		METHODS/kmeanssampler.cpp \
+		METHODS/lbfgs.cpp \
+		METHODS/linesearch.cpp \
+		METHODS/logger.cpp \
+		METHODS/maxwellsampler.cpp \
+		METHODS/mean.cpp \
+		METHODS/multistart.cpp \
+		METHODS/neldermead.cpp \
+		METHODS/ofalgorithm.cpp \
+		METHODS/optimizer.cpp \
+		METHODS/problem.cpp \
+		METHODS/problemsampler.cpp \
+		METHODS/simanmethod.cpp \
+		METHODS/similarity.cpp \
+		METHODS/triangularsampler.cpp \
+		METHODS/uniformsampler.cpp \
+		METHODS/woa.cpp \
 		main.cpp
 QMAKE_TARGET  = RbfCon
 DESTDIR       = 
@@ -246,6 +385,7 @@ Makefile: RbfCon.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_nfc.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
@@ -286,6 +426,8 @@ Makefile: RbfCon.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources_functions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
@@ -332,6 +474,7 @@ Makefile: RbfCon.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_nfc.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri:
@@ -372,6 +515,8 @@ Makefile: RbfCon.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources_functions.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf:
@@ -395,8 +540,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/converter.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/integeranneal.h GE/neuralparser.h GE/neuralprogram.h GE/nncneuralprogram.h GE/population.h GE/program.h GE/rule.h GE/sigprogram.h GE/symbol.h $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/converter.cc GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/integeranneal.cpp GE/neuralparser.cc GE/neuralprogram.cc GE/nncneuralprogram.cc GE/population.cc GE/program.cc GE/rule.cc GE/sigprogram.cc GE/symbol.cc main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/converter.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/integeranneal.h GE/neuralparser.h GE/neuralprogram.h GE/nncneuralprogram.h GE/population.h GE/program.h GE/rule.h GE/sigprogram.h GE/symbol.h METHODS/adam.h METHODS/armadillo1.h METHODS/armijosearch.h METHODS/bfgs.h METHODS/collection.h METHODS/differentialevolution.h METHODS/doublebox.h METHODS/editlogger.h METHODS/ego.h METHODS/fibonaccisearch.h METHODS/filelogger.h METHODS/genetic.h METHODS/goldensearch.h METHODS/gradientdescent.h METHODS/gwooptimizer.h METHODS/hybridmethod.h METHODS/ipso.h METHODS/kmeanssampler.h METHODS/lbfgs.h METHODS/linesearch.h METHODS/logger.h METHODS/maxwellsampler.h METHODS/mean.h METHODS/multistart.h METHODS/neldermead.h METHODS/ofalgorithm.h METHODS/optimizer.h METHODS/problem.h METHODS/problemsampler.h METHODS/simanmethod.h METHODS/similarity.h METHODS/triangularsampler.h METHODS/uniformsampler.h METHODS/woa.h $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/converter.cc GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/integeranneal.cpp GE/neuralparser.cc GE/neuralprogram.cc GE/nncneuralprogram.cc GE/population.cc GE/program.cc GE/rule.cc GE/sigprogram.cc GE/symbol.cc METHODS/adam.cpp METHODS/armadillo1.cpp METHODS/armijosearch.cpp METHODS/bfgs.cpp METHODS/collection.cpp METHODS/differentialevolution.cpp METHODS/doublebox.cpp METHODS/editlogger.cpp METHODS/ego.cpp METHODS/fibonaccisearch.cpp METHODS/filelogger.cpp METHODS/genetic.cpp METHODS/goldensearch.cpp METHODS/gradientdescent.cpp METHODS/gwooptimizer.cpp METHODS/hybridmethod.cpp METHODS/ipso.cpp METHODS/kmeanssampler.cpp METHODS/lbfgs.cpp METHODS/linesearch.cpp METHODS/logger.cpp METHODS/maxwellsampler.cpp METHODS/mean.cpp METHODS/multistart.cpp METHODS/neldermead.cpp METHODS/ofalgorithm.cpp METHODS/optimizer.cpp METHODS/problem.cpp METHODS/problemsampler.cpp METHODS/simanmethod.cpp METHODS/similarity.cpp METHODS/triangularsampler.cpp METHODS/uniformsampler.cpp METHODS/woa.cpp main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -434,6 +579,8 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -527,6 +674,419 @@ sigprogram.o: GE/sigprogram.cc GE/sigprogram.h \
 
 symbol.o: GE/symbol.cc GE/symbol.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o symbol.o GE/symbol.cc
+
+adam.o: METHODS/adam.cpp METHODS/adam.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h \
+		METHODS/goldensearch.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/armijosearch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adam.o METHODS/adam.cpp
+
+armadillo1.o: METHODS/armadillo1.cpp METHODS/armadillo1.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armadillo1.o METHODS/armadillo1.cpp
+
+armijosearch.o: METHODS/armijosearch.cpp METHODS/armijosearch.h \
+		METHODS/linesearch.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armijosearch.o METHODS/armijosearch.cpp
+
+bfgs.o: METHODS/bfgs.cpp METHODS/bfgs.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bfgs.o METHODS/bfgs.cpp
+
+collection.o: METHODS/collection.cpp METHODS/collection.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o collection.o METHODS/collection.cpp
+
+differentialevolution.o: METHODS/differentialevolution.cpp METHODS/differentialevolution.h \
+		METHODS/collection.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o differentialevolution.o METHODS/differentialevolution.cpp
+
+doublebox.o: METHODS/doublebox.cpp METHODS/doublebox.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doublebox.o METHODS/doublebox.cpp
+
+editlogger.o: METHODS/editlogger.cpp METHODS/editlogger.h \
+		METHODS/logger.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o editlogger.o METHODS/editlogger.cpp
+
+ego.o: METHODS/ego.cpp METHODS/ego.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h \
+		METHODS/gradientdescent.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/goldensearch.h \
+		METHODS/armijosearch.h \
+		METHODS/bfgs.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ego.o METHODS/ego.cpp
+
+fibonaccisearch.o: METHODS/fibonaccisearch.cpp METHODS/fibonaccisearch.h \
+		METHODS/linesearch.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fibonaccisearch.o METHODS/fibonaccisearch.cpp
+
+filelogger.o: METHODS/filelogger.cpp METHODS/filelogger.h \
+		METHODS/logger.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filelogger.o METHODS/filelogger.cpp
+
+genetic.o: METHODS/genetic.cpp METHODS/genetic.h \
+		METHODS/collection.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o genetic.o METHODS/genetic.cpp
+
+goldensearch.o: METHODS/goldensearch.cpp METHODS/goldensearch.h \
+		METHODS/linesearch.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o goldensearch.o METHODS/goldensearch.cpp
+
+gradientdescent.o: METHODS/gradientdescent.cpp METHODS/gradientdescent.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/goldensearch.h \
+		METHODS/armijosearch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gradientdescent.o METHODS/gradientdescent.cpp
+
+gwooptimizer.o: METHODS/gwooptimizer.cpp METHODS/gwooptimizer.h \
+		METHODS/collection.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gwooptimizer.o METHODS/gwooptimizer.cpp
+
+hybridmethod.o: METHODS/hybridmethod.cpp METHODS/hybridmethod.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hybridmethod.o METHODS/hybridmethod.cpp
+
+ipso.o: METHODS/ipso.cpp METHODS/ipso.h \
+		METHODS/collection.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ipso.o METHODS/ipso.cpp
+
+kmeanssampler.o: METHODS/kmeanssampler.cpp METHODS/kmeanssampler.h \
+		METHODS/problemsampler.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o kmeanssampler.o METHODS/kmeanssampler.cpp
+
+lbfgs.o: METHODS/lbfgs.cpp METHODS/lbfgs.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lbfgs.o METHODS/lbfgs.cpp
+
+linesearch.o: METHODS/linesearch.cpp METHODS/linesearch.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o linesearch.o METHODS/linesearch.cpp
+
+logger.o: METHODS/logger.cpp METHODS/logger.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logger.o METHODS/logger.cpp
+
+maxwellsampler.o: METHODS/maxwellsampler.cpp METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o maxwellsampler.o METHODS/maxwellsampler.cpp
+
+mean.o: METHODS/mean.cpp METHODS/mean.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mean.o METHODS/mean.cpp
+
+multistart.o: METHODS/multistart.cpp METHODS/multistart.h \
+		METHODS/problem.h \
+		METHODS/collection.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o multistart.o METHODS/multistart.cpp
+
+neldermead.o: METHODS/neldermead.cpp METHODS/neldermead.h \
+		METHODS/problem.h \
+		METHODS/collection.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o neldermead.o METHODS/neldermead.cpp
+
+ofalgorithm.o: METHODS/ofalgorithm.cpp METHODS/ofalgorithm.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h \
+		METHODS/gradientdescent.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/goldensearch.h \
+		METHODS/armijosearch.h \
+		METHODS/bfgs.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ofalgorithm.o METHODS/ofalgorithm.cpp
+
+optimizer.o: METHODS/optimizer.cpp METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h \
+		METHODS/gradientdescent.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/goldensearch.h \
+		METHODS/armijosearch.h \
+		METHODS/bfgs.h \
+		METHODS/lbfgs.h \
+		METHODS/neldermead.h \
+		METHODS/collection.h \
+		METHODS/adam.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o optimizer.o METHODS/optimizer.cpp
+
+problem.o: METHODS/problem.cpp METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o problem.o METHODS/problem.cpp
+
+problemsampler.o: METHODS/problemsampler.cpp METHODS/problemsampler.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o problemsampler.o METHODS/problemsampler.cpp
+
+simanmethod.o: METHODS/simanmethod.cpp METHODS/simanmethod.h \
+		METHODS/collection.h \
+		METHODS/problem.h \
+		METHODS/optimizer.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o simanmethod.o METHODS/simanmethod.cpp
+
+similarity.o: METHODS/similarity.cpp METHODS/similarity.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o similarity.o METHODS/similarity.cpp
+
+triangularsampler.o: METHODS/triangularsampler.cpp METHODS/triangularsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o triangularsampler.o METHODS/triangularsampler.cpp
+
+uniformsampler.o: METHODS/uniformsampler.cpp METHODS/uniformsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/problem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uniformsampler.o METHODS/uniformsampler.cpp
+
+woa.o: METHODS/woa.cpp METHODS/woa.h \
+		METHODS/optimizer.h \
+		METHODS/problem.h \
+		CORE/parameter.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		CORE/parameterlist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o woa.o METHODS/woa.cpp
 
 main.o: main.cpp GE/nncneuralprogram.h \
 		GE/neuralprogram.h \

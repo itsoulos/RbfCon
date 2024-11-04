@@ -46,8 +46,8 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&Weight);
     rule[r]->addSymbol(&Mult);
     rule[r]->addSymbol(&Gauss);
-    //rule[r]->addSymbol(&Plus);
-    //rule[r]->addSymbol(&Bias);
+    rule[r]->addSymbol(&Plus);
+    rule[r]->addSymbol(&Bias);
     rule[r]->addSymbol(&Rpar);
     RBFexpr.addRule(rule[r]);
 
@@ -56,8 +56,8 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&Weight);
     rule[r]->addSymbol(&Mult);
     rule[r]->addSymbol(&Gauss);
-    //rule[r]->addSymbol(&Plus);
-    //rule[r]->addSymbol(&Bias);
+    rule[r]->addSymbol(&Plus);
+    rule[r]->addSymbol(&Bias);
     rule[r]->addSymbol(&Rpar);
     rule[r]->addSymbol(&Plus);
     rule[r]->addSymbol(&RBFexpr);

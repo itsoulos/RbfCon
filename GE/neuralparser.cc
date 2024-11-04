@@ -20,6 +20,7 @@ static double sigder(double x)
 
 
 NeuralParser::NeuralParser(int Dimension)
+    :Problem(dimension)
 {
 	dimension = Dimension;
 }
@@ -29,7 +30,7 @@ double	NeuralParser::valError()
 	return 0.0;
 }
 
-int	NeuralParser::getDimension() const
+int	NeuralParser::getRbfDimension() const
 {
 	return dimension;
 }
@@ -334,8 +335,34 @@ void	NeuralParser::makeVector(string str)
 			  fixstatus[(dimension+2)*i-(dimension+1)+j-1]=1;
 		}
     }*/
-//    cin>>t;
+
+    /** PROBLEM CODE **/
+    setDimension(weight.size());
+    Data lm,rm;
+    lm.resize(weight.size());
+    rm.resize(weight.size());
+    for(int i=0;i<weight.size();i++)
+    {
+        lm[i]=-2.0 *fabs(weight[i]);
+        rm[i]= 2.0 *fabs(weight[i]);
+    }
+    setLeftMargin(lm);
+    setRightMargin(rm);
+    /** END OF PROBLEM CODE **/
 }
+/** PROBLEM CODE **/
+double  NeuralParser::funmin(Data &x)
+{
+    return 0.0;
+}
+
+void    NeuralParser::gradient(Data &x)
+{
+    Data g;
+    g.resize(x.size());
+    return g;
+}
+/** END OF PROBLEM CODE **/
 
 string	NeuralParser::print()
 {

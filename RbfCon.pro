@@ -1,4 +1,5 @@
 QT -= gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17 console
 CONFIG -= app_bundle
@@ -31,6 +32,40 @@ SOURCES += \
         GE/rule.cc \
         GE/sigprogram.cc \
         GE/symbol.cc \
+        METHODS/adam.cpp \
+        METHODS/armadillo1.cpp \
+        METHODS/armijosearch.cpp \
+        METHODS/bfgs.cpp \
+        METHODS/collection.cpp \
+        METHODS/differentialevolution.cpp \
+        METHODS/doublebox.cpp \
+        METHODS/editlogger.cpp \
+        METHODS/ego.cpp \
+        METHODS/fibonaccisearch.cpp \
+        METHODS/filelogger.cpp \
+        METHODS/genetic.cpp \
+        METHODS/goldensearch.cpp \
+        METHODS/gradientdescent.cpp \
+        METHODS/gwooptimizer.cpp \
+        METHODS/hybridmethod.cpp \
+        METHODS/ipso.cpp \
+        METHODS/kmeanssampler.cpp \
+        METHODS/lbfgs.cpp \
+        METHODS/linesearch.cpp \
+        METHODS/logger.cpp \
+        METHODS/maxwellsampler.cpp \
+        METHODS/mean.cpp \
+        METHODS/multistart.cpp \
+        METHODS/neldermead.cpp \
+        METHODS/ofalgorithm.cpp \
+        METHODS/optimizer.cpp \
+        METHODS/problem.cpp \
+        METHODS/problemsampler.cpp \
+        METHODS/simanmethod.cpp \
+        METHODS/similarity.cpp \
+        METHODS/triangularsampler.cpp \
+        METHODS/uniformsampler.cpp \
+        METHODS/woa.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -53,4 +88,38 @@ HEADERS += \
     GE/program.h \
     GE/rule.h \
     GE/sigprogram.h \
-    GE/symbol.h
+    GE/symbol.h \
+    METHODS/adam.h \
+    METHODS/armadillo1.h \
+    METHODS/armijosearch.h \
+    METHODS/bfgs.h \
+    METHODS/collection.h \
+    METHODS/differentialevolution.h \
+    METHODS/doublebox.h \
+    METHODS/editlogger.h \
+    METHODS/ego.h \
+    METHODS/fibonaccisearch.h \
+    METHODS/filelogger.h \
+    METHODS/genetic.h \
+    METHODS/goldensearch.h \
+    METHODS/gradientdescent.h \
+    METHODS/gwooptimizer.h \
+    METHODS/hybridmethod.h \
+    METHODS/ipso.h \
+    METHODS/kmeanssampler.h \
+    METHODS/lbfgs.h \
+    METHODS/linesearch.h \
+    METHODS/logger.h \
+    METHODS/maxwellsampler.h \
+    METHODS/mean.h \
+    METHODS/multistart.h \
+    METHODS/neldermead.h \
+    METHODS/ofalgorithm.h \
+    METHODS/optimizer.h \
+    METHODS/problem.h \
+    METHODS/problemsampler.h \
+    METHODS/simanmethod.h \
+    METHODS/similarity.h \
+    METHODS/triangularsampler.h \
+    METHODS/uniformsampler.h \
+    METHODS/woa.h

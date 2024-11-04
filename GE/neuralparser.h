@@ -1,6 +1,6 @@
 #ifndef __NEURALPARSER__H
 #define __NEURALPARSER__H
-
+# include <METHODS/problem.h>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -9,7 +9,6 @@
 
 using namespace std;
 
-typedef vector<double> Data;
 
 struct Center
 {
@@ -35,7 +34,7 @@ struct RbfParameter {
     RbfParameter(int index) : is_variable(true), value(0.0), variable_index(index) {}
 };
 
-class NeuralParser
+class NeuralParser : public Problem
 {
 	private:
 		int dimension;
@@ -46,7 +45,7 @@ class NeuralParser
 		NeuralParser(int Dimension);
 //        vector<double> extractParameters(const string &input);
         vector<RbfParameter> extractParameters(const string &input);
-		int	getDimension() const;
+        int     getRbfDimension() const;
 		void	makeVector(string str);
 		void	getWeights(vector<double> &w);
 		void	getFixStatus(vector<int> &status);	
@@ -63,6 +62,9 @@ class NeuralParser
 		virtual double	valError();
 		void	getMargins(Data &l,Data &r);
 		string  print();
+
+        virtual double funmin(Data &x);
+        virtual void   gradient(Data &x);
 		~NeuralParser();
 };
 
