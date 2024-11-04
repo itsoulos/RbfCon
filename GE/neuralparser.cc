@@ -356,7 +356,7 @@ double  NeuralParser::funmin(Data &x)
     return 0.0;
 }
 
-void    NeuralParser::gradient(Data &x)
+Data    NeuralParser::gradient(Data &x)
 {
     Data g;
     g.resize(x.size());

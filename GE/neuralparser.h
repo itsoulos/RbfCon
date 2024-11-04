@@ -64,7 +64,7 @@ class NeuralParser : public Problem
 		string  print();
 
         virtual double funmin(Data &x);
-        virtual void   gradient(Data &x);
+        virtual Data   gradient(Data &x);
 		~NeuralParser();
 };
 
