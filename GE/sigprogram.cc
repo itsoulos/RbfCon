@@ -46,8 +46,8 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&Weight);
     rule[r]->addSymbol(&Mult);
     rule[r]->addSymbol(&Gauss);
-    rule[r]->addSymbol(&Plus);
-    rule[r]->addSymbol(&Bias);
+    //rule[r]->addSymbol(&Plus);
+    //rule[r]->addSymbol(&Bias);
     rule[r]->addSymbol(&Rpar);
     RBFexpr.addRule(rule[r]);
 
@@ -56,8 +56,8 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&Weight);
     rule[r]->addSymbol(&Mult);
     rule[r]->addSymbol(&Gauss);
-    rule[r]->addSymbol(&Plus);
-    rule[r]->addSymbol(&Bias);
+    //rule[r]->addSymbol(&Plus);
+    //rule[r]->addSymbol(&Bias);
     rule[r]->addSymbol(&Rpar);
     rule[r]->addSymbol(&Plus);
     rule[r]->addSymbol(&RBFexpr);
@@ -77,7 +77,7 @@ SigProgram::SigProgram(int d)
                 rule[r]->addSymbol(&Mult);
                 rule[r]->addSymbol(&Pow);
                 rule[r]->addSymbol(&Lpar);
-                    rule[r]->addSymbol(&Out);
+                    rule[r]->addSymbol(&Variance);
                     rule[r]->addSymbol(&Comma);
                     rule[r]->addSymbol(&Digit[2]);
                 rule[r]->addSymbol(&Rpar);
@@ -124,11 +124,8 @@ SigProgram::SigProgram(int d)
 
     r=newRule();
     rule[r]->addSymbol(&Digit0);
-    rule[r]->addSymbol(&Digit0);
-
-//    rule[r]->addSymbol(&DigitList);
+    rule[r]->addSymbol(&DigitList);
     DigitList.addRule(rule[r]);
-
 
     Out.set("OUT",0);
 
@@ -149,16 +146,6 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&Rpar);
     Out.addRule(rule[r]);
 
-    SmllNmbr.set("SMLLNMBR",0);
-
-    r=newRule();
-    rule[r]->addSymbol(&Lpar);
-    rule[r]->addSymbol(&Digit[0]);
-    rule[r]->addSymbol(&Dot);
-    rule[r]->addSymbol(&Digit1);
-    rule[r]->addSymbol(&DigitList);
-    rule[r]->addSymbol(&Rpar);
-    SmllNmbr.addRule(rule[r]);
 
     Bias.set("BIAS",0);
 
@@ -201,6 +188,15 @@ SigProgram::SigProgram(int d)
     rule[r]->addSymbol(&DigitList);
     rule[r]->addSymbol(&Rpar);
     Weight.addRule(rule[r]);
+
+    Variance.set("VAR",0);
+    r=newRule();
+    rule[r]->addSymbol(&Lpar);
+    rule[r]->addSymbol(&DigitList);
+    rule[r]->addSymbol(&Dot);
+    rule[r]->addSymbol(&DigitList);
+    rule[r]->addSymbol(&Rpar);
+    Variance.addRule(rule[r]);
 
 
 }

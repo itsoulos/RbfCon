@@ -157,8 +157,6 @@ void run()
         f=pop->getBestFitness();
         genome=pop->getBestChromosome();
 
-        double mutation_rate = program->adaptive_mutation_rate(i, max_generations);
-        pop->setMutationRate(mutation_rate);
         str =  program->printProgram(genome);
         program->fitness(genome);
         if(fabs(f)<bestError)

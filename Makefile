@@ -58,6 +58,7 @@ SOURCES       = CORE/parameter.cpp \
 		GE/cprogram.cc \
 		GE/doublestack.cc \
 		GE/fparser.cc \
+		GE/integeranneal.cpp \
 		GE/neuralparser.cc \
 		GE/neuralprogram.cc \
 		GE/nncneuralprogram.cc \
@@ -73,6 +74,7 @@ OBJECTS       = parameter.o \
 		cprogram.o \
 		doublestack.o \
 		fparser.o \
+		integeranneal.o \
 		neuralparser.o \
 		neuralprogram.o \
 		nncneuralprogram.o \
@@ -172,6 +174,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/cprogram.h \
 		GE/doublestack.h \
 		GE/fparser.hh \
+		GE/integeranneal.h \
 		GE/neuralparser.h \
 		GE/neuralprogram.h \
 		GE/nncneuralprogram.h \
@@ -185,6 +188,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/cprogram.cc \
 		GE/doublestack.cc \
 		GE/fparser.cc \
+		GE/integeranneal.cpp \
 		GE/neuralparser.cc \
 		GE/neuralprogram.cc \
 		GE/nncneuralprogram.cc \
@@ -391,8 +395,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/converter.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/neuralparser.h GE/neuralprogram.h GE/nncneuralprogram.h GE/population.h GE/program.h GE/rule.h GE/sigprogram.h GE/symbol.h $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/converter.cc GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/neuralparser.cc GE/neuralprogram.cc GE/nncneuralprogram.cc GE/population.cc GE/program.cc GE/rule.cc GE/sigprogram.cc GE/symbol.cc main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/converter.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/integeranneal.h GE/neuralparser.h GE/neuralprogram.h GE/nncneuralprogram.h GE/population.h GE/program.h GE/rule.h GE/sigprogram.h GE/symbol.h $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/converter.cc GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/integeranneal.cpp GE/neuralparser.cc GE/neuralprogram.cc GE/nncneuralprogram.cc GE/population.cc GE/program.cc GE/rule.cc GE/sigprogram.cc GE/symbol.cc main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -463,6 +467,13 @@ fparser.o: GE/fparser.cc GE/fparser.hh \
 		GE/doublestack.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fparser.o GE/fparser.cc
 
+integeranneal.o: GE/integeranneal.cpp GE/integeranneal.h \
+		GE/program.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o integeranneal.o GE/integeranneal.cpp
+
 neuralparser.o: GE/neuralparser.cc GE/neuralparser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o neuralparser.o GE/neuralparser.cc
 
@@ -493,7 +504,8 @@ population.o: GE/population.cc GE/population.h \
 		GE/program.h \
 		GE/symbol.h \
 		GE/rule.h \
-		GE/doublestack.h
+		GE/doublestack.h \
+		GE/integeranneal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o population.o GE/population.cc
 
 program.o: GE/program.cc GE/program.h \

@@ -1,4 +1,5 @@
 # include <GE/population.h>
+# include <GE/integeranneal.h>
 # include <math.h>
 # include <iostream>
 
@@ -169,6 +170,8 @@ void	Population::calcFitnessArray()
         for(int j=0;j<chromosome_size;j++) g[j]=chromosome[i][j];
 			fitness_array[i]=fitness(g);	
 		if(fabs(fitness_array[i])<dmin) dmin=fabs(fitness_array[i]);
+      //  if(rand() *1.0/RAND_MAX<=0.001)
+       //     localSearch(i);
 /*
         if(i%10==0)
 		{
@@ -204,12 +207,12 @@ void	Population::nextGeneration()
 	select();
 	crossover();
 	mutate();
-    //int localSearchGenerations,localSearchChromosomes;
-    if((generation+1)%20==0)
+/*    if((generation+1)%20==0)
     {
         for(int i=0;i<20;i++)
         localSearch(rand() % chromosome_count);
-    }
+    }*/
+    localSearch(0);
 	++generation;
 }
 
@@ -218,6 +221,18 @@ void	Population::localSearch(int gpos)
 	vector<int> g;
     g.resize(chromosome_size);
 	int pos=gpos;
+    double f= fitness_array[pos];
+    double fold = f;/*
+    IntegerAnneal lt(program);
+    lt.setPoint(g,f);
+    lt.Solve();
+    lt.getPoint(g,f);
+    for(int i=0;i<(int)g.size();i++)
+        chromosome[gpos][i]=g[i];
+    fitness_array[gpos]=f;
+    printf("ANNEAL[%d] [%lf]=>[%lf]\n",gpos,fold,f);
+    return;*/
+
 	for(int iters=1;iters<=100;iters++)
 	{
         int randgenome=rand() % chromosome_count;

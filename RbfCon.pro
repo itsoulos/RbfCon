@@ -22,6 +22,7 @@ SOURCES += \
         GE/cprogram.cc \
         GE/doublestack.cc \
         GE/fparser.cc \
+        GE/integeranneal.cpp \
         GE/neuralparser.cc \
         GE/neuralprogram.cc \
         GE/nncneuralprogram.cc \
@@ -44,6 +45,7 @@ HEADERS += \
     GE/cprogram.h \
     GE/doublestack.h \
     GE/fparser.hh \
+    GE/integeranneal.h \
     GE/neuralparser.h \
     GE/neuralprogram.h \
     GE/nncneuralprogram.h \

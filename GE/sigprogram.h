@@ -10,7 +10,7 @@ class	SigProgram :public Cprogram
 {
 	private:
 		Symbol  Sig,SigFunction,Tanh,Abs,
-            s0,sx,Out,smallNumber;
+            s0,sx,Out,smallNumber,Variance;
         Symbol RBFexpr, Weight, Gauss, Distance, SmllNmbr, Bias;
 	public:
 		SigProgram(int d);
