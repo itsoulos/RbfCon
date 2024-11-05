@@ -363,15 +363,16 @@ double  NeuralParser::funmin(Data &x)
         return 0.0;
     else
     {
+	   weight = x;
         double sum = 0.0;
         Matrix xall = trainSet->getAllXpoint();
         for(int i=0;i<(int)xall.size();i++)
         {
             double per = eval(xall[i]);
             double y   = trainSet->getYpoint(i);
-            printf("diffs %lf %lf \n",per,y);
             sum+=(per-y)*(per-y);
         }
+	printf("Sum = %20.10lg\n",sum);
         return sum;
     }
 }
@@ -436,9 +437,9 @@ void	NeuralParser::getFixStatus(vector<int> &status)
 	status = fixstatus;
 }
 
-double	NeuralParser::eval(vector<double> xpoint)
+double	NeuralParser::eval(double *xpoint)
 {
-	int nodes=weight.size()/ (dimension + 2);
+	/*int nodes=weight.size()/ (dimension + 2);
 	double per=0.0;
 	for(int i=1;i<=nodes;i++)
 	{
@@ -451,7 +452,7 @@ double	NeuralParser::eval(vector<double> xpoint)
 		arg+=weight[(dimension+2)*i-1];
 		per+=weight[(dimension+2)*i-(dimension+1)-1]*sig(arg);
 	}
-	return per;
+	return per;*/
 }
 
 /* Η ΑΡΧΙΚΗ ΣΥΝΑΡΤΗΣΗ
@@ -479,23 +480,18 @@ double	NeuralParser::eval(double  *xpoint)
 }
 */
 
-double	NeuralParser::eval(double  *xpoint)
+double	NeuralParser::eval(vector<double> xpoint)
 {
-/*    cout<<"Είμαστε στο NeuralParser::eval(double  *xpoint)\n";
-    int t;
-    cin>>t;
-*/
     int nodes = weight.size()/(dimension + 3);
     double per = 0.0;
- //   double gss = 0.0;
     for(int i=0;i<nodes;i++)
     {
         double dstnc = 0.0;
-        for(int j=1;j<=dimension;j++)
+        for(int j=1;j<=xpoint.size();j++)
         {
             if (weight[(dimension+3)*i + j] !=0)
             {
-//                cout<<"xpoint["<<j-1<<"] = "<<xpoint[j-1]<<" kai weight["<<(dimension+3)*i + j<<"] = "<<weight[(dimension+3)*i + j]<<endl;
+             //   cout<<"xpoint["<<j-1<<"] = "<<xpoint[j-1]<<" kai weight["<<(dimension+3)*i + j<<"] = "<<weight[(dimension+3)*i + j]<<endl;
                 dstnc += pow((xpoint[j-1] - weight[(dimension+3)*i + j]), 2);
             }
         }
@@ -503,7 +499,12 @@ double	NeuralParser::eval(double  *xpoint)
 //  Λάθος gss += weight[(dimension+3)*i]*(exp( -dstnc / (2*pow(weight[(dimension+3)*i + 5],2)) )) + weight[(dimension+3)*i + 6];
 //        gss = weight[(dimension+3)*i]*(exp( -dstnc / (2*pow(weight[(dimension+3)*i + 5],2)) )) + weight[(dimension+3)*i + 6];
 //        per += gss;
-        per += weight[(dimension+3)*i]*(exp( -dstnc / (2*pow(weight[(dimension+3)*i + 5],2)) )) + weight[(dimension+3)*i + 6];
+double var =weight[(dimension+3)*i+(dimension+1)];
+double bias = weight[(dimension+3)*i+(dimension+2)];
+   double div = 2.0 * pow(var,2.0);
+     double gr = exp( -dstnc /div) + bias;
+        per += weight[(dimension+3)*i]*gr;
+//	printf("w=%20.10lg distance=%20.10lg bias=%20.10lg div=%20.10lg gr=%20.10lg \n",weight[(dimension+3)*i],dstnc,bias,div,gr);
     }
     return per;
 }

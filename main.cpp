@@ -12,6 +12,7 @@
 #include <regex>
 # include <CORE/parameterlist.h>
 # include <METHODS/bfgs.h>
+# include <METHODS/neldermead.h>
 using namespace std;
 
 
@@ -179,15 +180,15 @@ void run()
     trainSet->loadFromDataFile(trainfile);
     parser->setTrainSet(trainSet);
     weights.resize(parser->getRbfDimension());
-    parser->getWeights(weights);
+    weights = bestWeights;
     double fstart = parser->funmin(weights);
     printf("Start value = %10.5lg \n",fstart);
-    Bfgs *bfgs = new Bfgs();
-
-    bfgs->setProblem(dynamic_cast<Problem*>(parser));
-    bfgs->setPoint(weights,fstart);
-    bfgs->solve();
-    delete bfgs;
+    cout<<"Parser str = "<<str<<endl;
+    Bfgs *m = new Bfgs();
+    m->setProblem(dynamic_cast<Problem*>(parser));
+    m->setPoint(weights,fstart);
+    m->solve();
+    delete m;
     delete trainSet;
     average_train_error+=bestError;
     average_test_error+=old_test_error;
