@@ -17,6 +17,7 @@ QMAKE_CXXFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -
 QMAKE_CFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native  -ffast-math -Ofast
 
 SOURCES += \
+        CORE/dataset.cpp \
         CORE/parameter.cpp \
         CORE/parameterlist.cpp \
         GE/converter.cc \
@@ -74,6 +75,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    CORE/dataset.h \
     CORE/parameter.h \
     CORE/parameterlist.h \
     GE/converter.h \

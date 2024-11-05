@@ -23,6 +23,7 @@ NeuralParser::NeuralParser(int Dimension)
     :Problem(dimension)
 {
 	dimension = Dimension;
+    trainSet = NULL;
 }
 
 double	NeuralParser::valError()
@@ -351,15 +352,44 @@ void	NeuralParser::makeVector(string str)
     /** END OF PROBLEM CODE **/
 }
 /** PROBLEM CODE **/
+
+void    NeuralParser::setTrainSet(Dataset *tr)
+{
+    trainSet = tr;
+}
 double  NeuralParser::funmin(Data &x)
 {
-    return 0.0;
+    if(trainSet == NULL)
+        return 0.0;
+    else
+    {
+        double sum = 0.0;
+        Matrix xall = trainSet->getAllXpoint();
+        for(int i=0;i<(int)xall.size();i++)
+        {
+            double per = eval(xall[i]);
+            double y   = trainSet->getYpoint(i);
+            printf("diffs %lf %lf \n",per,y);
+            sum+=(per-y)*(per-y);
+        }
+        return sum;
+    }
 }
 
 Data    NeuralParser::gradient(Data &x)
 {
     Data g;
     g.resize(x.size());
+   for(int i=0;i<(int)x.size();i++)
+    {
+            double eps=pow(1e-18,1.0/3.0)*qMax(1.0,fabs(x[i]));
+            x[i]+=eps;
+            double v1=funmin(x);
+            x[i]-=2.0 *eps;
+            double v2=funmin(x);
+            g[i]=(v1-v2)/(2.0 * eps);
+            x[i]+=eps;
+    }
     return g;
 }
 /** END OF PROBLEM CODE **/

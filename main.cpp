@@ -11,6 +11,7 @@
 #include <vector>
 #include <regex>
 # include <CORE/parameterlist.h>
+# include <METHODS/bfgs.h>
 using namespace std;
 
 
@@ -173,8 +174,21 @@ void run()
     str = program->printProgram(genome);
     NeuralParser *parser = dynamic_cast<NNCNeuralProgram*>(program)->neuralparser;
     parser->makeVector(str);
-    //cout<<"parser = "<<parser->print()<<endl;
+    Data weights;
+    Dataset *trainSet=new Dataset();
+    trainSet->loadFromDataFile(trainfile);
+    parser->setTrainSet(trainSet);
+    weights.resize(parser->getRbfDimension());
+    parser->getWeights(weights);
+    double fstart = parser->funmin(weights);
+    printf("Start value = %10.5lg \n",fstart);
+    Bfgs *bfgs = new Bfgs();
 
+    bfgs->setProblem(dynamic_cast<Problem*>(parser));
+    bfgs->setPoint(weights,fstart);
+    bfgs->solve();
+    delete bfgs;
+    delete trainSet;
     average_train_error+=bestError;
     average_test_error+=old_test_error;
     printf("Iteration: %4d TRAIN ERROR: %20.10lg\n",ik,bestError);

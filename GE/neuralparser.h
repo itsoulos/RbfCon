@@ -1,6 +1,7 @@
 #ifndef __NEURALPARSER__H
 #define __NEURALPARSER__H
 # include <METHODS/problem.h>
+# include <CORE/dataset.h>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -41,6 +42,7 @@ class NeuralParser : public Problem
 		vector<int> 	fixstatus;
 		vector<Node> 	node;
 		vector<double>	weight;
+        Dataset *trainSet;
 	public:
 		NeuralParser(int Dimension);
 //        vector<double> extractParameters(const string &input);
@@ -62,6 +64,8 @@ class NeuralParser : public Problem
 		virtual double	valError();
 		void	getMargins(Data &l,Data &r);
 		string  print();
+
+        void    setTrainSet(Dataset *tr);
 
         virtual double funmin(Data &x);
         virtual Data   gradient(Data &x);
