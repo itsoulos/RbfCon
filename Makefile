@@ -1127,8 +1127,13 @@ main.o: main.cpp GE/nncneuralprogram.h \
 		METHODS/logger.h \
 		METHODS/filelogger.h \
 		METHODS/editlogger.h \
-		METHODS/neldermead.h \
-		METHODS/collection.h
+		METHODS/lbfgs.h \
+		METHODS/gradientdescent.h \
+		METHODS/linesearch.h \
+		METHODS/fibonaccisearch.h \
+		METHODS/goldensearch.h \
+		METHODS/armijosearch.h \
+		METHODS/adam.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 ####### Install

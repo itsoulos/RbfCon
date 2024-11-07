@@ -130,7 +130,7 @@ double	NeuralProgram::fitness(vector<int> &genome)
 {
     string str;
     if(!getElements(genome,str)) return -1e+8;
-    neuralparser->makeVector(str);
+    //neuralparser->makeVector(str);
     if(program->Parse(str)==0) return -1e+8;
     double f=getTrainError();
 	return -f;
