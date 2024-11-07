@@ -3,6 +3,7 @@
 #include <GE/population.h>
 #include <GE/converter.h>
 #include <QFile>
+# include <QDebug>
 #include <QTextStream>
 #include <QIODevice>
 #include <iostream>
@@ -241,15 +242,26 @@ void run()
         m->getPoint(weights,fstart);
         delete m;
     }
+    double class_test;
+    if(localMethod!="none")
+    {
     average_train_error+=fstart;
     old_test_error=parser->getTestError(testSet);
-
     average_test_error+=old_test_error;
+     class_test=parser->getClassError(testSet);//p->getClassTestError(genome);
+    average_class_error+=class_test;
+    }
+    else
+    {
+	    average_train_error+=bestError;
+	    average_test_error+=old_test_error;
+   		NNCNeuralProgram *p=(NNCNeuralProgram*)program;
+    		class_test=p->getClassTestError(genome);
+		average_class_error+=class_test;
+    }
+
     printf("Iteration: %4d TRAIN ERROR: %20.10lg\n",ik,fstart);
     printf("Iteration: %4d TEST  ERROR: %20.10lg\n",ik,old_test_error);
-    NNCNeuralProgram *p=(NNCNeuralProgram*)program;
-    double class_test=parser->getClassError(testSet);//p->getClassTestError(genome);
-    average_class_error+=class_test;
     printf("Iteration: %4d CLASS ERROR: %20.2lf%%\n",ik,class_test);
     printf("Iteration: %4d SOLUTION:    %20s\n",ik,str.c_str());
 }

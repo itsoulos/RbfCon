@@ -46,7 +46,6 @@ class NeuralParser : public Problem
         double margin_factor = 2.0;
 	public:
 		NeuralParser(int Dimension);
-        void
 //        vector<double> extractParameters(const string &input);
         vector<RbfParameter> extractParameters(const string &input);
         int     getRbfDimension() const;
