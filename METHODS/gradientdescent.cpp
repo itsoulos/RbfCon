@@ -5,7 +5,7 @@ GradientDescent::GradientDescent()
     lt=NULL;
     addParam(Parameter("gd_maxiters",200,1,10000,"Maximum iterations for gradient descent"));
     QStringList gd_linesearch;
-    gd_linesearch<<"none"<<"golden"<<"fibonacci"<<"armijo";
+    gd_linesearch<<"armijo"<<"golden"<<"fibonacci"<<"none";
     addParam(Parameter("gd_linesearch",gd_linesearch[0],
                        gd_linesearch,
                        "Line search. Values: none, golden, fibonacci, armijo"));

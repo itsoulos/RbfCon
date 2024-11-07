@@ -626,7 +626,8 @@ integeranneal.o: GE/integeranneal.cpp GE/integeranneal.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o integeranneal.o GE/integeranneal.cpp
 
 neuralparser.o: GE/neuralparser.cc GE/neuralparser.h \
-		METHODS/problem.h
+		METHODS/problem.h \
+		CORE/dataset.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o neuralparser.o GE/neuralparser.cc
 
 neuralprogram.o: GE/neuralprogram.cc GE/neuralprogram.h \
@@ -638,7 +639,8 @@ neuralprogram.o: GE/neuralprogram.cc GE/neuralprogram.h \
 		GE/cprogram.h \
 		GE/fparser.hh \
 		GE/neuralparser.h \
-		METHODS/problem.h
+		METHODS/problem.h \
+		CORE/dataset.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o neuralprogram.o GE/neuralprogram.cc
 
 nncneuralprogram.o: GE/nncneuralprogram.cc GE/nncneuralprogram.h \
@@ -651,7 +653,8 @@ nncneuralprogram.o: GE/nncneuralprogram.cc GE/nncneuralprogram.h \
 		GE/cprogram.h \
 		GE/fparser.hh \
 		GE/neuralparser.h \
-		METHODS/problem.h
+		METHODS/problem.h \
+		CORE/dataset.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nncneuralprogram.o GE/nncneuralprogram.cc
 
 population.o: GE/population.cc GE/population.h \
@@ -1106,10 +1109,26 @@ main.o: main.cpp GE/nncneuralprogram.h \
 		GE/fparser.hh \
 		GE/neuralparser.h \
 		METHODS/problem.h \
+		CORE/dataset.h \
 		GE/population.h \
 		GE/converter.h \
 		CORE/parameterlist.h \
-		CORE/parameter.h
+		CORE/parameter.h \
+		METHODS/bfgs.h \
+		METHODS/optimizer.h \
+		METHODS/doublebox.h \
+		METHODS/similarity.h \
+		METHODS/mean.h \
+		METHODS/maxwellsampler.h \
+		METHODS/problemsampler.h \
+		METHODS/triangularsampler.h \
+		METHODS/uniformsampler.h \
+		METHODS/kmeanssampler.h \
+		METHODS/logger.h \
+		METHODS/filelogger.h \
+		METHODS/editlogger.h \
+		METHODS/neldermead.h \
+		METHODS/collection.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 ####### Install

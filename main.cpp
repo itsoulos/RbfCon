@@ -12,7 +12,9 @@
 #include <regex>
 # include <CORE/parameterlist.h>
 # include <METHODS/bfgs.h>
-# include <METHODS/neldermead.h>
+# include <METHODS/lbfgs.h>
+# include <METHODS/gradientdescent.h>
+# include <METHODS/adam.h>
 using namespace std;
 
 
@@ -24,7 +26,7 @@ ParameterList mainParams;
 QString trainfile="";
 QString testfile="";
 int ik=0;
-
+Dataset *trainSet=NULL,*testSet=NULL;
 double average_train_error = 0.0;
 double average_test_error  = 0.0;
 double average_class_error = 0.0;
@@ -38,6 +40,10 @@ void    makeMainParams()
     mainParams.addParam(Parameter("selection_rate",0.1,0.0,1.0,"The used selection rate"));
     mainParams.addParam(Parameter("mutation_rate",0.05,0.0,1.0,"The used mutation rate"));
     mainParams.addParam(Parameter("generations",200,10,2000,"The maximum number of allowed generations"));
+    QStringList localMethod;
+    localMethod<<"bfgs"<<"adam"<<"lbfgs"<<"gradient"<<"none";
+    mainParams.addParam(Parameter("local_method",localMethod[0],localMethod,"The used local optimizer"));
+    mainParams.addParam(Parameter("margin_factor",2.0,1.0,10.0,"The factor used to construct margins"));
     mainParams.addParam(Parameter("iterations",30,1,100,"Number of execution iterations"));
 }
 int getDimension(QString filename)
@@ -56,6 +62,10 @@ void done()
         delete program;
     if(pop!=nullptr)
         delete pop;
+    if(trainSet != NULL)
+        delete trainSet;
+    if(testSet !=NULL)
+        delete testSet;
 }
 
 void shouldTerminate()
@@ -86,6 +96,15 @@ void init()
     if(!QFile::exists(testfile))
         error(QString("Test file %1 does not exist").arg(testfile)
                     );
+
+    if(trainSet ==NULL)
+    {
+        trainSet=new Dataset();
+        trainSet->loadFromDataFile(trainfile);
+        testSet = new Dataset();
+        testSet->loadFromDataFile(testfile);
+    }
+
     int d=0;
     d=getDimension(trainfile);
     program = new NNCNeuralProgram (d,trainfile,testfile);
@@ -174,28 +193,62 @@ void run()
     old_test_error = program->getTestError();
     str = program->printProgram(genome);
     NeuralParser *parser = dynamic_cast<NNCNeuralProgram*>(program)->neuralparser;
+    parser->setMarginFactor(mainParams.getParam("margin_factor").getValue().toDouble());
     parser->makeVector(str);
     Data weights;
-    Dataset *trainSet=new Dataset();
-    trainSet->loadFromDataFile(trainfile);
+
     parser->setTrainSet(trainSet);
     weights.resize(parser->getRbfDimension());
     weights = bestWeights;
     double fstart = parser->funmin(weights);
-    printf("Start value = %10.5lg \n",fstart);
-    cout<<"Parser str = "<<str<<endl;
-    Bfgs *m = new Bfgs();
-    m->setProblem(dynamic_cast<Problem*>(parser));
-    m->setPoint(weights,fstart);
-    m->solve();
-    delete m;
-    delete trainSet;
-    average_train_error+=bestError;
+    QString localMethod = mainParams.getParam("local_method").getValue();
+    if(localMethod=="bfgs")
+    {
+        Bfgs *m = new Bfgs();
+        m->setProblem(dynamic_cast<Problem*>(parser));
+        m->setPoint(weights,fstart);
+        m->solve();
+        m->getPoint(weights,fstart);
+        delete m;
+    }
+    else
+    if(localMethod == "lbfgs")
+    {
+        Lbfgs *m = new Lbfgs();
+        m->setProblem(dynamic_cast<Problem*>(parser));
+        m->setPoint(weights,fstart);
+        m->solve();
+        m->getPoint(weights,fstart);
+        delete m;
+    }
+    else
+    if(localMethod == "adam")
+    {
+        Adam *m = new Adam();
+        m->setProblem(dynamic_cast<Problem*>(parser));
+        m->setPoint(weights,fstart);
+        m->solve();
+        m->getPoint(weights,fstart);
+        delete m;
+    }
+    else
+    if(localMethod == "gradient")
+    {
+        GradientDescent *m = new GradientDescent();
+        m->setProblem(dynamic_cast<Problem*>(parser));
+        m->setPoint(weights,fstart);
+        m->solve();
+        m->getPoint(weights,fstart);
+        delete m;
+    }
+    average_train_error+=fstart;
+    old_test_error=parser->getTestError(testSet);
+
     average_test_error+=old_test_error;
-    printf("Iteration: %4d TRAIN ERROR: %20.10lg\n",ik,bestError);
+    printf("Iteration: %4d TRAIN ERROR: %20.10lg\n",ik,fstart);
     printf("Iteration: %4d TEST  ERROR: %20.10lg\n",ik,old_test_error);
     NNCNeuralProgram *p=(NNCNeuralProgram*)program;
-    double class_test=p->getClassTestError(genome);
+    double class_test=parser->getClassError(testSet);//p->getClassTestError(genome);
     average_class_error+=class_test;
     printf("Iteration: %4d CLASS ERROR: %20.2lf%%\n",ik,class_test);
     printf("Iteration: %4d SOLUTION:    %20s\n",ik,str.c_str());

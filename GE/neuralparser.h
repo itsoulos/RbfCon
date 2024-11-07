@@ -43,11 +43,14 @@ class NeuralParser : public Problem
 		vector<Node> 	node;
 		vector<double>	weight;
         Dataset *trainSet;
+        double margin_factor = 2.0;
 	public:
 		NeuralParser(int Dimension);
+        void
 //        vector<double> extractParameters(const string &input);
         vector<RbfParameter> extractParameters(const string &input);
         int     getRbfDimension() const;
+        void    setMarginFactor(double f);
 		void	makeVector(string str);
 		void	getWeights(vector<double> &w);
 		void	getFixStatus(vector<int> &status);	
@@ -66,6 +69,8 @@ class NeuralParser : public Problem
 		string  print();
 
         void    setTrainSet(Dataset *tr);
+        double  getTestError(Dataset *tt);
+        double  getClassError(Dataset *tt);
 
         virtual double funmin(Data &x);
         virtual Data   gradient(Data &x);

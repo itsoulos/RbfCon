@@ -26,6 +26,11 @@ NeuralParser::NeuralParser(int Dimension)
     trainSet = NULL;
 }
 
+void    NeuralParser::setMarginFactor(double f)
+{
+    margin_factor = f;
+}
+
 double	NeuralParser::valError()
 {
 	return 0.0;
@@ -344,8 +349,8 @@ void	NeuralParser::makeVector(string str)
     rm.resize(weight.size());
     for(int i=0;i<weight.size();i++)
     {
-        lm[i]=-2.0 *fabs(weight[i]);
-        rm[i]= 2.0 *fabs(weight[i]);
+        lm[i]=-margin_factor *fabs(weight[i]);
+        rm[i]= margin_factor *fabs(weight[i]);
     }
     setLeftMargin(lm);
     setRightMargin(rm);
@@ -372,7 +377,6 @@ double  NeuralParser::funmin(Data &x)
             double y   = trainSet->getYpoint(i);
             sum+=(per-y)*(per-y);
         }
-	printf("Sum = %20.10lg\n",sum);
         return sum;
     }
 }
@@ -699,6 +703,33 @@ void	NeuralParser::getMargins(Data &l,Data &r)
 		r[(dimension+2)*i-(dimension+1)-1]= 100;
     }
 
+}
+
+double  NeuralParser::getTestError(Dataset *tt)
+{
+    double sum =0.0;
+    Matrix xall = tt->getAllXpoint();
+    for(int i=0;i<(int)xall.size();i++)
+    {
+        double per = eval(xall[i]);
+        double y   = tt->getYpoint(i);
+        sum+=(per-y)*(per-y);
+    }
+    return sum;
+}
+
+double  NeuralParser::getClassError(Dataset *tt)
+{
+    double sum =0.0;
+    Matrix xall = tt->getAllXpoint();
+    for(int i=0;i<(int)xall.size();i++)
+    {
+        double per = eval(xall[i]);
+        double dclass = tt->estimateClass(per);
+        double y   = tt->getYpoint(i);
+        sum+=(fabs(dclass-y)>1e-5);
+    }
+    return sum*100.0/tt->count();
 }
 
 NeuralParser::~NeuralParser()
