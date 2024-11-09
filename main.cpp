@@ -16,7 +16,6 @@
 # include <METHODS/lbfgs.h>
 # include <METHODS/gradientdescent.h>
 # include <METHODS/adam.h>
-# include <METHODS/genetic.h>
 using namespace std;
 
 
@@ -201,12 +200,12 @@ void run()
 
     parser->setTrainSet(trainSet);
     weights.resize(parser->getRbfDimension());
-    weights = bestWeights;
+    parser->getWeights(weights);
     double fstart = parser->funmin(weights);
     QString localMethod = mainParams.getParam("local_method").getValue();
     if(localMethod=="bfgs")
     {
-       Bfgs *m = new Bfgs();
+        Bfgs *m = new Bfgs();
         m->setProblem(dynamic_cast<Problem*>(parser));
         m->setPoint(weights,fstart);
         m->solve();
