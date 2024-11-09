@@ -59,6 +59,8 @@ public:
     void    LocalSearch(int pos);
     void    setBest(Data &xx,double y);
     double deltaIter(int iter,double y);
+    void	setPoint(Data &x,double y);
+    void	getPoint(Data &x,double &y);
     virtual ~Genetic();
 };
 

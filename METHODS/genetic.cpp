@@ -562,6 +562,19 @@ void    Genetic::done()
         methodLogger->printMessage(QString::asprintf("GENETIC. terminate: %lf ",fitnessArray[0]));
 }
 
+void	Genetic::setPoint(Data &x,double y)
+{
+	bestx  = x;
+	besty  = y;
+	hasInitialized = true;
+}
+
+void	Genetic::getPoint(Data &x,double &y)
+{
+	x = population[0];
+	y = fitnessArray[0];
+}
+
 Genetic::~Genetic()
 {
 

@@ -20,7 +20,7 @@ static double sigder(double x)
 
 
 NeuralParser::NeuralParser(int Dimension)
-    :Problem(dimension)
+    :Problem(1)
 {
 	dimension = Dimension;
     trainSet = NULL;

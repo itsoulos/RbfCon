@@ -5,5 +5,5 @@ CHROMOSOMES=500
 GENERATIONS=500
 DATAFILE=$1
 SEED=$2
-LOCALMETHOD=bfgs
-$PROGRAM --trainfile=$DATAPATH/$DATAFILE.train --chromosome_count=$CHROMOSOMES --generations=$GENERATIONS   --testfile=$DATAPATH/$DATAFILE.test --iterations=10 --local_method=$LOCALMETHOD
+LOCALMETHOD=lbfgs
+ $PROGRAM --trainfile=$DATAPATH/$DATAFILE.train --chromosome_count=$CHROMOSOMES --generations=$GENERATIONS   --testfile=$DATAPATH/$DATAFILE.test --iterations=10 --local_method=$LOCALMETHOD

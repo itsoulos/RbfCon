@@ -1133,7 +1133,9 @@ main.o: main.cpp GE/nncneuralprogram.h \
 		METHODS/fibonaccisearch.h \
 		METHODS/goldensearch.h \
 		METHODS/armijosearch.h \
-		METHODS/adam.h
+		METHODS/adam.h \
+		METHODS/genetic.h \
+		METHODS/collection.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 ####### Install

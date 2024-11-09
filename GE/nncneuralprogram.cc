@@ -3,10 +3,10 @@
 # include <QFile>
 # include <QTextStream>
 #include <iostream>
+
 NNCNeuralProgram::NNCNeuralProgram(int Dimension,QString TrainFile,QString TestFile):
 	NeuralProgram(Dimension)
 {
-
 	isvalidation=0;
     char cfile1[1024],cfile2[1024];
     strcpy(cfile1,TrainFile.toStdString().c_str());
@@ -23,17 +23,14 @@ NNCNeuralProgram::NNCNeuralProgram(int Dimension,QString TrainFile,QString TestF
 		if(tcount<=0) {fclose(fp); return ;}
 		train_xpoint.resize(tcount);
 		train_ypoint.resize(tcount);
-		xmax.resize(dimension);
-		xmin.resize(dimension);
+
 		for(int i=0;i<tcount;i++)
 		{
 			train_xpoint[i].resize(dimension);
 			for(int j=0;j<dimension;j++) 
 			{
 				fscanf(fp,"%lf",&train_xpoint[i][j]);	
-				if(i==0 || train_xpoint[i][j]>xmax[j]) xmax[j]=train_xpoint[i][j];
-				if(i==0 || train_xpoint[i][j]<xmin[j]) xmin[j]=train_xpoint[i][j];
-			}
+            }
 			fscanf(fp,"%lf",&train_ypoint[i]);
 		}
 
@@ -74,18 +71,12 @@ NNCNeuralProgram::NNCNeuralProgram(int Dimension,QString TrainFile,QString TestF
 		}
 		fclose(fp);
 	}
+
     program=new SigProgram(dimension);
+
     setStartSymbol(program->getStartSymbol());
     neuralparser=new NeuralParser(dimension);
-
 }
-
-static void mymap(Data x,Data &x1)
-{
-	for(int i=0;i<x.size();i++)
-		x1[i]=x[i];
-}
-
 
 void	NNCNeuralProgram::getDeriv(Data &g)
 {
@@ -213,34 +204,6 @@ void     NNCNeuralProgram::printOutput(QString filename)
     fp.close();
 }
 
-void NNCNeuralProgram::normalizeData()
-{
-    // Κανονικοποίηση δεδομένων εκπαίδευσης
-    for (int j = 0; j < dimension; ++j) {
-        double min_val = train_xpoint[0][j];
-        double max_val = train_xpoint[0][j];
-        for (int i = 1; i < train_xpoint.size(); ++i) {
-            if (train_xpoint[i][j] < min_val) min_val = train_xpoint[i][j];
-            if (train_xpoint[i][j] > max_val) max_val = train_xpoint[i][j];
-        }
-        for (int i = 0; i < train_xpoint.size(); ++i) {
-            train_xpoint[i][j] = (train_xpoint[i][j] - min_val) / (max_val - min_val);
-        }
-    }
-
-    // Κανονικοποίηση δεδομένων δοκιμής
-    for (int j = 0; j < dimension; ++j) {
-        double min_val = test_xpoint[0][j];
-        double max_val = test_xpoint[0][j];
-        for (int i = 1; i < test_xpoint.size(); ++i) {
-            if (test_xpoint[i][j] < min_val) min_val = test_xpoint[i][j];
-            if (test_xpoint[i][j] > max_val) max_val = test_xpoint[i][j];
-        }
-        for (int i = 0; i < test_xpoint.size(); ++i) {
-            test_xpoint[i][j] = (test_xpoint[i][j] - min_val) / (max_val - min_val);
-        }
-    }
-}
 
 double NNCNeuralProgram::adaptive_mutation_rate(int generation, int max_generations) {
     double initial_rate = 0.1;

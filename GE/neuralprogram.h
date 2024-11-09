@@ -49,7 +49,6 @@ class NeuralProgram :
 		virtual double  getPartError();
 		virtual double  getPartError(Data &value);
         virtual void    printOutput(QString filename)=0;
-        virtual void normalizeData() = 0;
         virtual double adaptive_mutation_rate(int generation, int max_generations) = 0;
 		~NeuralProgram();
 };

@@ -11,8 +11,7 @@ class NNCNeuralProgram :
 {
 	private:
 		vector<Data>	train_xpoint;
-		Data		xmax;
-		Data		xmin;
+
 		Data		train_ypoint;
 		double		*xtemp;
 		vector<Data>	test_xpoint;
@@ -29,7 +28,6 @@ class NNCNeuralProgram :
 		int	getTestSize() const;
         virtual void    printOutput(QString filename);
 
-        void normalizeData();
         double adaptive_mutation_rate(int generation, int max_generations);
 
 		~NNCNeuralProgram();

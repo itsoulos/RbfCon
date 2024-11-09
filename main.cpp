@@ -16,6 +16,7 @@
 # include <METHODS/lbfgs.h>
 # include <METHODS/gradientdescent.h>
 # include <METHODS/adam.h>
+# include <METHODS/genetic.h>
 using namespace std;
 
 
