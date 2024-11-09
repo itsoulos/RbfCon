@@ -715,7 +715,7 @@ double  NeuralParser::getTestError(Dataset *tt)
         double y   = tt->getYpoint(i);
         sum+=(per-y)*(per-y);
     }
-    return sum;
+    return sum/xall.size();
 }
 
 double  NeuralParser::getClassError(Dataset *tt)
