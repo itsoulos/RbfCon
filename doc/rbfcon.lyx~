@@ -493,6 +493,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -535,6 +539,10 @@ x_{M1} & x_{M2} & \ldots & x_{MD} & y_{M}
 \end{array}$
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

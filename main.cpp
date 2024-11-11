@@ -37,11 +37,11 @@ void    makeMainParams()
 {
     mainParams.addParam(Parameter("trainfile","","The used train dataset"));
     mainParams.addParam(Parameter("testfile","","The used test dataset"));
-    mainParams.addParam(Parameter("chromosome_count",200,10,1000,"The number of chromosomes"));
+    mainParams.addParam(Parameter("chromosome_count",500,10,1000,"The number of chromosomes"));
     mainParams.addParam(Parameter("chromosome_size",100,50,500,"The size of chromosomes"));
     mainParams.addParam(Parameter("selection_rate",0.1,0.0,1.0,"The used selection rate"));
     mainParams.addParam(Parameter("mutation_rate",0.05,0.0,1.0,"The used mutation rate"));
-    mainParams.addParam(Parameter("generations",200,10,2000,"The maximum number of allowed generations"));
+    mainParams.addParam(Parameter("generations",500,10,2000,"The maximum number of allowed generations"));
     QStringList localMethod;
     localMethod<<"bfgs"<<"adam"<<"lbfgs"<<"gradient"<<"none";
     mainParams.addParam(Parameter("local_method",localMethod[0],localMethod,"The used local optimizer"));
