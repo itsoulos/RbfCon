@@ -467,9 +467,53 @@ gens
 \begin_inset Formula $--$
 \end_inset
 
-local_method=<method>
+local_method=<method> The used local optimization method,
+ that will be applied to the parameters of the RBF model when the Grammatical Evolution procedure finished.
+ The available local optimization methods are:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+bfgs
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+lbfgs
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+adam
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+gradient
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+none
+\emph default
+.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 \begin_inset Formula $--$
 \end_inset
@@ -491,10 +535,6 @@ alignment document
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -539,10 +579,6 @@ x_{M1} & x_{M2} & \ldots & x_{MD} & y_{M}
 \end{array}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 

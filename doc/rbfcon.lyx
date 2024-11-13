@@ -467,9 +467,53 @@ gens
 \begin_inset Formula $--$
 \end_inset
 
-local_method=<method>
+local_method=<method> The used local optimization method,
+ that will be applied to the parameters of the RBF model when the Grammatical Evolution procedure finished.
+ The available local optimization methods are:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+bfgs
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+lbfgs
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+adam
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+gradient
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+none
+\emph default
+.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 \begin_inset Formula $--$
 \end_inset
@@ -553,7 +597,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2489,11 +2533,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2517,7 +2557,7 @@ name "tab:expRegression"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="22" columns="5">
+<lyxtabular version="3" rows="25" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2660,6 +2700,53 @@ AIRFOIL
 
 \begin_layout Plain Layout
 0.002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AUTO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.87
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.45
 \end_layout
 
 \end_inset
@@ -3281,6 +3368,53 @@ NT
 \begin_inset Text
 
 \begin_layout Plain Layout
+PLASTIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 PL
 \end_layout
 
@@ -3422,6 +3556,53 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+STOCK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.31
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 TREASURY
 \end_layout
 
@@ -3529,7 +3710,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-9.19
+9.67
 \end_layout
 
 \end_inset
@@ -3540,7 +3721,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.71
+5.10
 \end_layout
 
 \end_inset
@@ -3551,7 +3732,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.55
+4.82
 \end_layout
 
 \end_inset
@@ -3562,7 +3743,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.45
+4.66
 \end_layout
 
 \end_inset
