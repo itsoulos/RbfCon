@@ -476,17 +476,101 @@ local_method=<method> The used local optimization method,
 \begin_layout Enumerate
 
 \emph on
-bfgs
+lbfgs
 \emph default
+.
+ The method L-BFGS can be considered as a variation of the Broyden–Fletcher–Goldfarb–Shanno (BFGS) optimization technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bfgs2"
+literal "false"
+
+\end_inset
+
+,
+ that utilizes a minimum amount of memory.
+
+\series bold
+ 
+\series default
+This optimization method has been used in many cases,
+ such as image reconstruction 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs_image"
+literal "false"
+
+\end_inset
+
+,
+
+\series bold
+ 
+\series default
+inverse eigenvalue problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs_inverse"
+literal "false"
+
+\end_inset
+
+,
+ seismic problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs_seismic"
+literal "false"
+
+\end_inset
+
+,
+ training of deep neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs_deep"
+literal "false"
+
+\end_inset
+
+
+\series bold
+ 
+\series default
+etc.
+
+\series bold
+ 
+\series default
+Also,
+ the a series of modifications have been proposed that take advantage of modern parallel computing systems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs_par1,lbfgs_par2,lbfgs_par3"
+literal "false"
+
+\end_inset
+
 .
 \end_layout
 
 \begin_layout Enumerate
 
 \emph on
-lbfgs
+bfgs
 \emph default
 .
+ The BFGS variant of Powell was used here 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+,
+ when this option is enabled.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -495,6 +579,15 @@ lbfgs
 adam
 \emph default
 .
+ This option denotes the application of the Adam optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Adam"
+literal "false"
+
+\end_inset
+
+ as the local optimization algorithm.
 \end_layout
 
 \begin_layout Enumerate
@@ -503,6 +596,15 @@ adam
 gradient
 \emph default
 .
+ This option represents the usage of the Gradient Descent method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "GradientDescent"
+literal "false"
+
+\end_inset
+
+as the local optimization algorithm.
 \end_layout
 
 \begin_layout Enumerate
@@ -511,6 +613,7 @@ gradient
 none
 \emph default
 .
+ With this option no local optimization method will be used after the Genetic Algorithm is terminated.
 \end_layout
 
 \end_deeper
@@ -534,13 +637,13 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The format of the input datasets.
+The format for the used datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:datasetFormat"
@@ -587,6 +690,10 @@ x_{M1} & x_{M2} & \ldots & x_{MD} & y_{M}
 
 \end_layout
 
+\begin_layout Subsection
+Example of execution
+\end_layout
+
 \begin_layout Section
 Results
 \end_layout
@@ -597,7 +704,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2533,11 +2640,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2561,7 +2664,7 @@ name "tab:expRegression"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="22" columns="5">
+<lyxtabular version="3" rows="25" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2704,6 +2807,53 @@ AIRFOIL
 
 \begin_layout Plain Layout
 0.002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AUTO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.87
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.45
 \end_layout
 
 \end_inset
@@ -3325,6 +3475,53 @@ NT
 \begin_inset Text
 
 \begin_layout Plain Layout
+PLASTIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 PL
 \end_layout
 
@@ -3466,6 +3663,53 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+STOCK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.31
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 TREASURY
 \end_layout
 
@@ -3573,7 +3817,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-9.19
+9.67
 \end_layout
 
 \end_inset
@@ -3584,7 +3828,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.71
+5.10
 \end_layout
 
 \end_inset
@@ -3595,7 +3839,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.55
+4.82
 \end_layout
 
 \end_inset
@@ -3606,7 +3850,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-4.45
+4.66
 \end_layout
 
 \end_inset
@@ -3749,16 +3993,289 @@ References
 \end_layout
 
 \begin_layout Bibliography
-\labelwidthstring 999
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Author1(year)"
-key "ref-journal"
+key "bfgs2"
 literal "false"
 
 \end_inset
 
- Auth
+R.
+ Fletcher,
+ A new approach to variable metric algorithms,
+ Computer Journal 13,
+ pp.
+ 317-322,
+ 1970.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_image"
+literal "false"
+
+\end_inset
+
+H.
+ Wang,
+ H.
+ Gemmeke,
+ T.
+ Hopp,
+ J.
+ Hesser,
+ Accelerating image reconstruction in ultrasound transmission tomography using L-BFGS algorithm,
+ In:
+ Medical Imaging 2019:
+ Ultrasonic Imaging and Tomography;
+ 109550B (2019) https://doi.org/10.1117/12.2512654 Event:
+ SPIE Medical Imaging,
+ 2019,
+ San Diego,
+ California,
+ United States.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_inverse"
+literal "false"
+
+\end_inset
+
+Z.
+ Dalvand,
+ M.
+ Hajarian,
+ Solving generalized inverse eigenvalue problems via L-BFGS-B method,
+ Inverse Problems in Science and Engineering 
+\series bold
+28
+\series default
+,
+ pp.
+ 1719-1746,
+ 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_seismic"
+literal "false"
+
+\end_inset
+
+Y.
+ Rao,
+ Y.
+ Wang,
+ Seismic waveform tomography with shot-encoding using a restarted L-BFGS algorithm,
+ Scientific Reports 
+\series bold
+7
+\series default
+,
+ pp.
+ 1-9,
+ 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Yousefi(2022)"
+key "lbfgs_deep"
+literal "false"
+
+\end_inset
+
+Yousefi,
+ M.,
+ Martínez Calomardo,
+ Á.
+ (2022).
+ A Stochastic Modified Limited Memory BFGS for Training Deep Neural Networks.
+ In:
+ Arai,
+ K.
+ (eds) Intelligent Computing.
+ SAI 2022.
+ Lecture Notes in Networks and Systems,
+ vol 507.
+ Springer,
+ Cham.
+ https://doi.org/10.1007/978-3-031-10464-0_2
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_par1"
+literal "false"
+
+\end_inset
+
+Y.
+ Fei,
+ G.
+ Rong,
+ B.
+ Wang,
+ W.
+ Wang,
+ Parallel L-BFGS-B algorithm on GPU,
+ Computers & Graphics 
+\series bold
+40
+\series default
+,
+ pp.
+ 1-9,
+ 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_par2"
+literal "false"
+
+\end_inset
+
+L.
+ D'Amore,
+ G.
+ Laccetti,
+ D.
+ Romano,
+ G.
+ Scotti,
+ A.
+ Murli,
+ Towards a parallel component in a GPU–CUDA environment:
+ a case study with the L-BFGS Harwell routine,
+ International Journal of Computer Mathematics 
+\series bold
+92
+\series default
+,
+ pp.
+ 59-76,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_par3"
+literal "false"
+
+\end_inset
+
+M.M.
+ Najafabadi,
+ T.M.
+ Khoshgoftaar,
+ F.
+ Villanustre et al,
+ Large-scale distributed L-BFGS,
+ J Big Data 
+\series bold
+4
+\series default
+,
+ 22,
+ 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "lbfgs_study"
+literal "false"
+
+\end_inset
+
+J.L.
+ Morales,
+ A numerical study of limited memory BFGS methods,
+ Applied Mathematics Letters 
+\series bold
+15
+\series default
+,
+ pp.
+ 481-487,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "powell(1989)"
+key "powell"
+literal "false"
+
+\end_inset
+
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
+\series bold
+45
+\series default
+,
+ pp.
+ 547-566,
+ 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Kingma(1989)"
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma,
+ J.
+ L.
+ Ba,
+ ADAM:
+ a method for stochastic optimization,
+ in:
+ Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
+ pp.
+ 1–15,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Amari(1989)"
+key "GradientDescent"
+literal "false"
+
+\end_inset
+
+Amari,
+ S.
+ I.
+ (1993).
+ Backpropagation and stochastic gradient descent method.
+ Neurocomputing,
+ 5(4-5),
+ 185-196.
 \end_layout
 
 \begin_layout End Whole Page
