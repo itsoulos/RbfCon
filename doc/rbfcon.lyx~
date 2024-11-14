@@ -348,11 +348,59 @@ Materials and Methods
 Installation procedure
 \end_layout
 
+\begin_layout Standard
+The software can be downloaded freely from the following URL:
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/itsoulos/RbfCon
+\end_layout
+
+\end_inset
+
+ (accessed on 14 November 2024).
+ The user should install the QT Library which is freely available from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://qt.io
+\end_layout
+
+\end_inset
+
+ in order to compile the software.
+ After downloading the RbfCon-master.zip file the user should execute the following commands,
+ under any Unix based system:
+\end_layout
+
+\begin_layout Enumerate
+unzip RbfCon-master.zip.
+\end_layout
+
+\begin_layout Enumerate
+cd RbfCon-master
+\end_layout
+
+\begin_layout Enumerate
+qmake (or qmake-qt5 in some Linux installations).
+\end_layout
+
+\begin_layout Enumerate
+make
+\end_layout
+
 \begin_layout Subsection
 The main executable RbfCon
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Parameter list
 \end_layout
 
@@ -604,7 +652,7 @@ literal "false"
 
 \end_inset
 
-as the local optimization algorithm.
+ as the local optimization algorithm.
 \end_layout
 
 \begin_layout Enumerate
@@ -621,14 +669,8 @@ none
 \begin_inset Formula $--$
 \end_inset
 
-margin_factor=<factor>
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $--$
-\end_inset
-
-iterations=<iters>
+iterations=<iters> This integer parameter determines the number of consecutive applications of the proposed technique to the original data set.
+ The default value is 30.
 \end_layout
 
 \begin_layout Standard
@@ -694,8 +736,1059 @@ x_{M1} & x_{M2} & \ldots & x_{MD} & y_{M}
 Example of execution
 \end_layout
 
+\begin_layout Standard
+As an example of execution consider the Wdbc dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Wdbc"
+literal "false"
+
+\end_inset
+
+ which is located under EXAMPLES subdirectory.
+ This dataset is used for the detection of breast tumors.
+ An example of execution could be the following:
+\end_layout
+
+\begin_layout Standard
+./RbfCon --trainfile=EXAMPLES/wdbc.train --testfile=EXAMPLES/wdbc.test --iterations=2
+\begin_inset Newline newline
+\end_inset
+
+The output of this command is shown below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+Iteration:
+    1 TRAIN ERROR:
+          20.40039584
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    1 TEST  ERROR:
+        0.07733519754
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    1 CLASS ERROR:
+                 9.12%
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    1 SOLUTION:
+    ((6.711)*(exp((-((pow(x13-(-97.73),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((pow(x23-(43.7),2))+((pow(x23-(84.7),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (pow(x23-(91.3),2))))))/(2*pow((60.1),2))))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (-0.0099969))+((-0.39)*(exp((-((pow(x25-(9.336),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((pow(x18-(6.8),2))+(pow(x4-(6.52),2)))))/(2*pow((711.5),2))))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (0.00185452))+((3.7)*(exp((-(pow(x3-(-6.8),2)))/(2*pow((2.3),2))))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (-0.001))+((-5.8)*(exp((-(pow(x2-(-99969.10),2)))/
+\end_layout
+
+\begin_layout Plain Layout
+
+  (2*pow((6342.3747),2))))+(-0.002))
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    2 TRAIN ERROR:
+          16.06705417
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    2 TEST  ERROR:
+        0.05654528154
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    2 CLASS ERROR:
+                 4.56%
+\end_layout
+
+\begin_layout Plain Layout
+
+Iteration:
+    2 SOLUTION:
+    ((4.4)*(exp((-((pow(x27-(3.6),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (pow(x23-(8.9893),2))))/(2*pow((49.9),2))))+(-0.004))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((-2.09)*(exp((-((pow(x23-(-9.1),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((pow(x30-(-40.4),2))+((pow(x4-(98.5),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (pow(x22-(-4.4),2))))))/(2*pow((189.9),2))))+(0.007))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((-9.8)*(exp((-((pow(x2-(24.4),2))+((pow(x28-(2.04),2))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  (pow(x27-(9.11),2)))))/(2*pow((3.1),2))))+(0.009))+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ((-67.49)*(exp((-(pow(x10-(-2629940.4),2)))/(2*pow((098.5),2))))+(0.0094))
+\end_layout
+
+\begin_layout Plain Layout
+
+Average Train Error:
+          18.23372501
+\end_layout
+
+\begin_layout Plain Layout
+
+Average Test  Error:
+        0.06694023954
+\end_layout
+
+\begin_layout Plain Layout
+
+Average Class Error:
+                 6.84%
+\end_layout
+
+\end_inset
+
+The program prints the train error,
+ the test error and the classification for every run as well as the averages for these values.
+ Also,
+ in each execution the main program shows the constructed RBF network as a string value.
+\end_layout
+
 \begin_layout Section
 Results
+\end_layout
+
+\begin_layout Standard
+The new technique can be used to construct RBF networks for both classification and data fitting problems.
+ For this reason datasets covering many scientific areas and freely available from the following websites were used:
+\end_layout
+
+\begin_layout Enumerate
+The UCI repository,
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://archive.ics.uci.edu/
+\end_layout
+
+\end_inset
+
+(accessed on 14 November 2024)
+\begin_inset CommandInset citation
+LatexCommand citep
+key "uci"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The Keel repository,
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://sci2s.ugr.es/keel/datasets.php
+\end_layout
+
+\end_inset
+
+(accessed on 14 November 2024)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keel"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Statlib URL
+\series bold
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+ftp://lib.stat.cmu.edu/datasets/index.html 
+\end_layout
+
+\end_inset
+
+
+\series default
+(accessed on 14 November 2024).
+ 
+\end_layout
+
+\begin_layout Subsection
+The used datasets 
+\end_layout
+
+\begin_layout Standard
+The following list of classification datasets was used in the conducted experiments:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Appendicitis
+\series default
+,
+ a medical dataset that was studied in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "appendicitis,appendicitis2"
+literal "false"
+
+\end_inset
+
+.
+ This problem has 2 distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Alcohol
+\series default
+,
+ a dataset related to alcohol consumption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "alcohol"
+literal "false"
+
+\end_inset
+
+.
+ This dataset contains 4 distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Australian
+\series default
+,
+ an economic dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "australian"
+literal "false"
+
+\end_inset
+
+,
+ related to the risk in bank transactions.
+ The number of classes for this dataset is 2.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Bands
+\series default
+,
+ related to problems occurred in printing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bands"
+literal "false"
+
+\end_inset
+
+ and it has two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cleveland
+\series default
+,
+ a medical dataset proposed in a series of research papers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cleveland1,cleveland2"
+literal "false"
+
+\end_inset
+
+.
+ This dataset has 5 distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dermatology
+\series default
+,
+ which is also a medical dataset originated in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "dermatology"
+literal "false"
+
+\end_inset
+
+ and it has 6 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ecoli
+\series default
+,
+ that is related to problems regarding proteins 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ecoli"
+literal "false"
+
+\end_inset
+
+ and it has 8 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Fert
+\series default
+,
+ used in demographics and it has two distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Haberman
+\series default
+,
+ a medical dataset related to the detection of breast cancer.
+ This dataset has two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hayes-roth
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+.
+ This dataset has 3 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Heart
+\series default
+,
+ which is a medical dataset related to heart diseases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "heart"
+literal "false"
+
+\end_inset
+
+ with two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HeartAttack
+\series default
+,
+ which is a medical dataset related to heart diseases having two distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hepatitis
+\series default
+,
+ a dataset used for the detection of hepatitis.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housevotes
+\series default
+,
+ used for the Congressional voting in USA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housevotes"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ionosphere
+\series default
+,
+ used for measurements from the ionosphere 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ion1,ion2"
+literal "false"
+
+\end_inset
+
+ and it has two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Liverdisorder
+\series default
+,
+ which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "liver,liver1"
+literal "false"
+
+\end_inset
+
+ with two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Lymography
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lymography"
+literal "false"
+
+\end_inset
+
+,
+ that has 4 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Magic
+\series default
+,
+ this dataset contains generated data to simulate registration of high energy gamma particles 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "magic"
+literal "false"
+
+\end_inset
+
+ and it has two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mammographic
+\series default
+,
+ a medical dataset used for the prediction of breast cancer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mammographic"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Parkinsons
+\series default
+,
+ a dataset used for the detection of Parkinson's disease 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "parkinsons1,parkinsons2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pima
+\series default
+,
+ a medical dataset that was useful for the detection of diabetes 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pima"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Popfailures
+\series default
+,
+ a dataset contains climate measurements 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "popfailures"
+literal "false"
+
+\end_inset
+
+ and it has two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regions2
+\series default
+,
+ a medical dataset that contains measurements from liver biopsy images 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "regions2"
+literal "false"
+
+\end_inset
+
+ and it has five classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ring
+\series default
+,
+ which is a problem with 20 dimensions and two classes.
+ Each class is drawn from a multivariate normal distribution.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saheart
+\series default
+,
+ a medical dataset related to heart diseases with 2 classes 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "saheart"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Statheart
+\series default
+,
+ which is a also a medical dataset related to heart diseases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Spambase
+\series default
+,
+ a dataset used to detect spam emails from a large database.
+ The dataset has two distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Spiral
+\series default
+,
+ an artificial dataset with two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Student
+\series default
+,
+ a dataset contains measurements from various experiments in schools 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "student"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tae
+\series default
+,
+ this dataset consist of evaluations of teaching performance and it has 3 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Transfusion
+\series default
+,
+ which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "transfusion"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wdbc
+\series default
+,
+ a medical dataset used to detect the presence of breast cancer that studied in a series of research papers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wdbc1,wdbc2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wine
+\series default
+,
+ a dataset contains measurements about the quality of wines 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wine1,wine2"
+literal "false"
+
+\end_inset
+
+,
+ with 3 distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+EEG
+\series default
+ dataset,
+ which is a medical dataset about EEG measurements studied in a series of papers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "eeg1,eeg2"
+literal "false"
+
+\end_inset
+
+.
+ The following cases were obtained from this dataset:
+ Z_F_S,
+ ZO_NF_S,
+ Z_O_N_F_S and ZONF_S.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Zoo
+\series default
+,
+ that used to detect the class of some animals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zoo"
+literal "false"
+
+\end_inset
+
+ and it contains seven classes.
+\end_layout
+
+\begin_layout Standard
+Also the following list of regression datasets was used in the conducted experiments:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abalone
+\series default
+,
+ a dataset that used to predict the age of abalones with 8 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Airfoil
+\series default
+,
+ a dataset provided by NASA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "airfoil"
+literal "false"
+
+\end_inset
+
+ with 5 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Auto
+\series default
+,
+ a dataset used to predict the fuel consumption with 7 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BK
+\series default
+,
+ that contains measurements from a series of basketball games and it has 4 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BL
+\series default
+,
+ a dataset used to record electricity experiments and it contains 7 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Baseball
+\series default
+,
+ a dataset with 16 features used to estimate the income of baseball players.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Concrete
+\series default
+,
+ a dataset with 8 features used in civil engineering 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "concrete"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+DEE
+\series default
+,
+ a dataset with 6 featured that was to predict the electricity cost.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+,
+ that contains measurements about the body fat and it has 18 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HO
+\series default
+,
+ a dataset originated in the STATLIB repository with 13 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housing
+\series default
+,
+ used to predict the price of houses 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housing"
+literal "false"
+
+\end_inset
+
+ and it has 13 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Laser
+\series default
+,
+ which is a dataset with 4 features and it has been used in various laser experiments.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LW
+\series default
+,
+ a dataset with 9 features used to record the weight of babies.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MB
+\series default
+,
+ a dataset provide by from Smoothing Methods in Statistics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "stat"
+literal "false"
+
+\end_inset
+
+ with 2 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mortgage
+\series default
+,
+ an economic dataset from USA with 15 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+NT
+\series default
+,
+ a dataset with two features used to record body temperatures 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ntdataset"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Plastic
+\series default
+,
+ a dataset with 2 features used to detect the pressure on plastics.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PL
+\series default
+,
+ a dataset with 2 features provided by the STATLIB repository.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Quake
+\series default
+,
+ a dataset used to measure the strength of earthquakes with 3 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+SN
+\series default
+,
+ a dataset that provides experimental measurements related to trellising and pruning.
+ This dataset has 11 features.
+\end_layout
+
+\begin_layout Enumerate
+Stock,
+ a dataset with 9 features used to approximate the prices of various stocks.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Treasury
+\series default
+,
+ an economic dataset from USA that contains 15 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+TZ
+\series default
+,
+ which is a dataset originated in the STATLIB repository and it has 60 features.
+\end_layout
+
+\begin_layout Subsection
+Experimental results
 \end_layout
 
 \begin_layout Standard
@@ -2640,7 +3733,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4276,6 +5369,1117 @@ Amari,
  Neurocomputing,
  5(4-5),
  185-196.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Wolberg(1989)"
+key "Wdbc"
+literal "false"
+
+\end_inset
+
+W.H.
+ Wolberg,
+ O.L.
+ Mangasarian,
+ Multisurface method of pattern separation for medical diagnosis applied to breast cytology,
+ Proc Natl Acad Sci U S A.
+ 
+\series bold
+87
+\series default
+,
+ pp.
+ 9193–9196,
+ 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1989)"
+key "uci"
+literal "false"
+
+\end_inset
+
+M.
+ Kelly,
+ R.
+ Longjohn,
+ K.
+ Nottingham,
+ The UCI Machine Learning Repository,
+ https://archive.ics.uci.edu.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Keel"
+literal "false"
+
+\end_inset
+
+J.
+ Alcalá-Fdez,
+ A.
+ Fernandez,
+ J.
+ Luengo,
+ J.
+ Derrac,
+ S.
+ García,
+ L.
+ Sánchez,
+ F.
+ Herrera.
+ KEEL Data-Mining Software Tool:
+ Data Set Repository,
+ Integration of Algorithms and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17,
+ pp.
+ 255-287,
+ 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Weiss(1989)"
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+Weiss,
+ Sholom M.
+ and Kulikowski,
+ Casimir A.,
+ Computer Systems That Learn:
+ Classification and Prediction Methods from Statistics,
+ Neural Nets,
+ Machine Learning,
+ and Expert Systems,
+ Morgan Kaufmann Publishers Inc,
+ 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "appendicitis2"
+literal "false"
+
+\end_inset
+
+M.
+ Wang,
+ Y.Y.
+ Zhang,
+ F.
+ Min,
+ Active learning through multi-standard optimization,
+ IEEE Access 
+\series bold
+7
+\series default
+,
+ pp.
+ 56772–56784,
+ 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Tzimourta(2018)"
+key "alcohol"
+literal "false"
+
+\end_inset
+
+Tzimourta,
+ K.D.;
+ Tsoulos,
+ I.;
+ Bilero,
+ I.T.;
+ Tzallas,
+ A.T.;
+ Tsipouras,
+ M.G.;
+ Giannakeas,
+ N.
+ Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer Interfaces and Grammatical Evolution.
+ Inventions 2018,
+ 3,
+ 51.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Quinlan(2018)"
+key "australian"
+literal "false"
+
+\end_inset
+
+J.R.
+ Quinlan,
+ Simplifying Decision Trees.
+ International Journal of Man-Machine Studies 
+\series bold
+27
+\series default
+,
+ pp.
+ 221-234,
+ 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Evans(1994)"
+key "bands"
+literal "false"
+
+\end_inset
+
+B.
+ Evans,
+ D.
+ Fisher,
+ Overcoming process delays with decision tree induction.
+ IEEE Expert 
+\series bold
+9
+\series default
+,
+ pp.
+ 60-66,
+ 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "cleveland1"
+literal "false"
+
+\end_inset
+
+Z.H.
+ Zhou,Y.
+ Jiang,
+ NeC4.5:
+ neural ensemble based C4.5," in IEEE Transactions on Knowledge and Data Engineering 
+\series bold
+16
+\series default
+,
+ pp.
+ 770-773,
+ 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland2"
+literal "false"
+
+\end_inset
+
+R.
+ Setiono ,
+ W.K.
+ Leow,
+ FERNN:
+ An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Applied Intelligence 
+\series bold
+12
+\series default
+,
+ pp.
+ 15-25,
+ 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1998)"
+key "dermatology"
+literal "false"
+
+\end_inset
+
+G.
+ Demiroz,
+ H.A.
+ Govenir,
+ N.
+ Ilter,
+ Learning Differential Diagnosis of Eryhemato-Squamous Diseases using Voting Feature Intervals,
+ Artificial Intelligence in Medicine.
+ 
+\series bold
+13
+\series default
+,
+ pp.
+ 147–165,
+ 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1996)"
+key "ecoli"
+literal "false"
+
+\end_inset
+
+P.
+ Horton,
+ K.Nakai,
+ A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins,
+ In:
+ Proceedings of International Conference on Intelligent Systems for Molecular Biology 
+\series bold
+4
+\series default
+,
+ pp.
+ 109-15,
+ 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1977)"
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth,
+ B.,
+ F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+,
+ pp.
+ 321-338,
+ 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1997)"
+key "heart"
+literal "false"
+
+\end_inset
+
+I.
+ Kononenko,
+ E.
+ Šimec,
+ M.
+ Robnik-Šikonja,
+ Overcoming the Myopia of Inductive Learning Algorithms with RELIEFF,
+ Applied Intelligence 
+\series bold
+7
+\series default
+,
+ pp.
+ 39–55,
+ 1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "housevotes"
+literal "false"
+
+\end_inset
+
+R.M.
+ French,
+ N.
+ Chater,
+ Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting,
+ Neural Comput.
+ 
+\series bold
+14
+\series default
+,
+ pp.
+ 1755-1769,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "ion1"
+literal "false"
+
+\end_inset
+
+J.G.
+ Dy ,
+ C.E.
+ Brodley,
+ Feature Selection for Unsupervised Learning,
+ The Journal of Machine Learning Research 
+\series bold
+5
+\series default
+,
+ pp 845–889,
+ 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion2"
+literal "false"
+
+\end_inset
+
+S.
+ J.
+ Perantonis,
+ V.
+ Virvilis,
+ Input Feature Extraction for Multilayered Perceptrons Using Supervised Principal Component Analysis,
+ Neural Processing Letters 
+\series bold
+10
+\series default
+,
+ pp 243–252,
+ 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "liver"
+literal "false"
+
+\end_inset
+
+ J.
+ Garcke,
+ M.
+ Griebel,
+ Classification with sparse grids using simplicial basis functions,
+ Intell.
+ Data Anal.
+ 
+\series bold
+6
+\series default
+,
+ pp.
+ 483-502,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "liver1"
+literal "false"
+
+\end_inset
+
+J.
+ Mcdermott,
+ R.S.
+ Forsyth,
+ Diagnosing a disorder in a classification benchmark,
+ Pattern Recognition Letters 
+\series bold
+73
+\series default
+,
+ pp.
+ 41-43,
+ 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "lymography"
+literal "false"
+
+\end_inset
+
+G.
+ Cestnik,
+ I.
+ Konenenko,
+ I.
+ Bratko,
+ Assistant-86:
+ A Knowledge-Elicitation Tool for Sophisticated Users.
+ In:
+ Bratko,
+ I.
+ and Lavrac,
+ N.,
+ Eds.,
+ Progress in Machine Learning,
+ Sigma Press,
+ Wilmslow,
+ pp.
+ 31-45,
+ 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "magic"
+literal "false"
+
+\end_inset
+
+Heck,
+ D.,
+ Knapp,
+ J.,
+ Capdevielle,
+ J.
+ N.,
+ Schatz,
+ G.,
+ & Thouw,
+ T.
+ (1998).
+ CORSIKA:
+ A Monte Carlo code to simulate extensive air showers.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "mammographic"
+literal "false"
+
+\end_inset
+
+M.
+ Elter,
+ R.
+ Schulz-Wendtland,
+ T.
+ Wittenberg,
+ The prediction of breast cancer biopsy outcomes using two CAD approaches that both emphasize an intelligible decision process,
+ Med Phys.
+ 
+\series bold
+34
+\series default
+,
+ pp.
+ 4164-72,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "parkinsons1"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little,
+ P.E.
+ McSharry,
+ S.J Roberts et al,
+ Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection.
+ BioMed Eng OnLine 
+\series bold
+6
+\series default
+,
+ 23,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons2"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little,
+ P.E.
+ McSharry,
+ E.J.
+ Hunter,
+ J.
+ Spielman,
+ L.O.
+ Ramig,
+ Suitability of dysphonia measurements for telemonitoring of Parkinson's disease.
+ IEEE Trans Biomed Eng.
+ 
+\series bold
+56
+\series default
+,
+ pp.
+ 1015-1022,
+ 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "pima"
+literal "false"
+
+\end_inset
+
+J.W.
+ Smith,
+ J.E.
+ Everhart,
+ W.C.
+ Dickson,
+ W.C.
+ Knowler,
+ R.S.
+ Johannes,
+ Using the ADAP learning algorithm to forecast the onset of diabetes mellitus,
+ In:
+ Proceedings of the Symposium on Computer Applications and Medical Care IEEE Computer Society Press,
+ pp.261-265,
+ 1988.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "popfailures"
+literal "false"
+
+\end_inset
+
+D.D.
+ Lucas,
+ R.
+ Klein,
+ J.
+ Tannahill,
+ D.
+ Ivanova,
+ S.
+ Brandon,
+ D.
+ Domyancic,
+ Y.
+ Zhang,
+ Failure analysis of parameter-induced simulation crashes in climate models,
+ Geoscientific Model Development 
+\series bold
+6
+\series default
+,
+ pp.
+ 1157-1171,
+ 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "regions2"
+literal "false"
+
+\end_inset
+
+N.
+ Giannakeas,
+ M.G.
+ Tsipouras,
+ A.T.
+ Tzallas,
+ K.
+ Kyriakidi,
+ Z.E.
+ Tsianou,
+ P.
+ Manousou,
+ A.
+ Hall,
+ E.C.
+ Karvounis,
+ V.
+ Tsianos,
+ E.
+ Tsianos,
+ A clustering based method for collagen proportional area extraction in liver biopsy images (2015) Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society,
+ EMBS,
+ 2015-November,
+ art.
+ no.
+ 7319047,
+ pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "saheart"
+literal "false"
+
+\end_inset
+
+T.
+ Hastie,
+ R.
+ Tibshirani,
+ Non-parametric logistic and proportional odds regression,
+ JRSS-C (Applied Statistics) 
+\series bold
+36
+\series default
+,
+ pp.
+ 260–276,
+ 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "student"
+literal "false"
+
+\end_inset
+
+P.
+ Cortez,
+ A.
+ M.
+ Gonçalves Silva,
+ Using data mining to predict secondary school student performance,
+ In Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) (pp.
+ 5–12).
+ EUROSIS-ETI,
+ 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "transfusion"
+literal "false"
+
+\end_inset
+
+I-Cheng Yeh,
+ King-Jang Yang,
+ Tao-Ming Ting,
+ Knowledge discovery on RFM model using Bernoulli sequence,
+ Expert Systems with Applications 
+\series bold
+36
+\series default
+,
+ pp.
+ 5866-5871,
+ 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wdbc1"
+literal "false"
+
+\end_inset
+
+Jeyasingh,
+ S.,
+ & Veluchamy,
+ M.
+ (2017).
+ Modified bat algorithm for feature selection with the wisconsin diagnosis breast cancer (WDBC) dataset.
+ Asian Pacific journal of cancer prevention:
+ APJCP,
+ 18(5),
+ 1257.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wdbc2"
+literal "false"
+
+\end_inset
+
+Alshayeji,
+ M.
+ H.,
+ Ellethy,
+ H.,
+ & Gupta,
+ R.
+ (2022).
+ Computer-aided detection of breast cancer on the Wisconsin dataset:
+ An artificial neural networks approach.
+ Biomedical signal processing and control,
+ 71,
+ 103141.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wine1"
+literal "false"
+
+\end_inset
+
+M.
+ Raymer,
+ T.E.
+ Doom,
+ L.A.
+ Kuhn,
+ W.F.
+ Punch,
+ Knowledge discovery in medical and biological datasets using a hybrid Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems,
+ man,
+ and cybernetics.
+ Part B,
+ Cybernetics :
+ a publication of the IEEE Systems,
+ Man,
+ and Cybernetics Society,
+ 
+\series bold
+33
+\series default
+ ,
+ pp.
+ 802-813,
+ 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine2"
+literal "false"
+
+\end_inset
+
+P.
+ Zhong,
+ M.
+ Fukushima,
+ Regularized nonsmooth Newton method for multi-class support vector machines,
+ Optimization Methods and Software 
+\series bold
+22
+\series default
+,
+ pp.
+ 225-236,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "eeg1"
+literal "false"
+
+\end_inset
+
+R.
+ G.
+ Andrzejak,
+ K.
+ Lehnertz,
+ F.Mormann,
+ C.
+ Rieke,
+ P.
+ David,
+ and C.
+ E.
+ Elger,
+ “Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity:
+ dependence on recording region and brain state,” Physical Review E,
+ vol.
+ 64,
+ no.
+ 6,
+ Article ID 061907,
+ 8 pages,
+ 2001.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "eeg2"
+literal "true"
+
+\end_inset
+
+A.
+ T.
+ Tzallas,
+ M.
+ G.
+ Tsipouras,
+ and D.
+ I.
+ Fotiadis,
+ “Automatic Seizure Detection Based on Time-Frequency Analysis and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ vol.
+ 2007,
+ Article ID 80510,
+ 13 pages,
+ 2007.
+ doi:10.1155/2007/80510
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "zoo"
+literal "false"
+
+\end_inset
+
+M.
+ Koivisto,
+ K.
+ Sood,
+ Exact Bayesian Structure Discovery in Bayesian Networks,
+ The Journal of Machine Learning Research
+\series bold
+ 5
+\series default
+,
+ pp.
+ 549–573,
+ 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "abalone"
+literal "false"
+
+\end_inset
+
+Nash,
+ W.J.;
+ Sellers,
+ T.L.;
+ Talbot,
+ S.R.;
+ Cawthor,
+ A.J.;
+ Ford,
+ W.B.
+ The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
+ I.
+ Blacklip Abalone (_H.
+ rubra_) from the North Coast and Islands of Bass Strait,
+ Sea Fisheries Division;
+ Technical Report No.
+ 48;
+ Department of Primary Industry and Fisheries,
+ Tasmania:
+ Hobart,
+ Australia,
+ 1994;
+ ISSN 1034-3288
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "airfoil"
+literal "false"
+
+\end_inset
+
+Brooks,
+ T.F.;
+ Pope,
+ D.S.;
+ Marcolini,
+ A.M.
+ Airfoil Self-Noise and Prediction.
+ Technical Report,
+ NASA RP-1218.
+ July 1989.
+ Available online:
+ https://ntrs.nasa.gov/citations/19890016302 (accessed on 14 November 2024).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh,
+ Modeling of strength of high performance concrete using artificial neural networks,
+ Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+,
+ pp.
+ 1797-1808,
+ 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "housing"
+literal "false"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld,
+ Hedonic prices and the demand for clean ai,
+ J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+,
+ pp.
+ 81-102,
+ 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "stat"
+literal "false"
+
+\end_inset
+
+Simonoff,
+ J.S.
+ Smooting Methods in Statistics;
+ Springer:
+ Berlin/Heidelberg,
+ Germany,
+ 1996.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "ntdataset"
+literal "false"
+
+\end_inset
+
+Mackowiak,
+ P.A.;
+ Wasserman,
+ S.S.;
+ Levine,
+ M.M.
+ A critical appraisal of 98.6 degrees f,
+ the upper limit of the normal body temperature,
+ and other legacies of Carl Reinhold August Wunderlich.
+ J.
+ Am.
+ Med.
+ Assoc.
+ 1992,
+ 268,
+ 1578–1580.
 \end_layout
 
 \begin_layout End Whole Page

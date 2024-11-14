@@ -187,8 +187,8 @@ void run()
             bestError=fabs(f);
             program->neuralparser->getWeights(bestWeights);
         }
-        if(i%50==0)
-            printf("Generation %4d Best Error:  %20.10lg \n",i,bestError);
+        //if(i%50==0)
+        //    printf("Generation %4d Best Error:  %20.10lg \n",i,bestError);
         if(fabs(bestError)<1e-6) break;
     }
 
