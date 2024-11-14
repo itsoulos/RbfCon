@@ -1765,7 +1765,11 @@ SN
 \end_layout
 
 \begin_layout Enumerate
-Stock,
+
+\series bold
+Stock
+\series default
+,
  a dataset with 9 features used to approximate the prices of various stocks.
 \end_layout
 
@@ -1792,12 +1796,18 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+(WRITE SOME TEXT HERE)
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4958,11 +4968,197 @@ AVERAGE
 
 \end_inset
 
+In table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+,
+ the four models were evaluated based on their error rates across 40 different datasets.
+ It was observed that the error rate varied significantly between datasets,
+ reflecting differences in each model’s performance depending on the dataset.
+ In general,
+ the models CONRBF,
+ CONRBF(LBFGS),
+ and CONRBF(BFGS) showed lower error rates compared to RBF in many datasets,
+ suggesting that the parameterized versions of CONRBF have better adaptability.
+ In several datasets,
+ CONRBF outperformed the original RBF in terms of error rate.
+ For example,
+ in datasets such as "AUSTRALIAN" and "SPAMBASE," CONRBF shows a markedly lower error rate compared to RBF.
+ The models CONRBF(LBFGS) and CONRBF(BFGS) frequently demonstrate improved error rates relative to the original CONRBF,
+ although these differences are not always significant.
+ In datasets such as "HEPATITIS," "TAE," and "WINE," both CONRBF(LBFGS) and CONRBF(BFGS) outperform the simple CONRBF model.
+ Despite the general trend of improved performance in the parameterized versions of CONRBF,
+ exceptions do exist.
+ For instance,
+ in the dataset "Z_O_N_F_S," RBF performs better than the other models,
+ while in "ZO_NF_S" and "ZONF_S," the differences between models are minimal.
+ CONRBF with LBFGS and CONRBF with BFGS exhibit similar performance,
+ although one model occasionally outperforms the other in certain datasets.
+ In "DERMATOLOGY" and "ZOO," CONRBF(LBFGS) achieves a lower error rate than CONRBF(BFGS),
+ whereas in datasets like "HEARTATTACK," the differences are very small.
+ In conclusion,
+ the comparison of models reveals that the parameterized versions of CONRBF,
+ especially with the LBFGS and BFGS optimization methods,
+ generally outperform the simple RBF model in many datasets.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(KEIMENO GIA REGRESSION PINAKA)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename t1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the used methods and the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename t2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical test for the regression datasets and the used methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ paired comparisons were subsequently performed between individual pairs of models using the paired t-test.
+ For RBF vs.
+ CONRBF:
+ p = 9.8 × 10⁻⁵ – there is a statistically significant difference between the two models (p < 0.05),
+ indicating that the CONRBF model exhibits a significantly different error rate compared to RBF.
+ For CONRBF vs.
+ CONRBF(LBFGS):
+ p = 0.16 – there is no statistically significant difference between these two models at the 0.05 significance level,
+ suggesting that the two versions of CONRBF have similar error rates.
+ For CONRBF vs.
+ CONRBF(BFGS):
+ p = 0.002 – there is a statistically significant difference (p < 0.05) between these two variants,
+ indicating that the BFGS method yields a different error rate compared to the original CONRBF.
+ For CONRBF(LBFGS) vs.
+ CONRBF(BFGS):
+ p = 0.0008 – the difference between these two methods is also statistically significant (p < 0.05),
+ showing that CONRBF(BFGS) has a different performance from CONRBF(LBFGS) in terms of error rate.
+ In summary,
+ the results of the paired comparisons indicate that the differences between some models are statistically significant,
+ suggesting that the choice of model variant can substantially impact the error rate.
+ However,
+ the overall analysis using the Kruskal-Wallis test did not find a statistically significant difference among the groups as a whole.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+KEIMENO GIA REGRESSION STATISTICS
 \end_layout
 
 \begin_layout Section
 Conclusions
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Write some text here
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author Contributions
