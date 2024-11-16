@@ -340,8 +340,482 @@ Neural networks;
 Introduction
 \end_layout
 
+\begin_layout Standard
+A variety of real - world problems can be considered as classification and regression problems,
+ handled by machine learning models that have been thoroughly studied in the recent bibliography.
+ Such problems appear in physics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "physics-ml1,physics_ml2"
+literal "false"
+
+\end_inset
+
+,
+ chemistry 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "chemistry_ml1,chemistry_ml2"
+literal "false"
+
+\end_inset
+
+,
+ economics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "econ_ml1,econ_ml2"
+literal "false"
+
+\end_inset
+
+,
+ medicine 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "med_ml1,med_ml2"
+literal "false"
+
+\end_inset
+
+ etc.
+ One common machine learning model,
+ that was applied in many areas,
+ is the Radial Basis Function (RBF) neural network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf1,rbf2"
+literal "false"
+
+\end_inset
+
+.
+ Typically,
+ an RBF network is defined using the following equation:
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
+\end{equation}
+
+\end_inset
+
+
+\series default
+The following notation is used in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:firstrbf"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+The vector 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ represents the input pattern with dimension 
+\begin_inset Formula $d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ stands for the number of weights of the model.
+ These weights are represented by vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The vectors 
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
+\end_inset
+
+ represent the centers of this model.
+\end_layout
+
+\begin_layout Enumerate
+The final output of the model for the input pattern 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $y\left(\overrightarrow{x}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The function 
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+ in most cases is represented by the Gaussian function defined as:
+
+\series bold
+ 
+\begin_inset Formula 
+\begin{equation}
+\phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
+\end{equation}
+
+\end_inset
+
+
+\series default
+This function is selected as the output function,
+ since the value 
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+ depends only on the distance of vectors 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+RBF neural networks have been widely used and studied in the relevant literature and among others one can find applications in problems derived from physics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfphysics1,rbfphysics2"
+literal "false"
+
+\end_inset
+
+,
+ robotics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfrobotics1,rbfrobotics2"
+literal "false"
+
+\end_inset
+
+,
+ security problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_dos1,rbf_dos2"
+literal "false"
+
+\end_inset
+
+,
+ image processing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_lmage1,rbf_image2"
+literal "false"
+
+\end_inset
+
+ etc.
+ Due to the widespread use of these machine learning models and their use in both function learning and data fitting problems,
+ a number of techniques have been presented in recent years that seek to more accurately identify their parameters.
+ Such methods includes techniques used to initialize the parameters of these models 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfinit1,rbfinit2,rbfinit3"
+literal "false"
+
+\end_inset
+
+,
+ or pruning methods for the optimal adaptation of the architecture of these models 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfprun1,rbfprun3,rbfprun2"
+literal "false"
+
+\end_inset
+
+.
+ Also,
+ global optimization methods have been proposed to estimate the optimal set of parameters of RBF networks in a series of research papers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_go1,rbf_go2,rbf_go3"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In most cases,
+ the parameters of an RBF neural network are calculated using a two phase method:
+ during the first phase the set of centers and variances of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:firstrbf"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ are calculated using the K-Means algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kmeans"
+literal "false"
+
+\end_inset
+
+.
+ In the second phase the set of weights 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ are obtained by solving a linear system of equations.
+ Although the previous procedure is capable of estimating the optimal set of parameters in a very short time,
+ it nevertheless has a number of problems such as numerical stability,
+ accurate determination of the number of weights,
+ over - fitting problems,
+ etc.
+ To tackle such problems,
+ a novel method is proposed here that constructs the optimal architecture of RBF networks using a method that incorporated the Grammatical Evolution procedure 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "geMain"
+literal "false"
+
+\end_inset
+
+.
+ The proposed technique is able to estimate both the optimal architecture of the neural network and the numerical values of its parameters,
+ and in this paper both the algorithm used and the software created for this process,
+ which is freely available from the internet,
+ will be presented in detail.
+ 
+\end_layout
+
+\begin_layout Standard
+The rest of this article is divided in the following sections:
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Materials-and-Methods"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ the proposed methodology and the used software are thoroughly discussed,
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ the datasets used in the experiments are presented followed by the experimental results and finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ some conclusions are discussed.
+\end_layout
+
 \begin_layout Section
 Materials and Methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Materials-and-Methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This section starts with a presentation of the Grammatical Evolution procedure and continues with a detail description of the proposed method.
+ Afterwards,
+ the proposed software is presented and a full working example of execution is shown.
+\end_layout
+
+\begin_layout Subsection
+The used construction procedure
+\end_layout
+
+\begin_layout Standard
+The Grammatical Evolution procedure is able to construct programs in the provided Backus Naur Form (BNF) grammar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bnf1"
+literal "false"
+
+\end_inset
+
+ using a genetic algorithm with integer chromosomes.
+ These chromosomes represents rule numbers from the underlying grammar and the method has been used successfully in a variety of problems,
+ such as:
+ trigonometric problems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_trig"
+literal "false"
+
+\end_inset
+
+,
+ production of music
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_music"
+literal "false"
+
+\end_inset
+
+,
+ construction of neural networks
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_nn,ge_nn2"
+literal "false"
+
+\end_inset
+
+,
+
+\series bold
+ 
+\series default
+video games 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_pacman,ge_supermario"
+literal "false"
+
+\end_inset
+
+
+\series bold
+,
+
+\series default
+ credit classification 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_credit"
+literal "false"
+
+\end_inset
+
+,
+ network security 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_intrusion"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Also,
+ a variety of software has been developed for Grammatical Evolution,
+ such as the GEVA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_geva"
+literal "false"
+
+\end_inset
+
+ that proposes a GUI application for Grammatical Evolution,
+ the gramEvol software 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_gramevol"
+literal "false"
+
+\end_inset
+
+ that provides a package in the R programming language,
+ the GeLab 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_gelab"
+literal "false"
+
+\end_inset
+
+ that implements a Matlab toolbox for Grammatical Evolution,
+ the GenClass 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_genclass"
+literal "false"
+
+\end_inset
+
+ software used to produce classification programs,
+ the QFc software 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_qfc"
+literal "false"
+
+\end_inset
+
+ for feature construction etc.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(DESCRIPTION OF METHOD)
 \end_layout
 
 \begin_layout Subsection
@@ -352,7 +826,7 @@ Installation procedure
 The software can be downloaded freely from the following URL:
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -364,7 +838,7 @@ https://github.com/itsoulos/RbfCon
  (accessed on 14 November 2024).
  The user should install the QT Library which is freely available from 
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -399,9 +873,9 @@ The main executable RbfCon
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Parameter list
+The final outcome of the compilation has a series of command line parameters,
+ that the user may adjust.
+ The list of this parameters has as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -918,6 +1392,13 @@ The program prints the train error,
 
 \begin_layout Section
 Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1853,9 +2334,7 @@ nolink "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset Float table
 placement H
 alignment document
@@ -2017,12 +2496,12 @@ generations
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
+ 
+\end_layout
+
+\begin_layout Standard
 The experimental results for the classification datasets are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2045,13 +2524,55 @@ nolink "false"
 
 \end_inset
 
+The following notation was used in these tables:
+\end_layout
 
+\begin_layout Enumerate
+The column RBF denotes the application of the original two - phase method for the training of an RBF neural network with 
+\begin_inset Formula $k=10$
+\end_inset
+
+ weights.
+\end_layout
+
+\begin_layout Enumerate
+The column CONRBF denotes the application of the current software using the parameters of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expValues"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and as local search procedure the 
+\emph on
+none
+\emph default
+ option was selected.
+\end_layout
+
+\begin_layout Enumerate
+The column CONRBF(LBFGS) denotes the application of the current method using as local search procedure the L-Bfgs method.
+\end_layout
+
+\begin_layout Enumerate
+The column CONRBF(BFGS) stands for the application of the current work using as local search procedure the Bfgs method.
+\end_layout
+
+\begin_layout Enumerate
+The row AVERAGE represents the average classification or regression error for all datasets in the corresponding table.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5425,7 +5946,18 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-The statistical analysis conducted in Figure [t2] to compare the different machine learning models shows distinct patterns in their error rates.
+The statistical analysis conducted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ to compare the different machine learning models shows distinct patterns in their error rates.
  Paired comparisons were performed between each model using a paired t-test,
  and the significance levels for each pair are as follows:
  for RBF vs.
@@ -5458,14 +5990,15 @@ The statistical analysis conducted in Figure [t2] to compare the different machi
  but these effects are not uniform across all datasets when considered in aggregate.
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-KEIMENO GIA REGRESSION STATISTICS
-\end_layout
-
 \begin_layout Section
 Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5601,6 +6134,248 @@ References
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "(2006)"
+key "physics-ml1"
+literal "false"
+
+\end_inset
+
+ M.
+ Mjahed,
+ The use of clustering techniques for the classification of high energy physics data,
+ Nuclear Instruments and Methods in Physics Research Section A:
+ Accelerators,
+ Spectrometers,
+ Detectors and Associated Equipment 
+\series bold
+559
+\series default
+,
+ pp.
+ 199-202,
+ 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physics_ml2"
+literal "false"
+
+\end_inset
+
+M Andrews,
+ M Paulini,
+ S Gleyzer,
+ B Poczos,
+ End-to-End Event Classification of High-Energy Physics Data,
+ Journal of Physics:
+ Conference Series 
+\series bold
+1085
+\series default
+,
+ 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml1"
+literal "false"
+
+\end_inset
+
+P.
+ He,
+ C.J.
+ Xu,
+ Y.Z.
+ Liang,
+ K.T.
+ Fang,
+ Improving the classification accuracy in chemistry via boosting technique,
+ Chemometrics and Intelligent Laboratory Systems 70,
+ pp.
+ 39-46,
+ 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml2"
+literal "false"
+
+\end_inset
+
+J.A.
+ Aguiar,
+ M.L.
+ Gong,
+ T.Tasdizen,
+ Crystallographic prediction from diffraction and chemistry data for higher throughput classification using machine learning,
+ Computational Materials Science 
+\series bold
+173
+\series default
+,
+ 109409,
+ 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml1"
+literal "false"
+
+\end_inset
+
+I.
+ Kaastra,
+ M.
+ Boyd,
+ Designing a neural network for forecasting financial and economic time series,
+ Neurocomputing 
+\series bold
+10
+\series default
+,
+ pp.
+ 215-236,
+ 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml2"
+literal "false"
+
+\end_inset
+
+R.
+ Hafezi,
+ J.
+ Shahrabi,
+ E.
+ Hadavandi,
+ A bat-neural network multi-agent system (BNNMAS) for stock price prediction:
+ Case study of DAX stock price,
+ Applied Soft Computing 
+\series bold
+29
+\series default
+,
+ pp.
+ 196-210,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml1"
+literal "false"
+
+\end_inset
+
+S.S.
+ Yadav,
+ S.M.
+ Jadhav,
+ Deep convolutional neural network based medical image classification for disease diagnosis.
+ J Big Data 
+\series bold
+6
+\series default
+,
+ 113,
+ 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml2"
+literal "false"
+
+\end_inset
+
+L.
+ Qing,
+ W.
+ Linhong ,
+ D.
+ Xuehai,
+ A Novel Neural Network-Based Method for Medical Text Classification,
+ Future Internet 
+\series bold
+11
+\series default
+,
+ 255,
+ 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf1"
+literal "false"
+
+\end_inset
+
+J.
+ Park and I.
+ W.
+ Sandberg,
+ Universal Approximation Using Radial-Basis-Function Networks,
+ Neural Computation 
+\series bold
+3
+\series default
+,
+ pp.
+ 246-257,
+ 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf2"
+literal "false"
+
+\end_inset
+
+G.A.
+ Montazer,
+ D.
+ Giveki,
+ M.
+ Karami,
+ H.
+ Rastegar,
+ Radial basis function neural networks:
+ A review.
+ Comput.
+ Rev.
+ J 
+\series bold
+1
+\series default
+,
+ pp.
+ 52-74,
+ 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "bfgs2"
 literal "false"
 
@@ -5614,6 +6389,592 @@ R.
  317-322,
  1970.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbfphysics1"
+literal "false"
+
+\end_inset
+
+V.I.
+ Gorbachenko,
+ M.V.
+ Zhukov,
+ Solving boundary value problems of mathematical physics using radial basis function networks.
+ Comput.
+ Math.
+ and Math.
+ Phys.
+ 
+\series bold
+57
+\series default
+,
+ pp.
+ 145–155,
+ 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbfphysics2"
+literal "false"
+
+\end_inset
+
+J.
+ Määttä,
+ V.
+ Bazaliy,
+ J.
+ Kimari,
+ F.
+ Djurabekova,
+ K.
+ Nordlund,
+ T.
+ Roos,
+ Gradient-based training and pruning of radial basis function networks with an application in materials physics,
+ Neural Networks 
+\series bold
+133
+\series default
+,
+ pp.
+ 123-131,
+ 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbfrobotics1"
+literal "false"
+
+\end_inset
+
+R.
+ -J.
+ Lian,
+ Adaptive Self-Organizing Fuzzy Sliding-Mode Radial Basis-Function Neural-Network Controller for Robotic Systems,
+ IEEE Transactions on Industrial Electronics 
+\series bold
+61
+\series default
+,
+ pp.
+ 1493-1503,
+ 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfrobotics2"
+literal "false"
+
+\end_inset
+
+M.
+ Vijay,
+ D.
+ Jena,
+ Backstepping terminal sliding mode control of robot manipulator using radial basis functional neural networks.
+ Computers & Electrical Engineering 
+\series bold
+67
+\series default
+,
+ pp.
+ 690-707,
+ 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_dos1"
+literal "false"
+
+\end_inset
+
+U.
+ Ravale,
+ N.
+ Marathe,
+ P.
+ Padiya,
+ Feature Selection Based Hybrid Anomaly Intrusion Detection System Using K Means and RBF Kernel Function,
+ Procedia Computer Science 
+\series bold
+45
+\series default
+,
+ pp.
+ 428-435,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf_dos2"
+literal "false"
+
+\end_inset
+
+M.
+ Lopez-Martin,
+ A.
+ Sanchez-Esguevillas,
+ J.
+ I.
+ Arribas,
+ B.
+ Carro,
+ Network Intrusion Detection Based on Extended RBF Neural Network With Offline Reinforcement Learning,
+ IEEE Access 
+\series bold
+9
+\series default
+,
+ pp.
+ 153153-153170,
+ 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_lmage1"
+literal "false"
+
+\end_inset
+
+Foody,
+ G.
+ M.
+ (2004).
+ Supervised image classification by MLP and RBF neural networks with and without an exhaustively defined set of classes.
+ International Journal of Remote Sensing,
+ 25(15),
+ 3091-3104.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_image2"
+literal "false"
+
+\end_inset
+
+Er,
+ M.
+ J.,
+ Wu,
+ S.,
+ Lu,
+ J.,
+ & Toh,
+ H.
+ L.
+ (2002).
+ Face recognition with radial basis function (RBF) neural networks.
+ IEEE transactions on neural networks,
+ 13(3),
+ 697-710.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbfinit1"
+literal "false"
+
+\end_inset
+
+L.I.
+ Kuncheva,
+ Initializing of an RBF network by a genetic algorithm,
+ Neurocomputing 
+\series bold
+14
+\series default
+,
+ pp.
+ 273-288,
+ 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfinit2"
+literal "false"
+
+\end_inset
+
+F.
+ Ros,
+ M.
+ Pintore,
+ A.
+ Deman,
+ J.R.
+ Chrétien,
+ Automatical initialization of RBF neural networks,
+ Chemometrics and Intelligent Laboratory Systems 
+\series bold
+87
+\series default
+,
+ pp.
+ 26-32,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfinit3"
+literal "false"
+
+\end_inset
+
+D.
+ Wang,
+ X.J.
+ Zeng,
+ J.A.
+ Keane,
+ A clustering algorithm for radial basis function neural network initialization,
+ Neurocomputing 
+\series bold
+77
+\series default
+,
+ pp.
+ 144-155,
+ 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbfprun1"
+literal "false"
+
+\end_inset
+
+E.
+ Ricci,
+ R.
+ Perfetti,
+ Improved pruning strategy for radial basis function networks with dynamic decay adjustment,
+ Neurocomputing 
+\series bold
+69
+\series default
+,
+ pp.
+ 1728-1732,
+ 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfprun3"
+literal "false"
+
+\end_inset
+
+Guang-Bin Huang,
+ P.
+ Saratchandran and N.
+ Sundararajan,
+ A generalized growing and pruning RBF (GGAP-RBF) neural network for function approximation,
+ IEEE Transactions on Neural Networks 
+\series bold
+16
+\series default
+,
+ pp.
+ 57-67,
+ 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfprun2"
+literal "false"
+
+\end_inset
+
+M.
+ Bortman and M.
+ Aladjem,
+ A Growing and Pruning Method for Radial Basis Function Networks,
+ IEEE Transactions on Neural Networks 
+\series bold
+20
+\series default
+,
+ pp.
+ 1039-1045,
+ 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_go1"
+literal "false"
+
+\end_inset
+
+Chen,
+ J.Y.;
+ Qin,
+ Z.;
+ Jia,
+ J.
+ A PSO-Based Subtractive Clustering Technique for Designing RBF Neural Networks.
+ In Proceedings of the 2008 IEEE Congress on Evolutionary Computation (IEEE World Congress on Computational Intelligence),
+ Hong Kong,
+ 1–6 June 2008;
+ pp.
+ 2047–2052.
+ [Google Scholar]
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_go2"
+literal "false"
+
+\end_inset
+
+Esmaeili,
+ A.;
+ Mozayani,
+ N.
+ Adjusting the parameters of radial basis function networks using Particle Swarm Optimization.
+ In Proceedings of the 2009 IEEE International Conference on Computational Intelligence for Measurement Systems and Applications,
+ Hong Kong,
+ 11–13 May 2009;
+ pp.
+ 179–181.
+ [Google Scholar]
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "rbf_go3"
+literal "false"
+
+\end_inset
+
+O’Hora,
+ B.;
+ Perera,
+ J.;
+ Brabazon,
+ A.
+ Designing Radial Basis Function Networks for Classification Using Differential Evolution.
+ In Proceedings of the 2006 IEEE International Joint Conference on Neural Network Proceedings,
+ Vancouver,
+ BC,
+ USA,
+ 16–21 July 2006;
+ pp.
+ 2932–2937.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "kmeans"
+literal "false"
+
+\end_inset
+
+MacQueen,
+ J.:
+ Some methods for classification and analysis of multivariate observations,
+ in:
+ Proceedings of the fifth Berkeley symposium on mathematical statistics and probability,
+ Vol.
+ 1,
+ No.
+ 14,
+ pp.
+ 281-297,
+ 1967.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "geMain"
+literal "false"
+
+\end_inset
+
+M.
+ O’Neill,
+ C.
+ Ryan,
+ Grammatical evolution,
+ IEEE Trans.
+ Evol.
+ Comput.
+ 
+\series bold
+5,
+\series default
+pp.
+ 349–358,
+ 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "bnf1"
+literal "false"
+
+\end_inset
+
+J.
+ W.
+ Backus.
+ The Syntax and Semantics of the Proposed International Algebraic Language of the Zurich ACM-GAMM Conference.
+ Proceedings of the International Conference on Information Processing,
+ UNESCO,
+ 1959,
+ pp.125-132.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_trig"
+literal "false"
+
+\end_inset
+
+C.
+ Ryan,
+ M.
+ O’Neill,
+ J.J.
+ Collins,
+ Grammatical evolution:
+ Solving trigonometric identities,
+ proceedings of Mendel.
+ Vol.
+ 98.
+ 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_music"
+literal "false"
+
+\end_inset
+
+A.O.
+ Puente,
+ R.
+ S.
+ Alfonso,
+ M.
+ A.
+ Moreno,
+ Automatic composition of music by means of grammatical evolution,
+ In:
+ APL '02:
+ Proceedings of the 2002 conference on APL:
+ array processing languages:
+ lore,
+ problems,
+ and applications July 2002 Pages 148–155.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_nn"
+literal "false"
+
+\end_inset
+
+Lídio Mauro Limade Campo,
+ R.
+ Célio Limã Oliveira,Mauro Roisenberg,
+ Optimization of neural networks through grammatical evolution and a genetic algorithm,
+ Expert Systems with Applications 
+\series bold
+56
+\series default
+,
+ pp.
+ 368-384,
+ 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_nn2"
+literal "false"
+
+\end_inset
+
+K.
+ Soltanian,
+ A.
+ Ebnenasir,
+ M.
+ Afsharchi,
+ Modular Grammatical Evolution for the Generation of Artificial Neural Networks,
+ Evolutionary Computation 
+\series bold
+30
+\series default
+,
+ pp 291–327,
+ 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -5642,6 +7003,104 @@ H.
  San Diego,
  California,
  United States.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_pacman"
+literal "false"
+
+\end_inset
+
+E.
+ Galván-López,
+ J.M.
+ Swafford,
+ M.
+ O’Neill,
+ A.
+ Brabazon,
+ Evolving a Ms.
+ PacMan Controller Using Grammatical Evolution.
+ In:
+ ,
+ et al.
+ Applications of Evolutionary Computation.
+ EvoApplications 2010.
+ Lecture Notes in Computer Science,
+ vol 6024.
+ Springer,
+ Berlin,
+ Heidelberg,
+ 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_supermario"
+literal "false"
+
+\end_inset
+
+N.
+ Shaker,
+ M.
+ Nicolau,
+ G.
+ N.
+ Yannakakis,
+ J.
+ Togelius,
+ M.
+ O'Neill,
+ Evolving levels for Super Mario Bros using grammatical evolution,
+ 2012 IEEE Conference on Computational Intelligence and Games (CIG),
+ 2012,
+ pp.
+ 304-31.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_credit"
+literal "false"
+
+\end_inset
+
+A.
+ Brabazon,
+ M.
+ O'Neill,
+ Credit classification using grammatical evolution,
+ Informatica 
+\series bold
+30.3
+\series default
+,
+ 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_intrusion"
+literal "false"
+
+\end_inset
+
+S.
+ Şen,
+ J.A.
+ Clark.
+ A grammatical evolution approach to intrusion detection on mobile ad hoc networks,
+ In:
+ Proceedings of the second ACM conference on Wireless network security,
+ 2009.
 \end_layout
 
 \begin_layout Bibliography
