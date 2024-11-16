@@ -1796,12 +1796,256 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+The implementation of the machine learning methods that participated in the conducted experiments was made using ANSI C++.
+ The experiments were conducted 30 times and the average classification or regression error as measured on the test was recorder.
 
 \series bold
-(WRITE SOME TEXT HERE)
+ 
+\series default
+The classification error is measured as:
+\begin_inset Formula 
+\begin{equation}
+E_{C}\left(M(x)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(M\left(x_{i}\right)\right)-y_{i}\right)}{N}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $M(x)$
+\end_inset
+
+ denotes the used machine learning model and set 
+\begin_inset Formula $T$
+\end_inset
+
+ is defined as 
+\begin_inset Formula $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$
+\end_inset
+
+,
+ that denotes the used testing dataset.
+
+\series bold
+ 
+\series default
+On the other hand,
+ the regression error is calculated as:
+ 
+\begin_inset Formula 
+\begin{equation}
+E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
+\end{equation}
+
+\end_inset
+
+The well - known method of ten - fold cross validation was used to validate the experimental results.
+ All the experiments were carried out on an AMD Ryzen 5950X with 128GB of RAM.
+ The used operating system was Debian Linux.
+ The values for the parameters of the proposed method are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expValues"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The values for the parameters,
+ as used in the conducted experiments.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:expValues"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PARAMETER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+chromosome_count
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+chromosome_size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+selection_rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+mutation_rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+generations
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+The experimental results for the classification datasets are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and for the regression datasets in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+
 \begin_inset Float table
 placement H
 alignment document
@@ -5010,7 +5254,8 @@ nolink "false"
  although one model occasionally outperforms the other in certain datasets.
  In DERMATOLOGY and ZOO,
  CONRBF(LBFGS) achieves a lower error rate than CONRBF(BFGS),
- whereas in datasets like "HEARTATTACK," the differences are very small.
+ whereas in datasets like HEARTATTACK,
+ the differences are very small.
  In conclusion,
  the comparison of models reveals that the parameterized versions of CONRBF,
  especially with the LBFGS and BFGS optimization methods,
@@ -5019,9 +5264,40 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
+The results shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\series bold
-(KEIMENO GIA REGRESSION PINAKA)
+\end_inset
+
+ include the error values for various datasets,
+ where different training methods were applied.
+ The values in the tables represent errors (not percentages) obtained by applying each model to each dataset.
+ The CONRBF method shows lower error rates compared to the original RBF in almost all datasets,
+ indicating that the proposed method provides improvements over the original.
+ For example,
+ in the HOUSING dataset,
+ the error is reduced from 57.68 (RBF) to 20.6 (CONRBF),
+ while in the BASEBALL dataset,
+ the error decreases from 93.02 (RBF) to 66.74 (CONRBF).
+ The LBFGS and BFGS variations of the CONRBF method further reduce errors compared to the original CONRBF in certain datasets.
+ For instance,
+ in the AUTO dataset,
+ the error decreases from 11.03 (CONRBF) to 10.03 (CONRBF with LBFGS) and 9.45 (CONRBF with BFGS).
+ Similarly,
+ in the STOCK dataset,
+ the error drops from 8.31 (CONRBF) to 6.9 (CONRBF with LBFGS) and 6.25 (CONRBF with BFGS),
+ demonstrating that the addition of these optimization methods can further enhance the model's performance.
+ In summary,
+ the results indicate that the proposed CONRBF method,
+ along with its LBFGS and BFGS optimized variants,
+ has the potential to reduce error rates compared to the original RBF method.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5149,9 +5425,48 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
+The statistical analysis conducted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\series bold
-KEIMENO GIA REGRESSION STATISTICS
+\end_inset
+
+ to compare the different machine learning models shows distinct patterns in their error rates.
+ Paired comparisons were performed between each model using a paired t-test,
+ and the significance levels for each pair are as follows:
+ for RBF vs.
+ CONRBF,
+ p=0.028 for CONRBF vs.
+ CONRBF(LBFGS),
+ p=0.016 for CONRBF vs.
+ CONRBF(BFGS),
+ p=0.015 and for CONRBF(LBFGS) vs.
+ CONRBF(BFGS),
+ p=0.028.
+ All comparisons resulted in p<0.05,
+ indicating that there are statistically significant differences between each pair of models.
+ This suggests that each variant of the CONRBF model,
+ including the LBFGS and BFGS optimizations,
+ provides a unique effect on the error rate,
+ significantly differentiating it from the others in performance.
+ However,
+ when analyzing the groups as a whole using the Kruskal-Wallis test,
+ the result was p=0.27,
+ which is greater than the standard significance level of 0.05.
+ This indicates that,
+ while there are significant differences between individual pairs,
+ there is no overall statistically significant difference across all four models collectively.
+ This result implies that,
+ while certain optimizations improve performance in pairwise comparisons,
+ these differences are not strong enough to conclude a significant variation across the entire set of models.
+ Therefore,
+ the choice of model variant can impact error rates significantly in specific comparisons,
+ but these effects are not uniform across all datasets when considered in aggregate.
 \end_layout
 
 \begin_layout Section
