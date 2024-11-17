@@ -673,9 +673,382 @@ name "sec:Materials-and-Methods"
 \end_layout
 
 \begin_layout Standard
-This section starts with a presentation of the Grammatical Evolution procedure and continues with a detail description of the proposed method.
- Afterwards,
+This section starts with a description of the original training procedure for RBF neural networks and afterwards it provides a presentation of the Grammatical Evolution procedure and continues with a detail description of the proposed method.
+ Finally,
  the proposed software is presented and a full working example of execution is shown.
+\end_layout
+
+\begin_layout Subsection
+The original training procedure of RBF neural networks
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-original-training"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The typical training procedure of an RBF network 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $y(x)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert x-c_{i}\right\Vert \right)$
+\end_inset
+
+ involves two major steps:
+ in first step the centers 
+\begin_inset Formula $\overrightarrow{c_{i}}$
+\end_inset
+
+ and the variances are calculated using the K-means procedure,
+ which is outlined in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:K-means-Algorithm"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ During the second step a system of equations should be solved in order to obtain the values for weights 
+\begin_inset Formula $w_{i},\ i=1,\ldots,k$
+\end_inset
+
+ as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $W=w_{kj}$
+\end_inset
+
+ the matrix of 
+\begin_inset Formula $k$
+\end_inset
+
+ weights,
+ 
+\begin_inset Formula $\Phi=\phi_{j}\left(x_{i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $T=\left\{ t_{i}\right\} $
+\end_inset
+
+,
+ where 
+\begin_inset Formula $t_{i},\ i=1,...,M$
+\end_inset
+
+ are the expected values for input patterns 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Solve:
+ 
+\begin_inset Formula 
+\begin{equation}
+\Phi^{T}\left(T-\Phi W^{T}\right)=0
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
+\end{equation}
+
+\end_inset
+
+
+\series default
+The matrix 
+\begin_inset Formula $\Phi^{\dagger}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}$
+\end_inset
+
+ denotes the the pseudo-inverse of 
+\begin_inset Formula $\Phi$
+\end_inset
+
+,
+ with
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+\Phi^{\dagger}\Phi=I
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Enumerate
+
+\series bold
+Initialization
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ the number of centers.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Read
+\series default
+ the patterns of the training dataset 
+\begin_inset Formula $x_{i},\ i=1,\ldots,M$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $S_{j}=\emptyset$
+\end_inset
+
+,
+ from 
+\begin_inset Formula $j=1,\ldots,k$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ every pattern 
+\begin_inset Formula $x_{i},\ i=1,...,M$
+\end_inset
+
+ 
+\series bold
+do
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:For-every-pattern"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $j^{*}=\mbox{argmin}_{m=1}^{k}\left\{ D\left(x_{i},c_{m}\right)\right\} $
+\end_inset
+
+ where the variable 
+\begin_inset Formula $j^{*}$
+\end_inset
+
+ denotes the nearest center from 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ each center 
+\begin_inset Formula $c_{j},\ j=1..k$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate and denote 
+\series default
+as 
+\begin_inset Formula $M_{j}$
+\end_inset
+
+ the number of samples in 
+\begin_inset Formula $S_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Update 
+\series default
+the center 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ as
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+c_{j}=\frac{1}{M_{j}}\sum_{x_{i}\in S_{j}}x_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End
+\series default
+ 
+\series bold
+For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ the centers 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+ did not change then terminate else goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:For-every-pattern"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The used K-means Algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:K-means-Algorithm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1115,16 +1488,6 @@ where the set
 \end_inset
 
  denotes the train dataset of the objective problem.
- The values 
-\begin_inset Formula $t_{i}$
-\end_inset
-
- represent the expected output for the input pattern 
-\begin_inset Formula $\overrightarrow{x_{i}}$
-\end_inset
-
- .
- 
 \end_layout
 
 \end_deeper
@@ -1302,12 +1665,12 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ERGASIES/GlobalOptimus/doc/GE_LOCAL/onepoint_crossover.eps
+	filename onepoint_crossover.eps
 	scale 50
 
 \end_inset
@@ -6367,7 +6730,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ERGASIES/RbfCon/doc/t1.png
+	filename t1.png
 	scale 50
 
 \end_inset
@@ -6411,7 +6774,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ERGASIES/RbfCon/doc/t2.png
+	filename t2.png
 	scale 50
 
 \end_inset
