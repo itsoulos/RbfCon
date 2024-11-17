@@ -40,6 +40,7 @@ The steps of the installation are shown in Figure 1. The user needs to select on
 
 (d) Finalizing installation.
 ![4.png](doc/Windows/4.png)
+
 **Figure 1.** The steps of windows installation
 
 
