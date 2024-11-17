@@ -173,6 +173,8 @@ End
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -617,6 +619,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+The software proposed in this work is fully implemented in the programming language ANSI C++ and is an executable that has a series of command line parameters with which the user can efficiently process the data sets at his disposal.
+\end_layout
+
+\begin_layout Standard
 The rest of this article is divided in the following sections:
  in section 
 \begin_inset CommandInset ref
@@ -758,14 +764,13 @@ literal "false"
 \end_inset
 
  etc.
-\end_layout
-
-\begin_layout Standard
-
+ Furthermore,
+ many researches have developed and published a series of software regarding Grammatical Evolution,
+ such as
 \series bold
-Also,
- a variety of software has been developed for Grammatical Evolution,
- such as the GEVA 
+ 
+\series default
+the GEVA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_geva"
@@ -773,8 +778,8 @@ literal "false"
 
 \end_inset
 
- that proposes a GUI application for Grammatical Evolution,
- the gramEvol software 
+ which suggests a GUI environment,
+ a statistical software written in R named gramEvol 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gramevol"
@@ -782,8 +787,12 @@ literal "false"
 
 \end_inset
 
- that provides a package in the R programming language,
- the GeLab 
+,
+
+\series bold
+ 
+\series default
+a Matalab toolbox named GeLab 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gelab"
@@ -791,8 +800,12 @@ literal "false"
 
 \end_inset
 
- that implements a Matlab toolbox for Grammatical Evolution,
- the GenClass 
+,
+ the GenClass software used in classification problems
+\series bold
+ 
+\series default
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_genclass"
@@ -800,7 +813,7 @@ literal "false"
 
 \end_inset
 
- software used to produce classification programs,
+,
  the QFc software 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -809,13 +822,522 @@ literal "false"
 
 \end_inset
 
- for feature construction etc.
+ used to construct artificial features etc.
 \end_layout
 
 \begin_layout Standard
+The proposed procedure constructs the structure of an RBF neural network using Grammatical Evolution and an appropriately modified Genetic Algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "genetic1,genetic2"
+literal "false"
+
+\end_inset
+
+ that guides the course of the procedure.
+ The required BNF grammar for the current algorithm is outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-BNF-grammar"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The terminal symbol exp represents the function 
+\begin_inset Formula $\exp(x)$
+\end_inset
+
+ and the terminal symbol pow stands for the power operator 
+\begin_inset Formula $x^{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+S:=<rbfexpr>                           
+\end_layout
+
+\begin_layout LyX-Code
+<rbfexpr>::=<Node>                     
+\end_layout
+
+\begin_layout LyX-Code
+           | <Node> + <rbfexpr>        
+\end_layout
+
+\begin_layout LyX-Code
+<Node>::=<number>*exp(<sum>)+<number>  
+\end_layout
+
+\begin_layout LyX-Code
+<sum>::= ( -<dist>/(pow(<number>,2)))
+\end_layout
+
+\begin_layout LyX-Code
+           |    <sum>+<sum>            
+\end_layout
+
+\begin_layout LyX-Code
+<dist>::= pow(<xxlist>-<number>,2)              
+\end_layout
+
+\begin_layout LyX-Code
+<xxlist>::= x1        
+\end_layout
+
+\begin_layout LyX-Code
+             |    x2  
+\end_layout
+
+\begin_layout LyX-Code
+             ..............
+\end_layout
+
+\begin_layout LyX-Code
+             |    xd  
+\end_layout
+
+\begin_layout LyX-Code
+<number>::= (<digitlist>.<digitlist>)        
+\end_layout
+
+\begin_layout LyX-Code
+             |    (-<digitlist>.<digitlist>) 
+\end_layout
+
+\begin_layout LyX-Code
+<digitlist>::= <digit>            
+\end_layout
+
+\begin_layout LyX-Code
+             | <digit><digitlist> 
+\end_layout
+
+\begin_layout LyX-Code
+<digit>::= 0      
+\end_layout
+
+\begin_layout LyX-Code
+             |  1
+\end_layout
+
+\begin_layout LyX-Code
+             ...........
+\end_layout
+
+\begin_layout LyX-Code
+             |  9 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The BNF grammar of the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-BNF-grammar"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The steps of the method used to create RBF neural networks are listed below:
+\end_layout
+
+\begin_layout Enumerate
 
 \series bold
-(DESCRIPTION OF METHOD)
+Initialization Step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of chromosomes 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ and the maximum number of allowed generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the selection rate of the genetic algorithm,
+ denoted as 
+\begin_inset Formula $p_{c}$
+\end_inset
+
+ where 
+\begin_inset Formula $p_{c}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the mutation rate of the genetic algorithm,
+ denoted as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+,
+ with 
+\begin_inset Formula $p_{m}\le$
+\end_inset
+
+1.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly each element of each chromosome as a positive random integer number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ k=0,
+ the generation number.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Main loop step
+\series default
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Main-loop-step."
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Evaluate fitness.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For every chromosome 
+\begin_inset Formula $C_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+create
+\series default
+ the corresponding neural network using the grammar of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-BNF-grammar"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Denote this network as 
+\begin_inset Formula $y_{i}(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ for the the train set as:
+\begin_inset Formula 
+\begin{equation}
+f_{i}=\sum_{j=1}^{M}\left(y_{i}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1}
+\end{equation}
+
+\end_inset
+
+where the set 
+\begin_inset Formula $\left(\overrightarrow{x_{j}},t_{j}\right),\ j=1,...,M$
+\end_inset
+
+ denotes the train dataset of the objective problem.
+ The values 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ represent the expected output for the input pattern 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Apply the selection genetic operator.
+
+\series bold
+ 
+\series default
+A sorting of the chromosomes is performed according to their fitness values.
+ The best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ of them are copied without changes to the next generation.
+
+\series bold
+ 
+\series default
+The rest of chromosomes will be replaced by new chromosomes produced during the crossover procedure.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Apply the crossover operator.
+
+\series bold
+ 
+\series default
+During this procedure a series of 
+\begin_inset Formula $p_{s}\times N_{c}$
+\end_inset
+
+ offsprings will be produced.
+ For each pair of offsprings denoted as
+\series bold
+ 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ 
+\series default
+and
+\series bold
+ 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+
+\series default
+,
+ two chromosomes 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ should be selected from the original population using tournament selection.
+ The new chromosomes are produced from 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ using the one - point crossover procedure.
+ An example of the one - point crossover graphically presented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:onePoint"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Perform mutation.
+
+\series bold
+ 
+\series default
+For each element of every chromosome,
+ draw randomly a number 
+\begin_inset Formula $r\in\left[0,1\right]$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+ then the corresponding element is altered randomly.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ k=k+1
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Check for termination step
+\series default
+.
+ If 
+\begin_inset Formula $k\le N_{g}$
+\end_inset
+
+ then 
+\series bold
+goto
+\series default
+ step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Main-loop-step."
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Local Optimization step
+\series default
+.
+ Obtain the chromosome 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ and produce the corresponding RBF neural network 
+\begin_inset Formula $y^{*}(x)$
+\end_inset
+
+.
+ The parameters of this neural network are obtained by minimizing with some local search procedure the training error defined as:
+ 
+\begin_inset Formula 
+\begin{equation}
+E\left(y^{*}(x)\right)=\sum_{j=1}^{M}\left(y^{*}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Application in test set
+\series default
+.
+ Apply the final model 
+\begin_inset Formula $y^{*}(x)$
+\end_inset
+
+ to the test dataset and report the test error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ERGASIES/GlobalOptimus/doc/GE_LOCAL/onepoint_crossover.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example for the procedure of one - point crossover,
+ as used in the Grammatical Evolution procedure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:onePoint"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -823,7 +1345,7 @@ Installation procedure
 \end_layout
 
 \begin_layout Standard
-The software can be downloaded freely from the following URL:
+The software was coded entirelly in ANSI C++ and the software can be downloaded freely from the following URL:
  
 \begin_inset Flex URL
 status collapsed
@@ -838,7 +1360,7 @@ https://github.com/itsoulos/RbfCon
  (accessed on 14 November 2024).
  The user should install the QT Library which is freely available from 
 \begin_inset Flex URL
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -847,7 +1369,7 @@ https://qt.io
 
 \end_inset
 
- in order to compile the software.
+ (accessed on 14 November 2024) in order to compile the software.
  After downloading the RbfCon-master.zip file the user should execute the following commands,
  under any Unix based system:
 \end_layout
@@ -866,6 +1388,11 @@ qmake (or qmake-qt5 in some Linux installations).
 
 \begin_layout Enumerate
 make
+\end_layout
+
+\begin_layout Standard
+For windows systems the user alternatively could install the software using the RBFCON.msi located in the distribution,
+ which is an installation file that installs the software without the need for the QT Library.
 \end_layout
 
 \begin_layout Subsection
@@ -1225,8 +1752,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
 ./RbfCon --trainfile=EXAMPLES/wdbc.train --testfile=EXAMPLES/wdbc.test --iterations=2
-\begin_inset Newline newline
+\end_layout
+
 \end_inset
 
 The output of this command is shown below:
@@ -1236,7 +1771,7 @@ The output of this command is shown below:
 \begin_inset listings
 lstparams "basicstyle={\footnotesize},frame=single"
 inline false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -2340,7 +2875,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2572,7 +3107,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5832,7 +6367,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename t1.png
+	filename ERGASIES/RbfCon/doc/t1.png
 	scale 50
 
 \end_inset
@@ -5876,7 +6411,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename t2.png
+	filename ERGASIES/RbfCon/doc/t2.png
 	scale 50
 
 \end_inset
@@ -7265,6 +7800,41 @@ I.G.
 ,
  295,
  2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1989)"
+key "genetic1"
+literal "false"
+
+\end_inset
+
+D.
+ Goldberg,
+ Genetic Algorithms in Search,
+ Optimization and Machine Learning,
+ Addison-Wesley Publishing Company,
+ Reading,
+ Massachussets,
+ 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "genetic2"
+literal "true"
+
+\end_inset
+
+Z.
+ Michaelewicz,
+ Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag,
+ Berlin,
+ 1996.
 \end_layout
 
 \begin_layout Bibliography
