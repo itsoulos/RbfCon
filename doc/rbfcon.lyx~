@@ -345,7 +345,7 @@ Introduction
 \begin_layout Standard
 A variety of real - world problems can be considered as classification and regression problems,
  handled by machine learning models that have been thoroughly studied in the recent bibliography.
- Such problems appear in physics 
+ Such problems arise in physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "physics-ml1,physics_ml2"
@@ -382,7 +382,7 @@ literal "false"
 
  etc.
  One common machine learning model,
- that was applied in many areas,
+ that is applied in many areas,
  is the Radial Basis Function (RBF) neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -499,7 +499,9 @@ This function is selected as the output function,
 \end_layout
 
 \begin_layout Standard
-RBF neural networks have been widely used and studied in the relevant literature and among others one can find applications in problems derived from physics 
+RBF neural networks have been widely used and studied in the relevant literature and,
+ among others,
+ one can find applications in problems derived from physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfphysics1,rbfphysics2"
@@ -537,7 +539,7 @@ literal "false"
  etc.
  Due to the widespread use of these machine learning models and their use in both function learning and data fitting problems,
  a number of techniques have been presented in recent years that seek to more accurately identify their parameters.
- Such methods includes techniques used to initialize the parameters of these models 
+ Such methods include techniques used to initialize the parameters of these models 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfinit1,rbfinit2,rbfinit3"
@@ -571,7 +573,8 @@ literal "false"
 \begin_layout Standard
 In most cases,
  the parameters of an RBF neural network are calculated using a two phase method:
- during the first phase the set of centers and variances of equation 
+ during the first phase,
+ the set of centers and variances of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:firstrbf"
@@ -591,18 +594,19 @@ literal "false"
 \end_inset
 
 .
- In the second phase the set of weights 
+ In the second phase,
+ the set of weights 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- are obtained by solving a linear system of equations.
+ is obtained by solving a linear system of equations.
  Although the previous procedure is capable of estimating the optimal set of parameters in a very short time,
  it nevertheless has a number of problems such as numerical stability,
  accurate determination of the number of weights,
  over - fitting problems,
  etc.
  To tackle such problems,
- a novel method is proposed here that constructs the optimal architecture of RBF networks using a method that incorporated the Grammatical Evolution procedure 
+ a novel method is proposed here that constructs the optimal architecture of RBF networks using a method that incorporates the Grammatical Evolution procedure 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "geMain"
@@ -812,7 +816,6 @@ The matrix
 \end_layout
 
 \begin_layout Standard
-O
 \begin_inset Float algorithm
 placement H
 alignment document
@@ -1066,7 +1069,7 @@ literal "false"
 \end_inset
 
  using a genetic algorithm with integer chromosomes.
- These chromosomes represents rule numbers from the underlying grammar and the method has been used successfully in a variety of problems,
+ These chromosomes represent rule numbers from the underlying grammar and the method has been used successfully in a variety of problems,
  such as:
  trigonometric problems 
 \begin_inset CommandInset citation
@@ -1139,7 +1142,7 @@ literal "false"
 
  etc.
  Furthermore,
- many researches have developed and published a series of software regarding Grammatical Evolution,
+ many researchers have developed and published a series of software regarding Grammatical Evolution,
  such as
 \series bold
  
@@ -1493,7 +1496,7 @@ where the set
 
 \end_deeper
 \begin_layout Enumerate
-Apply the selection genetic operator.
+Apply the selection operator.
 
 \series bold
  
@@ -1722,7 +1725,8 @@ https://github.com/itsoulos/RbfCon
 \end_inset
 
  (accessed on 14 November 2024).
- The user should install the QT Library which is freely available from 
+ The user should install the QT Library,
+ which is freely available from 
 \begin_inset Flex URL
 status open
 
@@ -1734,8 +1738,9 @@ https://qt.io
 \end_inset
 
  (accessed on 14 November 2024) in order to compile the software.
- After downloading the RbfCon-master.zip file the user should execute the following commands,
- under any Unix based system:
+ After downloading the RbfCon-master.zip file,
+ the user should execute the following commands,
+ under any Unix - based system:
 \end_layout
 
 \begin_layout Enumerate
@@ -2302,7 +2307,8 @@ name "sec:Results"
 
 \begin_layout Standard
 The new technique can be used to construct RBF networks for both classification and data fitting problems.
- For this reason datasets covering many scientific areas and freely available from the following websites were used:
+ For this reason,
+ datasets covering many scientific areas and freely available from the following websites were used:
 \end_layout
 
 \begin_layout Enumerate
@@ -3177,7 +3183,7 @@ Experimental results
 
 \begin_layout Standard
 The implementation of the machine learning methods that participated in the conducted experiments was made using ANSI C++.
- The experiments were conducted 30 times and the average classification or regression error as measured on the test was recorder.
+ The experiments were conducted 30 times and the average classification or regression error as measured on the test was recorded.
 
 \series bold
  
@@ -3432,6 +3438,18 @@ The column RBF denotes the application of the original two - phase method for th
 \end_inset
 
  weights.
+ This method was described previously in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-original-training"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -6841,7 +6859,7 @@ nolink "false"
  the results of the paired comparisons indicate that the differences between some models are statistically significant,
  suggesting that the choice of model variant can substantially impact the error rate.
  However,
- the overall analysis using the Kruskal-Wallis test did not find a statistically significant difference among the groups as a whole.
+ the overall analysis using the Kruskal-Wallis test did not find a statistically significant difference between the groups as a whole.
 \end_layout
 
 \begin_layout Standard
@@ -6901,10 +6919,57 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
+A novel method that constructs the architecture of RBF neural networks with assistance was described in the current paper,
+ accompanied by the relevant software.
+ The method can construct the architecture of RBF networks using a process that incorporates the Grammatical Evolution procedure.
+ Also,
+ the used method can estimate the parameters of the network,
+ which can be further modified by the application of a local optimization procedure.
+ The proposed method can be applied without modifications to classification and regression datasets.
+ The new method was compared against the traditional method used to train RBF networks and the experimental results validated the efficiency of the proposed work in a wide series of classification and regression datasets found in the recent bibliography.
+\end_layout
 
-\series bold
-Write some text here
-\begin_inset Newline newline
+\begin_layout Standard
+The used software was coded in ANSI C++ with the assistance of the freely available library of QT,
+ in order to be portable on the majority of operating systems.
+ The user can control the process by a series of simple command line options,
+ such as the number of needed chromosomes for the genetic population or the selection rate used.
+ Also,
+ the software offers the possibility of enhancing the parameters of the RBF network with the application of some local optimization procedures.
+ The experimental results clearly indicated that the application of the local optimization algorithm can further reduce the test error in a series of datasets.
+ 
+\end_layout
+
+\begin_layout Standard
+Future improvements of the software may include the periodic application of the local search procedure during the execution of the genetic algorithm or even the incorporation of global optimization procedures,
+ in order to reduce even further the test error of the current work.
+ Also,
+ since the method is based on Genetic Algorithms,
+ parallel optimization procedures,
+ such as MPI 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mpi"
+literal "false"
+
+\end_inset
+
+ or OpenMP 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmp"
+literal "false"
+
+\end_inset
+
+ can be used to reduce the execution time of the method.
+ Finally,
+ the software could possibly be extended to allow the user to input other grammars as parameters,
+ or even to be able to use other output functions besides Gaussian.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
 \end_inset
 
 
@@ -9550,6 +9615,50 @@ Mackowiak,
  1992,
  268,
  1578–1580.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1996)"
+key "mpi"
+literal "false"
+
+\end_inset
+
+Gropp,
+ W.;
+ Lusk,
+ E.;
+ Doss,
+ N.;
+ Skjellum,
+ A.
+ A high-performance,
+ portable implementation of the MPI message passing interface standard.
+ Parallel Comput.
+ 1996,
+ 22,
+ 789–828.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1996)"
+key "openmp"
+literal "false"
+
+\end_inset
+
+Chandra,
+ R.
+ Parallel Programming in OpenMP;
+ Morgan Kaufmann:
+ Cambridge,
+ MA,
+ USA,
+ 2001.
 \end_layout
 
 \begin_layout End Whole Page
