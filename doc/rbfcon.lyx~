@@ -509,7 +509,7 @@ literal "false"
 
  etc.
  Due to the widespread use of these machine learning models and their use
- in both function learning and data fitting problems, a number of techniques
+ in both classification and data fitting problems, a number of techniques
  have been presented in recent years that seek to more accurately identify
  their parameters.
  Such methods include techniques used to initialize the parameters of these
@@ -542,6 +542,77 @@ literal "false"
 
 .
  
+\end_layout
+
+\begin_layout Standard
+Furthermore, a discussion on the kernel widths of RBF networks is provided
+ in the work of Benoudjit et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfkernel"
+literal "false"
+
+\end_inset
+
+.
+ Paetz proposed a method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfgen"
+literal "false"
+
+\end_inset
+
+ that can reduce the number of neurons in RBF networks with dynamic decay
+ adjustment, in order to increase the generalization abilities of these
+ networks.
+ Yu et al.
+ in their work 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfcon"
+literal "false"
+
+\end_inset
+
+ proposed an incremental design technique for RBF networks in order to estimate
+ the optimal architecture of these networks.
+ Moreover, Alexandridis et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfpso"
+literal "false"
+
+\end_inset
+
+ proposed the incorporation of the Particle Swarm Optimization method to
+ effectively estimate the weights of RBF networks.
+ Also, Neruda et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbflearn"
+literal "false"
+
+\end_inset
+
+ provided a detailed comparison of methods used to estimate the parameters
+ of RBF networks.
+ Additionally, due to the widespread usage of parallel programming techniques,
+ a series of techniques that exploit parallel computing units have been
+ suggested in recent years for RBF network training
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfpar1,rbfpar2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -648,7 +719,18 @@ noprefix "false"
 \end_inset
 
  the datasets incorporated in the conducted experiments are listed followed
- by the experimental results and finally in section 
+ by the experimental results, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ a discussion on the experimental results is provided and finally in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
@@ -1787,12 +1869,13 @@ name "fig:onePoint"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename flowchart.png
+	scale 70
 
 \end_inset
 
@@ -3585,8 +3668,8 @@ The column CRBF(BFGS) stands for the application of the current work using
 \end_layout
 
 \begin_layout Enumerate
-The last row denoted as AVERAGE, outlines the average classification or
- regression error for all datasets in the corresponding table.
+The  row denoted as AVERAGE, outlines the average classification or regression
+ error for all datasets in the corresponding table.
 \end_layout
 
 \begin_layout Standard
@@ -3619,7 +3702,7 @@ name "tab:expClass"
 \begin_layout Plain Layout
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="40" columns="7">
+<lyxtabular version="3" rows="41" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -6710,7 +6793,7 @@ ZOO
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6722,7 +6805,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6734,7 +6817,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6746,7 +6829,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6758,7 +6841,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6770,7 +6853,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6782,7 +6865,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6790,6 +6873,92 @@ AVERAGE
 \series bold
 \size footnotesize
 23.42%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+STDEV
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+18.25%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+18.36%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+18.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+15.92%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+15.46%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+15.25%
 \end_layout
 
 \end_inset
@@ -6834,7 +7003,7 @@ name "tab:expRegression"
 \begin_layout Plain Layout
 \align left
 \begin_inset Tabular
-<lyxtabular version="3" rows="25" columns="7">
+<lyxtabular version="3" rows="26" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -8740,7 +8909,7 @@ TZ
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8752,7 +8921,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8764,7 +8933,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8776,7 +8945,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8788,7 +8957,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8800,7 +8969,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8812,7 +8981,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8820,6 +8989,92 @@ AVERAGE
 \series bold
 \size footnotesize
 4.66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+STDEV
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+43.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+68.11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+22.01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+14.34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+14.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+13.76
 \end_layout
 
 \end_inset
@@ -9079,6 +9334,17 @@ Summarizing the above results, one can see that the proposed technique for
  in classification error in 80% of cases and in many datasets the reduction
  in classification or regression error was extremely significant.
  
+\end_layout
+
+\begin_layout Section
+Discussion
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Discussion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -9824,6 +10090,150 @@ O’Hora, B.; Perera, J.; Brabazon, A.
  In Proceedings of the 2006 IEEE International Joint Conference on Neural
  Network Proceedings, Vancouver, BC, USA, 16–21 July 2006; pp.
  2932–2937.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfkernel"
+literal "false"
+
+\end_inset
+
+N.
+ Benoudjit, M.
+ Verleysen, On the Kernel Widths in Radial-Basis Function Networks, Neural
+ Processing Letters 
+\series bold
+18
+\series default
+, pp.
+ 139–154, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfgen"
+literal "false"
+
+\end_inset
+
+J.
+ Paetz, Reducing the number of neurons in radial basis function networks
+ with dynamic decay adjustment, Neurocomputing 
+\series bold
+62
+\series default
+, pp.
+ 79-91, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfcon"
+literal "false"
+
+\end_inset
+
+H.
+ Yu, P.
+ D.
+ Reiner, T.
+ Xie, T.
+ Bartczak, B.
+ M.
+ Wilamowski, An Incremental Design of Radial Basis Function Networks, IEEE
+ Transactions on Neural Networks and Learning Systems 
+\series bold
+25
+\series default
+, pp.
+ 1793-1803, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfpso"
+literal "false"
+
+\end_inset
+
+A.
+ Alexandridis, E.
+ Chondrodima, H.
+ Sarimveis, Cooperative learning for radial basis function networks using
+ particle swarm optimization, Applied Soft Computing 
+\series bold
+49
+\series default
+, pp.
+ 485-497, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbflearn"
+literal "false"
+
+\end_inset
+
+R.
+ Neruda, P.
+ Kudova, Learning methods for radial basis function networks, Future Generation
+ Computer Systems 
+\series bold
+21
+\series default
+, pp.
+ 1131–1142, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfpar1"
+literal "false"
+
+\end_inset
+
+R.
+ Yokota, L.A.
+ Barba, M.
+ G.
+ Knepley, PetRBF — A parallel O(N) algorithm for radial basis function interpola
+tion with Gaussians, Computer Methods in Applied Mechanics and Engineering
+ 
+\series bold
+199
+\series default
+, pp.
+ 1793-1804, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfpar2"
+literal "false"
+
+\end_inset
+
+C.
+ Lu, N.
+ Ma, Z.
+ Wang, Fault detection for hydraulic pump based on chaotic parallel RBF
+ network, EURASIP J.
+ Adv.
+ Signal Process.
+ 
+\series bold
+2011
+\series default
+, 49, 2011.
 \end_layout
 
 \begin_layout Bibliography
