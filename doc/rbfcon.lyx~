@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -128,7 +128,7 @@
 \end_preamble
 \options journal,article,submit,pdftex,moreauthors
 \use_default_options false
-\maintain_unincluded_children no
+\maintain_unincluded_children false
 \begin_local_layout
 #Adds an endnote inset, in addition to footnotes. You will need to add
 #\printendnotes in TeX-code where you want the endnotes to appear.
@@ -161,9 +161,7 @@ End
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_roman_osf false
-\font_sans_osf false
-\font_typewriter_osf false
+\font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -173,8 +171,6 @@ End
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement class
-\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -199,9 +195,7 @@ End
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_formatted_ref 0
 \use_minted 0
-\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -217,28 +211,21 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tablestyle default
 \tracking_changes false
 \output_changes false
-\change_bars false
-\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\docbook_table_output 0
-\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
 
 \begin_layout Title
-RbfCon:
- Construct RBF neural networks with Grammatical Evolution
+RbfCon: Construct RBF neural networks with Grammatical Evolution
 \end_layout
 
 \begin_layout Title Citation
-RbfCon:
- Construct RBF neural networks with Grammatical Evolution
+RbfCon: Construct RBF neural networks with Grammatical Evolution
 \end_layout
 
 \begin_layout Author
@@ -247,8 +234,7 @@ Ioannis G.
 \begin_inset Formula $^{1,*}$
 \end_inset
 
-,
- Ioannis Varvaras
+, Ioannis Varvaras
 \begin_inset Formula $^{2}$
 \end_inset
 
@@ -261,17 +247,11 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos,
- Ioannis Varvaras and Vasileios Charilogis 
+ Tsoulos, Ioannis Varvaras and Vasileios Charilogis 
 \end_layout
 
 \begin_layout Author Names for Citation
-Tsoulos,
- I.G.;
- Varvaras,
- I.;
- Charilogis,
- V.
+Tsoulos, I.G.; Varvaras, I.; Charilogis, V.
  
 \end_layout
 
@@ -283,10 +263,8 @@ Tsoulos,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications,
- University of Ioannina,
- Greece;
- itsoulos@uoi.gr
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; itsoulos@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -298,10 +276,8 @@ Department of Informatics and Telecommunications,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications,
- University of Ioannina,
- Greece;
- i_varvaras@hotmail.com
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; i_varvaras@hotmail.com
 \begin_inset Newline newline
 \end_inset
 
@@ -309,33 +285,36 @@ Department of Informatics and Telecommunications,
 \begin_inset Formula $^{3}\quad$
 \end_inset
 
-Department of Informatics and Telecommunications,
- University of Ioannina,
- Greece;
- v.charilog@uoi.gr
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; v.charilog@uoi.gr
 \end_layout
 
 \begin_layout Corresponding Author
-Correspondence:
- itsoulos@uoi.gr
+Correspondence: itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Abstract
-Radial Basis Function networks considered as a machine learning tool,
- used in classification and regression problems derived from various areas of the modern world.
- However,
- in many cases,
- the initial training method used to fit the parameters of these models can produce poor results either due to unstable numerical operations or its inability to effectively locate the global minimum of the error function.
- The current work proposes a novel method that constructs the architecture of this model and estimates the values for each parameter of the model with the incorporation of Grammatical Evolution.
- The proposed method was coded in ANSI C++ and the suggested software was tested on a wide series of problems from various areas.
- The experimental results certify the adequacy of the new method to solve difficult problems and in the vast majority of cases the error in classification or approximation of functions is significantly lower than the case where the original training method was applied.
+Radial Basis Function networks considered as a machine learning tool, applied
+ on a wide series of classification and regression problems that was proposed
+ in various research topics of the modern world.
+ However, in many cases, the initial training method used to fit the parameters
+ of these models can produce poor results either due to unstable numerical
+ operations or its inability to effectively locate the lowest value of the
+ error function.
+ The current work proposes a novel method that constructs the architecture
+ of this model and estimates the values for each parameter of the model
+ with the incorporation of Grammatical Evolution.
+ The proposed method was coded in ANSI C++ and the produced software was
+ tested for its effectiveness on a wide series of datasets.
+ The experimental results certify the adequacy of the new method to solve
+ difficult problems and in the vast majority of cases the error in classificatio
+n or approximation of functions is significantly lower than the case where
+ the original training method was applied.
 \end_layout
 
 \begin_layout Keywords
-Neural networks;
- Genetic programming;
- Grammatical Evolution;
- Evolutionary algorithms
+Neural networks; Genetic programming; Grammatical Evolution; Evolutionary
+ algorithms
 \end_layout
 
 \begin_layout Section
@@ -343,8 +322,9 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-A variety of real - world problems can be considered as classification and regression problems,
- handled by machine learning models that have been thoroughly studied in the recent bibliography.
+A variety of real - world problems can be considered as classification and
+ regression problems, handled by machine learning models that have been
+ thoroughly studied in the recent bibliography.
  Such problems arise in physics 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -353,8 +333,7 @@ literal "false"
 
 \end_inset
 
-,
- chemistry 
+, chemistry 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "chemistry_ml1,chemistry_ml2"
@@ -362,8 +341,7 @@ literal "false"
 
 \end_inset
 
-,
- economics 
+, economics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "econ_ml1,econ_ml2"
@@ -371,8 +349,7 @@ literal "false"
 
 \end_inset
 
-,
- medicine 
+, medicine 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "med_ml1,med_ml2"
@@ -381,9 +358,8 @@ literal "false"
 \end_inset
 
  etc.
- One common machine learning model,
- that is applied in many areas,
- is the Radial Basis Function (RBF) neural network 
+ One common machine learning model, that is applied in many areas, is the
+ Radial Basis Function (RBF) neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -392,8 +368,8 @@ literal "false"
 \end_inset
 
 .
- Typically,
- an RBF network is defined using the following equation:
+ Commonly these neural networks are formed using the following mathematical
+ expression:
 \series bold
 
 \begin_inset Formula 
@@ -412,7 +388,6 @@ reference "eq:firstrbf"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -449,7 +424,7 @@ The vectors
 \begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
 \end_inset
 
- represent the centers of this model.
+ represent the so - called centers of the network.
 \end_layout
 
 \begin_layout Enumerate
@@ -470,7 +445,6 @@ The function
 \end_inset
 
  in most cases is represented by the Gaussian function defined as:
-
 \series bold
  
 \begin_inset Formula 
@@ -482,12 +456,12 @@ The function
 
 
 \series default
-This function is selected as the output function,
- since the value 
+This function is selected as the output function, since the output value
+ 
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- depends only on the distance of vectors 
+ uses only the distance of vectors 
 \begin_inset Formula $x$
 \end_inset
 
@@ -499,9 +473,9 @@ This function is selected as the output function,
 \end_layout
 
 \begin_layout Standard
-RBF neural networks have been widely used and studied in the relevant literature and,
- among others,
- one can find applications in problems derived from physics 
+RBF neural networks have been extensively used and studied in the recent
+ literature and, among others, one can find applications in problems derived
+ from physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfphysics1,rbfphysics2"
@@ -509,8 +483,7 @@ literal "false"
 
 \end_inset
 
-,
- robotics 
+, robotics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfrobotics1,rbfrobotics2"
@@ -518,8 +491,7 @@ literal "false"
 
 \end_inset
 
-,
- security problems 
+, security problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_dos1,rbf_dos2"
@@ -527,8 +499,7 @@ literal "false"
 
 \end_inset
 
-,
- image processing 
+, image processing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_lmage1,rbf_image2"
@@ -537,9 +508,12 @@ literal "false"
 \end_inset
 
  etc.
- Due to the widespread use of these machine learning models and their use in both function learning and data fitting problems,
- a number of techniques have been presented in recent years that seek to more accurately identify their parameters.
- Such methods include techniques used to initialize the parameters of these models 
+ Due to the widespread use of these machine learning models and their use
+ in both function learning and data fitting problems, a number of techniques
+ have been presented in recent years that seek to more accurately identify
+ their parameters.
+ Such methods include techniques used to initialize the parameters of these
+ models 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfinit1,rbfinit2,rbfinit3"
@@ -547,8 +521,8 @@ literal "false"
 
 \end_inset
 
-,
- or pruning methods for the optimal adaptation of the architecture of these models 
+, or pruning methods for the optimal adaptation of the architecture of these
+ models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfprun1,rbfprun3,rbfprun2"
@@ -557,8 +531,8 @@ literal "false"
 \end_inset
 
 .
- Also,
- global optimization methods have been proposed to estimate the optimal set of parameters of RBF networks in a series of research papers 
+ Also, global optimization methods have been proposed to estimate the optimal
+ set of parameters of RBF networks in a series of research papers 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_go1,rbf_go2,rbf_go3"
@@ -571,17 +545,15 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In most cases,
- the parameters of an RBF neural network are calculated using a two phase method:
- during the first phase,
- the set of centers and variances of equation 
+In most cases, the set of the parameters of the model is estimated using
+ a two phase method: during the first phase, the set of centers and variances
+ of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:firstrbf"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -594,19 +566,18 @@ literal "false"
 \end_inset
 
 .
- In the second phase,
- the set of weights 
+ In the second phase, the set of weights 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
  is obtained by solving a linear system of equations.
- Although the previous procedure is capable of estimating the optimal set of parameters in a very short time,
- it nevertheless has a number of problems such as numerical stability,
- accurate determination of the number of weights,
- over - fitting problems,
- etc.
- To tackle such problems,
- a novel method is proposed here that constructs the optimal architecture of RBF networks using a method that incorporates the Grammatical Evolution procedure 
+ Although the previous procedure is capable of estimating the optimal set
+ of parameters in a very short time, it nevertheless has a number of problems
+ such as numerical stability, accurate determination of the number of weights,
+ over - fitting problems, etc.
+ To tackle such problems, a novel method is proposed here that constructs
+ the optimal architecture of RBF networks using a method that incorporates
+ the Grammatical Evolution procedure 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "geMain"
@@ -615,27 +586,29 @@ literal "false"
 \end_inset
 
 .
- The proposed technique is able to estimate both the optimal architecture of the neural network and the numerical values of its parameters,
- and in this paper both the algorithm used and the software created for this process,
- which is freely available from the internet,
- will be presented in detail.
+ The proposed technique is able to estimate both the optimal architecture
+ of the neural network and the numerical values of its parameters, and in
+ this paper both the algorithm used and the software created for this process,
+ which is freely available from the internet, will be presented in detail.
  
 \end_layout
 
 \begin_layout Standard
-The software proposed in this work is fully implemented in the programming language ANSI C++ and is an executable that has a series of command line parameters with which the user can efficiently process the data sets at his disposal.
+The software proposed in this work is fully implemented in the programming
+ language ANSI C++ and is an executable that has a series of command line
+ parameters with which the user can efficiently process the data sets at
+ his disposal.
 \end_layout
 
 \begin_layout Standard
-The rest of this article is divided in the following sections:
- in section 
+The rest of this article is divided in the following sections: in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Materials-and-Methods"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -647,22 +620,21 @@ reference "sec:Results"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
- the datasets used in the experiments are presented followed by the experimental results and finally in section 
+ the datasets incorporated in the conducted experiments are listed followed
+ by the experimental results and finally in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
- some conclusions are discussed.
+ a series of conclusions is presented.
 \end_layout
 
 \begin_layout Section
@@ -677,9 +649,10 @@ name "sec:Materials-and-Methods"
 \end_layout
 
 \begin_layout Standard
-This section starts with a description of the original training procedure for RBF neural networks and afterwards it provides a presentation of the Grammatical Evolution procedure and continues with a detail description of the proposed method.
- Finally,
- the proposed software is presented and a full working example of execution is shown.
+The original training method of RBF networks is presented here followed
+ by the detail presentation of the Grammatical Evolution procedure.
+ Afterwards, the proposed method is fully described accompanied by a full
+ working example of the proposed software.
 \end_layout
 
 \begin_layout Subsection
@@ -711,25 +684,24 @@ The typical training procedure of an RBF network
 \begin_inset Formula $y(x)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert x-c_{i}\right\Vert \right)$
 \end_inset
 
- involves two major steps:
- in first step the centers 
+ involves two major steps: in first step the centers 
 \begin_inset Formula $\overrightarrow{c_{i}}$
 \end_inset
 
- and the variances are calculated using the K-means procedure,
- which is outlined in Algorithm 
+ and the variances are calculated using the K-means procedure, which is
+ outlined in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:K-means-Algorithm"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
 .
- During the second step a system of equations should be solved in order to obtain the values for weights 
+ During the second step a system of equations should be solved in order
+ to calculate the values for weights 
 \begin_inset Formula $w_{i},\ i=1,\ldots,k$
 \end_inset
 
@@ -749,8 +721,7 @@ Set
 \begin_inset Formula $k$
 \end_inset
 
- weights,
- 
+ weights, 
 \begin_inset Formula $\Phi=\phi_{j}\left(x_{i}\right)$
 \end_inset
 
@@ -758,8 +729,7 @@ Set
 \begin_inset Formula $T=\left\{ t_{i}\right\} $
 \end_inset
 
-,
- where 
+, where 
 \begin_inset Formula $t_{i},\ i=1,...,M$
 \end_inset
 
@@ -774,8 +744,7 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Solve:
- 
+Solve: 
 \begin_inset Formula 
 \begin{equation}
 \Phi^{T}\left(T-\Phi W^{T}\right)=0
@@ -801,8 +770,7 @@ The matrix
 \begin_inset Formula $\Phi$
 \end_inset
 
-,
- with
+, with
 \series bold
 
 \begin_inset Formula 
@@ -818,7 +786,6 @@ The matrix
 \begin_layout Standard
 \begin_inset Float algorithm
 placement H
-alignment document
 wide false
 sideways false
 status collapsed
@@ -863,8 +830,7 @@ Set
 \begin_inset Formula $S_{j}=\emptyset$
 \end_inset
 
-,
- from 
+, from 
 \begin_inset Formula $j=1,\ldots,k$
 \end_inset
 
@@ -1024,7 +990,6 @@ reference "enu:For-every-pattern"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -1060,7 +1025,8 @@ The used construction procedure
 \end_layout
 
 \begin_layout Standard
-The Grammatical Evolution procedure is able to construct programs in the provided Backus Naur Form (BNF) grammar 
+The Grammatical Evolution procedure is able to construct programs in the
+ provided Backus Naur Form (BNF) grammar 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -1068,10 +1034,10 @@ literal "false"
 
 \end_inset
 
- using a genetic algorithm with integer chromosomes.
- These chromosomes represent rule numbers from the underlying grammar and the method has been used successfully in a variety of problems,
- such as:
- trigonometric problems 
+ with the assistance of a genetic algorithm that utilizes integer chromosomes.
+ These chromosomes represent rule numbers from the underlying grammar and
+ the method has been used successfully in a series of cases, such as: trigonomet
+ric problems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_trig"
@@ -1079,8 +1045,7 @@ literal "false"
 
 \end_inset
 
-,
- production of music
+, production of music
 \series bold
  
 \series default
@@ -1092,8 +1057,7 @@ literal "false"
 
 \end_inset
 
-,
- construction of neural networks
+, construction of neural networks
 \series bold
  
 \series default
@@ -1106,7 +1070,6 @@ literal "false"
 \end_inset
 
 ,
-
 \series bold
  
 \series default
@@ -1121,7 +1084,6 @@ literal "false"
 
 \series bold
 ,
-
 \series default
  credit classification 
 \begin_inset CommandInset citation
@@ -1131,8 +1093,7 @@ literal "false"
 
 \end_inset
 
-,
- network security 
+, network security 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_intrusion"
@@ -1141,9 +1102,8 @@ literal "false"
 \end_inset
 
  etc.
- Furthermore,
- many researchers have developed and published a series of software regarding Grammatical Evolution,
- such as
+ Furthermore, many researchers have developed and published a series of
+ software regarding Grammatical Evolution, such as
 \series bold
  
 \series default
@@ -1155,8 +1115,8 @@ literal "false"
 
 \end_inset
 
- which suggests a GUI environment,
- a statistical software written in R named gramEvol 
+ which suggests a GUI environment, a statistical software written in R named
+ gramEvol 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gramevol"
@@ -1165,7 +1125,6 @@ literal "false"
 \end_inset
 
 ,
-
 \series bold
  
 \series default
@@ -1177,8 +1136,7 @@ literal "false"
 
 \end_inset
 
-,
- the GenClass software used in classification problems
+, the GenClass software used in classification problems
 \series bold
  
 \series default
@@ -1190,8 +1148,7 @@ literal "false"
 
 \end_inset
 
-,
- the QFc software 
+, the QFc software 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_qfc"
@@ -1203,7 +1160,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The proposed procedure constructs the structure of an RBF neural network using Grammatical Evolution and an appropriately modified Genetic Algorithm 
+The proposed procedure constructs the structure of an RBF neural network
+ using Grammatical Evolution and an appropriately modified Genetic Algorithm
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "genetic1,genetic2"
@@ -1212,14 +1171,14 @@ literal "false"
 \end_inset
 
  that guides the course of the procedure.
- The required BNF grammar for the current algorithm is outlined in Figure 
+ The required BNF grammar for the current algorithm is outlined in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:The-BNF-grammar"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -1238,10 +1197,9 @@ nolink "false"
 \begin_layout Standard
 \begin_inset Float figure
 placement H
-alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout LyX-Code
 S:=<rbfexpr>                           
@@ -1323,7 +1281,7 @@ S:=<rbfexpr>
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The BNF grammar of the proposed method.
+The BNF grammar that used by the proposed method to create RBF networks.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:The-BNF-grammar"
@@ -1340,7 +1298,8 @@ name "fig:The-BNF-grammar"
 
 \end_inset
 
-The steps of the method used to create RBF neural networks are listed below:
+The steps of the algorithm used to create RBF neural networks are listed
+ below:
 \end_layout
 
 \begin_layout Enumerate
@@ -1361,7 +1320,7 @@ Set
 \begin_inset Formula $N_{c}$
 \end_inset
 
- and the maximum number of allowed generations 
+ and the number of allowed generations 
 \begin_inset Formula $N_{g}$
 \end_inset
 
@@ -1373,8 +1332,7 @@ Set
 \series bold
 Set
 \series default
- the selection rate of the genetic algorithm,
- denoted as 
+ the selection rate of the genetic algorithm, denoted as 
 \begin_inset Formula $p_{c}$
 \end_inset
 
@@ -1390,13 +1348,11 @@ Set
 \series bold
 Set
 \series default
- the mutation rate of the genetic algorithm,
- denoted as 
+ the mutation rate of the genetic algorithm, denoted as 
 \begin_inset Formula $p_{m}$
 \end_inset
 
-,
- with 
+, with 
 \begin_inset Formula $p_{m}\le$
 \end_inset
 
@@ -1408,7 +1364,7 @@ Set
 \series bold
 Initialize
 \series default
- randomly each element of each chromosome as a positive random integer number.
+ the chromosomes as sets of positive random integers.
 \end_layout
 
 \begin_layout Enumerate
@@ -1416,8 +1372,7 @@ Initialize
 \series bold
 Set
 \series default
- k=0,
- the generation number.
+ k=0, the generation number.
 \end_layout
 
 \end_deeper
@@ -1458,7 +1413,6 @@ reference "fig:The-BNF-grammar"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -1473,13 +1427,13 @@ nolink "false"
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Compute
 \series default
  the fitness 
 \begin_inset Formula $f_{i}$
 \end_inset
 
- for the the train set as:
+ for the train set as:
 \begin_inset Formula 
 \begin{equation}
 f_{i}=\sum_{j=1}^{M}\left(y_{i}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1}
@@ -1487,11 +1441,11 @@ f_{i}=\sum_{j=1}^{M}\left(y_{i}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^
 
 \end_inset
 
-where the set 
+The set 
 \begin_inset Formula $\left(\overrightarrow{x_{j}},t_{j}\right),\ j=1,...,M$
 \end_inset
 
- denotes the train dataset of the objective problem.
+ represents the train dataset of the objective problem.
 \end_layout
 
 \end_deeper
@@ -1511,7 +1465,8 @@ A sorting of the chromosomes is performed according to their fitness values.
 \series bold
  
 \series default
-The rest of chromosomes will be replaced by new chromosomes produced during the crossover procedure.
+The rest of chromosomes will be replaced by new chromosomes produced during
+ the crossover procedure.
  
 \end_layout
 
@@ -1542,25 +1497,20 @@ and
 
 
 \series default
-,
- two chromosomes 
+, two chromosomes 
 \begin_inset Formula $(z,w)$
 \end_inset
 
  should be selected from the original population using tournament selection.
- The new chromosomes are produced from 
-\begin_inset Formula $(z,w)$
-\end_inset
-
- using the one - point crossover procedure.
- An example of the one - point crossover graphically presented in Figure 
+ The production of the new chromosomes is conducted using the one -point
+ crossover procedure.
+ An example of this process is graphically outlined in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:onePoint"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -1573,8 +1523,7 @@ Perform mutation.
 \series bold
  
 \series default
-For each element of every chromosome,
- draw randomly a number 
+For each element of every chromosome, draw randomly a number 
 \begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
@@ -1583,7 +1532,7 @@ For each element of every chromosome,
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
- then the corresponding element is altered randomly.
+ then the corresponding element is replaced by a new randomly produced element.
 \end_layout
 
 \begin_layout Enumerate
@@ -1616,7 +1565,6 @@ reference "enu:Main-loop-step."
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -1638,8 +1586,8 @@ Local Optimization step
 \end_inset
 
 .
- The parameters of this neural network are obtained by minimizing with some local search procedure the training error defined as:
- 
+ The parameters of this neural network are obtained by minimizing with some
+ local search procedure the training error defined as: 
 \begin_inset Formula 
 \begin{equation}
 E\left(y^{*}(x)\right)=\sum_{j=1}^{M}\left(y^{*}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1-1}
@@ -1666,7 +1614,6 @@ Application in test set
 \begin_layout Standard
 \begin_inset Float figure
 placement H
-alignment document
 wide false
 sideways false
 status open
@@ -1686,8 +1633,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-An example for the procedure of one - point crossover,
- as used in the Grammatical Evolution procedure.
+A graphical example of the one - point crossover.
+ This procedure is used in the Grammatical Evolution method to produce new
+ chromosomes.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:onePoint"
@@ -1712,8 +1660,8 @@ Installation procedure
 \end_layout
 
 \begin_layout Standard
-The software was coded entirelly in ANSI C++ and the software can be downloaded freely from the following URL:
- 
+The software was coded entirely in ANSI C++ and the software is available
+ freely from the following URL: 
 \begin_inset Flex URL
 status collapsed
 
@@ -1725,8 +1673,7 @@ https://github.com/itsoulos/RbfCon
 \end_inset
 
  (accessed on 14 November 2024).
- The user should install the QT Library,
- which is freely available from 
+ The user should install the QT Library, which is accessible from 
 \begin_inset Flex URL
 status open
 
@@ -1738,9 +1685,8 @@ https://qt.io
 \end_inset
 
  (accessed on 14 November 2024) in order to compile the software.
- After downloading the RbfCon-master.zip file,
- the user should execute the following commands,
- under any Unix - based system:
+ After downloading the RbfCon-master.zip file, the user should execute the
+ following commands, under any Unix - based system:
 \end_layout
 
 \begin_layout Enumerate
@@ -1760,8 +1706,9 @@ make
 \end_layout
 
 \begin_layout Standard
-For windows systems the user alternatively could install the software using the RBFCON.msi located in the distribution,
- which is an installation file that installs the software without the need for the QT Library.
+For windows systems the user alternatively could install the software using
+ the RBFCON.msi located in the distribution, which is an installation file
+ that installs the software without the need for the QT Library.
 \end_layout
 
 \begin_layout Subsection
@@ -1782,7 +1729,8 @@ trainfile=<filename> The string parameter
 \emph on
 filename
 \emph default
- determines the name of the file containing the training dataset for the software.
+ determines the name of the file containing the training dataset for the
+ software.
  The user is required to provide this parameter to start the process.
  The format for this file is shown in Figure 
 \begin_inset CommandInset ref
@@ -1791,12 +1739,13 @@ reference "fig:datasetFormat"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
 .
- The first number denoted as D in this figure determines the dimension of the input dataset and the second number denoted as M stands for the number of input patterns.
+ The first number denoted as D in this figure determines the dimension of
+ the input dataset and the second number denoted as M represents the number
+ of input patterns.
  Every line in the file contains a pattern and the required desired output.
 \end_layout
 
@@ -1825,11 +1774,12 @@ testfile
 \begin_inset Formula $--$
 \end_inset
 
-chromosome_count=<count> The integer parameter 
-\emph on
-count 
-\emph default
-represents the number of chromosomes that the genetic algorithm will contain.
+chromosome_count=<count> This integer parameter denotes the number of chromosome
+s in the genetic algorithm (parameter 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ of the algorithm).
  The default value for this parameter is 500.
 \end_layout
 
@@ -1853,7 +1803,7 @@ selection_rate=<rate> The double precision parameter
 \emph on
 rate
 \emph default
- stands for the selection rate of the Grammatical Evolution process.
+ stands for the selection rate of the Grammatical Evolution process .
  The default value for this parameter is 0.10 (10%).
 \end_layout
 
@@ -1877,16 +1827,22 @@ generations=<gens> The integer parameter
 \emph on
 gens
 \emph default
- stands for the maximum number of allowed generations for the Grammatical Evolution procedure.
- The default value for this parameter is 500.
+ stands for the maximum number of allowed generations for the Grammatical
+ Evolution procedure (parameter 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ of the current algorithm).
+ The original value is 500.
 \end_layout
 
 \begin_layout Enumerate
 \begin_inset Formula $--$
 \end_inset
 
-local_method=<method> The used local optimization method,
- that will be applied to the parameters of the RBF model when the Grammatical Evolution procedure finished.
+local_method=<method> The used local optimization method, that will be applied
+ to the parameters of the RBF model when the Grammatical Evolution procedure
+ finished.
  The available local optimization methods are:
 \end_layout
 
@@ -1897,7 +1853,8 @@ local_method=<method> The used local optimization method,
 lbfgs
 \emph default
 .
- The method L-BFGS can be considered as a variation of the Broyden–Fletcher–Goldfarb–Shanno (BFGS) optimization technique 
+ The method L-BFGS can be considered as a variation of the Broyden–Fletcher–Gold
+farb–Shanno (BFGS) optimization technique 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bfgs2"
@@ -1905,14 +1862,13 @@ literal "false"
 
 \end_inset
 
-,
- that utilizes a minimum amount of memory.
+, that utilizes a minimum amount of memory.
 
 \series bold
  
 \series default
-This optimization method has been used in many cases,
- such as image reconstruction 
+This optimization method has been used in many cases, such as image reconstructi
+on 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lbfgs_image"
@@ -1921,7 +1877,6 @@ literal "false"
 \end_inset
 
 ,
-
 \series bold
  
 \series default
@@ -1933,8 +1888,7 @@ literal "false"
 
 \end_inset
 
-,
- seismic problems 
+, seismic problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lbfgs_seismic"
@@ -1942,8 +1896,7 @@ literal "false"
 
 \end_inset
 
-,
- training of deep neural networks 
+, training of deep neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lbfgs_deep"
@@ -1960,8 +1913,8 @@ etc.
 \series bold
  
 \series default
-Also,
- the a series of modifications have been proposed that take advantage of modern parallel computing systems 
+Also, the a series of modifications have been proposed that take advantage
+ of modern parallel computing systems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lbfgs_par1,lbfgs_par2,lbfgs_par3"
@@ -1986,8 +1939,7 @@ literal "false"
 
 \end_inset
 
-,
- when this option is enabled.
+, when this option is enabled.
  
 \end_layout
 
@@ -2031,7 +1983,8 @@ literal "false"
 none
 \emph default
 .
- With this option no local optimization method will be used after the Genetic Algorithm is terminated.
+ With this option no local optimization method will be used after the Genetic
+ Algorithm is terminated.
 \end_layout
 
 \end_deeper
@@ -2039,14 +1992,14 @@ none
 \begin_inset Formula $--$
 \end_inset
 
-iterations=<iters> This integer parameter determines the number of consecutive applications of the proposed technique to the original data set.
+iterations=<iters> This integer parameter determines the number of consecutive
+ applications of the proposed technique to the original data set.
  The default value is 30.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
-alignment document
 wide false
 sideways false
 status collapsed
@@ -2107,7 +2060,7 @@ Example of execution
 \end_layout
 
 \begin_layout Standard
-As an example of execution consider the Wdbc dataset 
+As a full working example, consider the Wdbc dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Wdbc"
@@ -2128,7 +2081,8 @@ status open
 
 \begin_layout Plain Layout
 
-./RbfCon --trainfile=EXAMPLES/wdbc.train --testfile=EXAMPLES/wdbc.test --iterations=2
+./RbfCon --trainfile=EXAMPLES/wdbc.train --testfile=EXAMPLES/wdbc.test --iterations
+=2
 \end_layout
 
 \end_inset
@@ -2144,30 +2098,22 @@ status open
 
 \begin_layout Plain Layout
 
-Iteration:
-    1 TRAIN ERROR:
-          20.40039584
+Iteration:    1 TRAIN ERROR:          20.40039584
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    1 TEST  ERROR:
-        0.07733519754
+Iteration:    1 TEST  ERROR:        0.07733519754
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    1 CLASS ERROR:
-                 9.12%
+Iteration:    1 CLASS ERROR:                 9.12%
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    1 SOLUTION:
-    ((6.711)*(exp((-((pow(x13-(-97.73),2))+
+Iteration:    1 SOLUTION:    ((6.711)*(exp((-((pow(x13-(-97.73),2))+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2207,30 +2153,22 @@ Iteration:
 
 \begin_layout Plain Layout
 
-Iteration:
-    2 TRAIN ERROR:
-          16.06705417
+Iteration:    2 TRAIN ERROR:          16.06705417
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    2 TEST  ERROR:
-        0.05654528154
+Iteration:    2 TEST  ERROR:        0.05654528154
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    2 CLASS ERROR:
-                 4.56%
+Iteration:    2 CLASS ERROR:                 4.56%
 \end_layout
 
 \begin_layout Plain Layout
 
-Iteration:
-    2 SOLUTION:
-    ((4.4)*(exp((-((pow(x27-(3.6),2))+
+Iteration:    2 SOLUTION:    ((4.4)*(exp((-((pow(x27-(3.6),2))+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2270,28 +2208,25 @@ Iteration:
 
 \begin_layout Plain Layout
 
-Average Train Error:
-          18.23372501
+Average Train Error:          18.23372501
 \end_layout
 
 \begin_layout Plain Layout
 
-Average Test  Error:
-        0.06694023954
+Average Test  Error:        0.06694023954
 \end_layout
 
 \begin_layout Plain Layout
 
-Average Class Error:
-                 6.84%
+Average Class Error:                 6.84%
 \end_layout
 
 \end_inset
 
-The program prints the train error,
- the test error and the classification for every run as well as the averages for these values.
- Also,
- in each execution the main program shows the constructed RBF network as a string value.
+The program prints the train error, the test error and the classification
+ for every run as well as the averages for these values.
+ Also, in each execution the main program shows the constructed RBF network
+ as a string value.
 \end_layout
 
 \begin_layout Section
@@ -2306,14 +2241,14 @@ name "sec:Results"
 \end_layout
 
 \begin_layout Standard
-The new technique can be used to construct RBF networks for both classification and data fitting problems.
- For this reason,
- datasets covering many scientific areas and freely available from the following websites were used:
+The new technique can be used to construct RBF networks for both classification
+ and data fitting problems.
+ For this reason, datasets covering many scientific areas are used from
+ the following websites:
 \end_layout
 
 \begin_layout Enumerate
-The UCI repository,
- 
+The UCI repository, 
 \begin_inset Flex URL
 status open
 
@@ -2336,8 +2271,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Keel repository,
- 
+The Keel repository, 
 \begin_inset Flex URL
 status open
 
@@ -2384,7 +2318,8 @@ The used datasets
 \end_layout
 
 \begin_layout Standard
-The following list of classification datasets was used in the conducted experiments:
+The following list contains the used classification datasets for the the
+ conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -2392,8 +2327,7 @@ The following list of classification datasets was used in the conducted experime
 \series bold
 Appendicitis
 \series default
-,
- a medical dataset that was studied in 
+, a medical dataset that was studied in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "appendicitis,appendicitis2"
@@ -2410,8 +2344,7 @@ literal "false"
 \series bold
 Alcohol
 \series default
-,
- a dataset related to alcohol consumption 
+, a dataset related to alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "alcohol"
@@ -2428,8 +2361,7 @@ literal "false"
 \series bold
 Australian
 \series default
-,
- an economic dataset 
+, an economic dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -2437,8 +2369,7 @@ literal "false"
 
 \end_inset
 
-,
- related to the risk in bank transactions.
+.
  The number of classes for this dataset is 2.
 \end_layout
 
@@ -2447,8 +2378,7 @@ literal "false"
 \series bold
 Bands
 \series default
-,
- related to problems occurred in printing 
+, related to problems occurred in printing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bands"
@@ -2464,8 +2394,7 @@ literal "false"
 \series bold
 Cleveland
 \series default
-,
- a medical dataset proposed in a series of research papers 
+, a medical dataset proposed in a series of research papers 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "cleveland1,cleveland2"
@@ -2482,8 +2411,7 @@ literal "false"
 \series bold
 Dermatology
 \series default
-,
- which is also a medical dataset originated in 
+, which is also a medical dataset originated in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -2499,8 +2427,7 @@ literal "false"
 \series bold
 Ecoli
 \series default
-,
- that is related to problems regarding proteins 
+, that is related to problems regarding proteins 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ecoli"
@@ -2516,8 +2443,7 @@ literal "false"
 \series bold
 Fert
 \series default
-,
- used in demographics and it has two distinct classes.
+, used in demographics and it has two distinct classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2525,8 +2451,7 @@ Fert
 \series bold
 Haberman
 \series default
-,
- a medical dataset related to the detection of breast cancer.
+, a medical dataset related to the detection of breast cancer.
  This dataset has two classes.
 \end_layout
 
@@ -2552,8 +2477,7 @@ literal "false"
 \series bold
 Heart
 \series default
-,
- which is a medical dataset related to heart diseases 
+, a medical dataset about heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "heart"
@@ -2561,7 +2485,8 @@ literal "false"
 
 \end_inset
 
- with two classes.
+.
+ This dataset has two classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2569,8 +2494,8 @@ literal "false"
 \series bold
 HeartAttack
 \series default
-,
- which is a medical dataset related to heart diseases having two distinct classes.
+, which is a medical dataset related to heart diseases having two distinct
+ classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2578,8 +2503,7 @@ HeartAttack
 \series bold
 Hepatitis
 \series default
-,
- a dataset used for the detection of hepatitis.
+, a dataset used for the detection of hepatitis.
  
 \end_layout
 
@@ -2588,8 +2512,7 @@ Hepatitis
 \series bold
 Housevotes
 \series default
-,
- used for the Congressional voting in USA 
+, used for the Congressional voting in USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -2605,8 +2528,7 @@ literal "false"
 \series bold
 Ionosphere
 \series default
-,
- used for measurements from the ionosphere 
+, used for measurements from the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ion1,ion2"
@@ -2622,8 +2544,7 @@ literal "false"
 \series bold
 Liverdisorder
 \series default
-,
- which is a medical dataset 
+, which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "liver,liver1"
@@ -2647,8 +2568,7 @@ literal "false"
 
 \end_inset
 
-,
- that has 4 classes.
+, that has 4 classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2656,8 +2576,8 @@ literal "false"
 \series bold
 Magic
 \series default
-,
- this dataset contains generated data to simulate registration of high energy gamma particles 
+, this dataset contains generated data to simulate registration of high
+ energy gamma particles 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "magic"
@@ -2673,8 +2593,7 @@ literal "false"
 \series bold
 Mammographic
 \series default
-,
- a medical dataset used for the prediction of breast cancer 
+, a medical dataset related to the presence of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2690,8 +2609,7 @@ literal "false"
 \series bold
 Parkinsons
 \series default
-,
- a dataset used for the detection of Parkinson's disease 
+, a dataset used for the detection of Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "parkinsons1,parkinsons2"
@@ -2707,8 +2625,7 @@ literal "false"
 \series bold
 Pima
 \series default
-,
- a medical dataset that was useful for the detection of diabetes 
+, a medical dataset that was useful for the detection of diabetes 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2724,8 +2641,7 @@ literal "false"
 \series bold
 Popfailures
 \series default
-,
- a dataset contains climate measurements 
+, a dataset contains climate measurements 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -2741,8 +2657,8 @@ literal "false"
 \series bold
 Regions2
 \series default
-,
- a medical dataset that contains measurements from liver biopsy images 
+, a medical dataset that contains measurements from liver biopsy images
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -2758,9 +2674,8 @@ literal "false"
 \series bold
 Ring
 \series default
-,
- which is a problem with 20 dimensions and two classes.
- Each class is drawn from a multivariate normal distribution.
+, which is a problem with 20 dimensions and two classes, related to a series
+ of multivariate normal distributions.
  
 \end_layout
 
@@ -2769,8 +2684,7 @@ Ring
 \series bold
 Saheart
 \series default
-,
- a medical dataset related to heart diseases with 2 classes 
+, a medical dataset related to heart diseases with 2 classes 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -2786,8 +2700,7 @@ literal "false"
 \series bold
 Statheart
 \series default
-,
- which is a also a medical dataset related to heart diseases.
+, which is a also a medical dataset related to heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2795,8 +2708,7 @@ Statheart
 \series bold
 Spambase
 \series default
-,
- a dataset used to detect spam emails from a large database.
+, a dataset used to detect spam emails from a large database.
  The dataset has two distinct classes.
 \end_layout
 
@@ -2805,8 +2717,7 @@ Spambase
 \series bold
 Spiral
 \series default
-,
- an artificial dataset with two classes.
+, an artificial dataset with two classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2814,8 +2725,7 @@ Spiral
 \series bold
 Student
 \series default
-,
- a dataset contains measurements from various experiments in schools 
+, a dataset contains measurements from various experiments in schools 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -2831,8 +2741,8 @@ literal "false"
 \series bold
 Tae
 \series default
-,
- this dataset consist of evaluations of teaching performance and it has 3 classes.
+, this dataset consist of evaluations of teaching performance and it has
+ 3 classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2840,8 +2750,7 @@ Tae
 \series bold
 Transfusion
 \series default
-,
- which is a medical dataset 
+, which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "transfusion"
@@ -2857,8 +2766,7 @@ literal "false"
 \series bold
 Wdbc
 \series default
-,
- a medical dataset used to detect the presence of breast cancer that studied in a series of research papers 
+, a medical dataset used to detect the presence of breast cancer
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc1,wdbc2"
@@ -2874,8 +2782,7 @@ literal "false"
 \series bold
 Wine
 \series default
-,
- a dataset contains measurements about the quality of wines 
+, a dataset contains measurements about the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -2883,8 +2790,7 @@ literal "false"
 
 \end_inset
 
-,
- with 3 distinct classes.
+, with 3 distinct classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2892,8 +2798,8 @@ literal "false"
 \series bold
 EEG
 \series default
- dataset,
- which is a medical dataset about EEG measurements studied in a series of papers 
+ dataset, which is a medical dataset about EEG measurements studied in a
+ series of papers 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -2902,10 +2808,8 @@ literal "false"
 \end_inset
 
 .
- The following cases were obtained from this dataset:
- Z_F_S,
- ZO_NF_S,
- Z_O_N_F_S and ZONF_S.
+ The following cases were obtained from this dataset: Z_F_S, ZO_NF_S, Z_O_N_F_S
+ and ZONF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -2913,8 +2817,7 @@ literal "false"
 \series bold
 Zoo
 \series default
-,
- that used to detect the class of some animals 
+, that used to detect the class of some animals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -2926,7 +2829,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Also the following list of regression datasets was used in the conducted experiments:
+The next list provided the regression datasets that was incorporated during
+ the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -2934,8 +2838,7 @@ Also the following list of regression datasets was used in the conducted experim
 \series bold
 Abalone
 \series default
-,
- a dataset that used to predict the age of abalones with 8 features.
+, a dataset that used to predict the age of abalones with 8 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2943,8 +2846,7 @@ Abalone
 \series bold
 Airfoil
 \series default
-,
- a dataset provided by NASA 
+, a dataset provided by NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -2960,8 +2862,7 @@ literal "false"
 \series bold
 Auto
 \series default
-,
- a dataset used to predict the fuel consumption with 7 features.
+, a dataset used to predict the fuel consumption with 7 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2969,8 +2870,8 @@ Auto
 \series bold
 BK
 \series default
-,
- that contains measurements from a series of basketball games and it has 4 features.
+, that contains measurements from a series of basketball games and it has
+ 4 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2978,8 +2879,7 @@ BK
 \series bold
 BL
 \series default
-,
- a dataset used to record electricity experiments and it contains 7 features.
+, a dataset used to record electricity experiments and it contains 7 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2987,8 +2887,7 @@ BL
 \series bold
 Baseball
 \series default
-,
- a dataset with 16 features used to estimate the income of baseball players.
+, a dataset with 16 features used to estimate the income of baseball players.
 \end_layout
 
 \begin_layout Enumerate
@@ -2996,8 +2895,7 @@ Baseball
 \series bold
 Concrete
 \series default
-,
- a dataset with 8 features used in civil engineering 
+, a dataset with 8 features used in civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -3013,8 +2911,7 @@ literal "false"
 \series bold
 DEE
 \series default
-,
- a dataset with 6 featured that was to predict the electricity cost.
+, a dataset with 6 featured that was to predict the electricity cost.
 \end_layout
 
 \begin_layout Enumerate
@@ -3022,8 +2919,7 @@ DEE
 \series bold
 FA
 \series default
-,
- that contains measurements about the body fat and it has 18 features.
+, that contains measurements about the body fat and it has 18 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -3031,8 +2927,7 @@ FA
 \series bold
 HO
 \series default
-,
- a dataset originated in the STATLIB repository with 13 features.
+, a dataset originated in the STATLIB repository with 13 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -3040,8 +2935,7 @@ HO
 \series bold
 Housing
 \series default
-,
- used to predict the price of houses 
+, used to predict the price of houses 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -3057,8 +2951,8 @@ literal "false"
 \series bold
 Laser
 \series default
-,
- which is a dataset with 4 features and it has been used in various laser experiments.
+, which is a dataset with 4 features and it has been used in various laser
+ experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -3066,8 +2960,7 @@ Laser
 \series bold
 LW
 \series default
-,
- a dataset with 9 features used to record the weight of babies.
+, a dataset with 9 features used to record the weight of babies.
 \end_layout
 
 \begin_layout Enumerate
@@ -3075,8 +2968,7 @@ LW
 \series bold
 MB
 \series default
-,
- a dataset provide by from Smoothing Methods in Statistics 
+, a dataset provide by from Smoothing Methods in Statistics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "stat"
@@ -3092,8 +2984,7 @@ literal "false"
 \series bold
 Mortgage
 \series default
-,
- an economic dataset from USA with 15 features.
+, an economic dataset from USA with 15 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -3101,8 +2992,7 @@ Mortgage
 \series bold
 NT
 \series default
-,
- a dataset with two features used to record body temperatures 
+, a dataset with two features used to record body temperatures 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ntdataset"
@@ -3118,8 +3008,7 @@ literal "false"
 \series bold
 Plastic
 \series default
-,
- a dataset with 2 features used to detect the pressure on plastics.
+, a dataset with 2 features used to detect the pressure on plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -3127,8 +3016,7 @@ Plastic
 \series bold
 PL
 \series default
-,
- a dataset with 2 features provided by the STATLIB repository.
+, a dataset with 2 features provided by the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
@@ -3136,8 +3024,7 @@ PL
 \series bold
 Quake
 \series default
-,
- a dataset used to measure the strength of earthquakes with 3 features.
+, a dataset used to measure the strength of earthquakes with 3 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -3145,8 +3032,8 @@ Quake
 \series bold
 SN
 \series default
-,
- a dataset that provides experimental measurements related to trellising and pruning.
+, a dataset that provides experimental measurements related to trellising
+ and pruning.
  This dataset has 11 features.
 \end_layout
 
@@ -3155,8 +3042,7 @@ SN
 \series bold
 Stock
 \series default
-,
- a dataset with 9 features used to approximate the prices of various stocks.
+, a dataset with 9 features used to approximate the prices of various stocks.
 \end_layout
 
 \begin_layout Enumerate
@@ -3164,8 +3050,7 @@ Stock
 \series bold
 Treasury
 \series default
-,
- an economic dataset from USA that contains 15 features.
+, an economic dataset from USA that contains 15 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -3173,8 +3058,8 @@ Treasury
 \series bold
 TZ
 \series default
-,
- which is a dataset originated in the STATLIB repository and it has 60 features.
+, which is a dataset originated in the STATLIB repository and it has 60
+ features.
 \end_layout
 
 \begin_layout Subsection
@@ -3182,8 +3067,10 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The implementation of the machine learning methods that participated in the conducted experiments was made using ANSI C++.
- The experiments were conducted 30 times and the average classification or regression error as measured on the test was recorded.
+The implementation of the machine learning methods that participated in
+ the conducted experiments was made using ANSI C++.
+ The experiments were conducted 30 times and the average classification
+ or regression error as measured on the test was recorded.
 
 \series bold
  
@@ -3204,19 +3091,12 @@ where
 \begin_inset Formula $T$
 \end_inset
 
- is defined as 
-\begin_inset Formula $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$
-\end_inset
-
-,
- that denotes the used testing dataset.
+ denotes the train dataset.
 
 \series bold
  
 \series default
-On the other hand,
- the regression error is calculated as:
- 
+On the other hand, the regression error is calculated as: 
 \begin_inset Formula 
 \begin{equation}
 E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
@@ -3224,17 +3104,17 @@ E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right
 
 \end_inset
 
-The well - known method of ten - fold cross validation was used to validate the experimental results.
- All the experiments were carried out on an AMD Ryzen 5950X with 128GB of RAM.
- The used operating system was Debian Linux.
- The values for the parameters of the proposed method are listed in Table 
+The well - known technique of ten - fold cross validation was incorporated
+ for the validation of the experimental results.
+ The experiments were executed on an AMD Ryzen 5950X with 128GB of RAM,
+ running as the operating system the Debian Linux.
+ The values for the parameters of the algorithm are presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expValues"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -3242,7 +3122,6 @@ nolink "false"
  
 \begin_inset Float table
 placement H
-alignment document
 wide false
 sideways false
 status open
@@ -3251,8 +3130,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The values for the parameters,
- as used in the conducted experiments.
+The values for the experimental parameters.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expValues"
@@ -3407,14 +3285,14 @@ generations
 \end_layout
 
 \begin_layout Standard
-The experimental results for the classification datasets are shown in Table 
+The experimental results from the application of various method on the classific
+ation datasets are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClass"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -3425,15 +3303,16 @@ reference "tab:expRegression"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
-The following notation was used in these tables:
+.
+ For all tables the following notation was used:
 \end_layout
 
 \begin_layout Enumerate
-The column RBF denotes the application of the original two - phase method for the training of an RBF neural network with 
+The column RBF denotes the usage of the original two - phase method for
+ the training of an RBF neural network with 
 \begin_inset Formula $k=10$
 \end_inset
 
@@ -3445,7 +3324,6 @@ reference "subsec:The-original-training"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -3453,14 +3331,14 @@ nolink "false"
 \end_layout
 
 \begin_layout Enumerate
-The column CONRBF denotes the application of the current software using the parameters of Table 
+The column CONRBF stands for the utilization of the current software using
+ the parameters of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expValues"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
@@ -3472,30 +3350,33 @@ none
 \end_layout
 
 \begin_layout Enumerate
-The column CONRBF(LBFGS) denotes the application of the current method using as local search procedure the L-Bfgs method.
+The column CONRBF(LBFGS) denotes the application of the current method using
+ as local search procedure the L-Bfgs method.
 \end_layout
 
 \begin_layout Enumerate
-The column CONRBF(BFGS) stands for the application of the current work using as local search procedure the Bfgs method.
+The column CONRBF(BFGS) stands for the application of the current work using
+ as local search procedure the Bfgs method.
 \end_layout
 
 \begin_layout Enumerate
-The row AVERAGE represents the average classification or regression error for all datasets in the corresponding table.
+The last row denoted as AVERAGE, outlines the average classification or
+ regression error for all datasets in the corresponding table.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results using the original training method and the proposed one for the classification datasets.
+Experimental results for the classification datasets using the mentioned
+ machine learning models.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expClass"
@@ -5422,16 +5303,16 @@ AVERAGE
 
 \begin_inset Float table
 placement H
-alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results using the original train method and the proposed one for a series of regression datasets.
+Experimental results for the regression datasets using the series of mentioned
+ machine learning models.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegression"
@@ -6657,46 +6538,37 @@ reference "tab:expClass"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
-,
- the four models were evaluated based on their error rates across 40 different datasets.
+, the four models were evaluated based on their error rates across 40 different
+ datasets.
  It was observed that the error rate varied significantly between datasets,
  reflecting differences in each model’s performance depending on the dataset.
- In general,
- the models CONRBF,
- CONRBF(LBFGS),
- and CONRBF(BFGS) showed lower error rates compared to RBF in many datasets,
- suggesting that the parameterized versions of CONRBF have better adaptability.
- In several datasets,
- CONRBF outperformed the original RBF in terms of error rate.
- For example,
- in datasets such as AUSTRALIAN and SPAMBASE,
- CONRBF shows a markedly lower error rate compared to RBF.
- The models CONRBF(LBFGS) and CONRBF(BFGS) frequently demonstrate improved error rates relative to the original CONRBF,
- although these differences are not always significant.
- In datasets such as HEPATITIS,
- TAE,
- and WINE,
- both CONRBF(LBFGS) and CONRBF(BFGS) outperform the simple CONRBF model.
- Despite the general trend of improved performance in the parameterized versions of CONRBF,
- exceptions do exist.
- For instance,
- in the dataset Z_O_N_F_S,
- RBF performs better than the other models,
- while in ZO_NF_S and ZONF_S,
- the differences between models are minimal.
- CONRBF with LBFGS and CONRBF with BFGS exhibit similar performance,
- although one model occasionally outperforms the other in certain datasets.
- In DERMATOLOGY and ZOO,
- CONRBF(LBFGS) achieves a lower error rate than CONRBF(BFGS),
- whereas in datasets like HEARTATTACK,
- the differences are very small.
- In conclusion,
- the comparison of models reveals that the parameterized versions of CONRBF,
- especially with the LBFGS and BFGS optimization methods,
+ In general, the models CONRBF, CONRBF(LBFGS), and CONRBF(BFGS) showed lower
+ error rates compared to RBF in many datasets, suggesting that the parameterized
+ versions of CONRBF have better adaptability.
+ In several datasets, CONRBF outperformed the original RBF in terms of error
+ rate.
+ For example, in datasets such as AUSTRALIAN and SPAMBASE, CONRBF shows
+ a markedly lower error rate compared to RBF.
+ The models CONRBF(LBFGS) and CONRBF(BFGS) frequently demonstrate improved
+ error rates relative to the original CONRBF, although these differences
+ are not always significant.
+ In datasets such as HEPATITIS, TAE, and WINE, both CONRBF(LBFGS) and CONRBF(BFG
+S) outperform the simple CONRBF model.
+ Despite the general trend of improved performance in the parameterized
+ versions of CONRBF, exceptions do exist.
+ For instance, in the dataset Z_O_N_F_S, RBF performs better than the other
+ models, while in ZO_NF_S and ZONF_S, the differences between models are
+ minimal.
+ CONRBF with LBFGS and CONRBF with BFGS exhibit similar performance, although
+ one model occasionally outperforms the other in certain datasets.
+ In DERMATOLOGY and ZOO, CONRBF(LBFGS) achieves a lower error rate than
+ CONRBF(BFGS), whereas in datasets like HEARTATTACK, the differences are
+ very small.
+ In conclusion, the comparison of models reveals that the parameterized
+ versions of CONRBF, especially with the LBFGS and BFGS optimization methods,
  generally outperform the simple RBF model in many datasets.
  
 \end_layout
@@ -6709,39 +6581,36 @@ reference "tab:expRegression"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
- include the error values for various datasets,
- where different training methods were applied.
- The values in the tables represent errors (not percentages) obtained by applying each model to each dataset.
- The CONRBF method shows lower error rates compared to the original RBF in almost all datasets,
- indicating that the proposed method provides improvements over the original.
- For example,
- in the HOUSING dataset,
- the error is reduced from 57.68 (RBF) to 20.6 (CONRBF),
- while in the BASEBALL dataset,
- the error decreases from 93.02 (RBF) to 66.74 (CONRBF).
- The LBFGS and BFGS variations of the CONRBF method further reduce errors compared to the original CONRBF in certain datasets.
- For instance,
- in the AUTO dataset,
- the error decreases from 11.03 (CONRBF) to 10.03 (CONRBF with LBFGS) and 9.45 (CONRBF with BFGS).
- Similarly,
- in the STOCK dataset,
- the error drops from 8.31 (CONRBF) to 6.9 (CONRBF with LBFGS) and 6.25 (CONRBF with BFGS),
- demonstrating that the addition of these optimization methods can further enhance the model's performance.
- In summary,
- the results indicate that the proposed CONRBF method,
- along with its LBFGS and BFGS optimized variants,
- has the potential to reduce error rates compared to the original RBF method.
+ include the error values for various datasets, where different training
+ methods were applied.
+ The values in the tables represent errors (not percentages) obtained by
+ applying each model to each dataset.
+ The CONRBF method shows lower error rates compared to the original RBF
+ in almost all datasets, indicating that the proposed method provides improvemen
+ts over the original.
+ For example, in the HOUSING dataset, the error is reduced from 57.68 (RBF)
+ to 20.6 (CONRBF), while in the BASEBALL dataset, the error decreases from
+ 93.02 (RBF) to 66.74 (CONRBF).
+ The LBFGS and BFGS variations of the CONRBF method further reduce errors
+ compared to the original CONRBF in certain datasets.
+ For instance, in the AUTO dataset, the error decreases from 11.03 (CONRBF)
+ to 10.03 (CONRBF with LBFGS) and 9.45 (CONRBF with BFGS).
+ Similarly, in the STOCK dataset, the error drops from 8.31 (CONRBF) to 6.9
+ (CONRBF with LBFGS) and 6.25 (CONRBF with BFGS), demonstrating that the
+ addition of these optimization methods can further enhance the model's
+ performance.
+ In summary, the results indicate that the proposed CONRBF method, along
+ with its LBFGS and BFGS optimized variants, has the potential to reduce
+ error rates compared to the original RBF method.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
-alignment document
 wide false
 sideways false
 status collapsed
@@ -6785,7 +6654,6 @@ name "fig:statClass"
 
 \begin_inset Float figure
 placement H
-alignment document
 wide false
 sideways false
 status collapsed
@@ -6833,33 +6701,32 @@ reference "fig:statClass"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
-,
- paired comparisons were subsequently performed between individual pairs of models using the paired t-test.
+, paired comparisons were subsequently performed between individual pairs
+ of models using the paired t-test.
  For RBF vs.
- CONRBF:
- p = 9.8 × 10⁻⁵ – there is a statistically significant difference between the two models (p < 0.05),
- indicating that the CONRBF model exhibits a significantly different error rate compared to RBF.
+ CONRBF: p = 9.8 × 10⁻⁵ – there is a statistically significant difference
+ between the two models (p < 0.05), indicating that the CONRBF model exhibits
+ a significantly different error rate compared to RBF.
  For CONRBF vs.
- CONRBF(LBFGS):
- p = 0.16 – there is no statistically significant difference between these two models at the 0.05 significance level,
- suggesting that the two versions of CONRBF have similar error rates.
+ CONRBF(LBFGS): p = 0.16 – there is no statistically significant difference
+ between these two models at the 0.05 significance level, suggesting that
+ the two versions of CONRBF have similar error rates.
  For CONRBF vs.
- CONRBF(BFGS):
- p = 0.002 – there is a statistically significant difference (p < 0.05) between these two variants,
- indicating that the BFGS method yields a different error rate compared to the original CONRBF.
+ CONRBF(BFGS): p = 0.002 – there is a statistically significant difference
+ (p < 0.05) between these two variants, indicating that the BFGS method yields
+ a different error rate compared to the original CONRBF.
  For CONRBF(LBFGS) vs.
- CONRBF(BFGS):
- p = 0.0008 – the difference between these two methods is also statistically significant (p < 0.05),
- showing that CONRBF(BFGS) has a different performance from CONRBF(LBFGS) in terms of error rate.
- In summary,
- the results of the paired comparisons indicate that the differences between some models are statistically significant,
- suggesting that the choice of model variant can substantially impact the error rate.
- However,
- the overall analysis using the Kruskal-Wallis test did not find a statistically significant difference between the groups as a whole.
+ CONRBF(BFGS): p = 0.0008 – the difference between these two methods is also
+ statistically significant (p < 0.05), showing that CONRBF(BFGS) has a different
+ performance from CONRBF(LBFGS) in terms of error rate.
+ In summary, the results of the paired comparisons indicate that the differences
+ between some models are statistically significant, suggesting that the
+ choice of model variant can substantially impact the error rate.
+ However, the overall analysis using the Kruskal-Wallis test did not find
+ a statistically significant difference between the groups as a whole.
 \end_layout
 
 \begin_layout Standard
@@ -6870,41 +6737,34 @@ reference "fig:statRegression"
 plural "false"
 caps "false"
 noprefix "false"
-nolink "false"
 
 \end_inset
 
- to compare the different machine learning models shows distinct patterns in their error rates.
+ to compare the different machine learning models shows distinct patterns
+ in their error rates.
  Paired comparisons were performed between each model using a paired t-test,
- and the significance levels for each pair are as follows:
- for RBF vs.
- CONRBF,
- p=0.028 for CONRBF vs.
- CONRBF(LBFGS),
- p=0.016 for CONRBF vs.
- CONRBF(BFGS),
- p=0.015 and for CONRBF(LBFGS) vs.
- CONRBF(BFGS),
- p=0.028.
- All comparisons resulted in p<0.05,
- indicating that there are statistically significant differences between each pair of models.
- This suggests that each variant of the CONRBF model,
- including the LBFGS and BFGS optimizations,
- provides a unique effect on the error rate,
- significantly differentiating it from the others in performance.
- However,
- when analyzing the groups as a whole using the Kruskal-Wallis test,
- the result was p=0.27,
- which is greater than the standard significance level of 0.05.
- This indicates that,
- while there are significant differences between individual pairs,
- there is no overall statistically significant difference across all four models collectively.
- This result implies that,
- while certain optimizations improve performance in pairwise comparisons,
- these differences are not strong enough to conclude a significant variation across the entire set of models.
- Therefore,
- the choice of model variant can impact error rates significantly in specific comparisons,
- but these effects are not uniform across all datasets when considered in aggregate.
+ and the significance levels for each pair are as follows: for RBF vs.
+ CONRBF, p=0.028 for CONRBF vs.
+ CONRBF(LBFGS), p=0.016 for CONRBF vs.
+ CONRBF(BFGS), p=0.015 and for CONRBF(LBFGS) vs.
+ CONRBF(BFGS), p=0.028.
+ All comparisons resulted in p<0.05, indicating that there are statistically
+ significant differences between each pair of models.
+ This suggests that each variant of the CONRBF model, including the LBFGS
+ and BFGS optimizations, provides a unique effect on the error rate, significant
+ly differentiating it from the others in performance.
+ However, when analyzing the groups as a whole using the Kruskal-Wallis
+ test, the result was p=0.27, which is greater than the standard significance
+ level of 0.05.
+ This indicates that, while there are significant differences between individual
+ pairs, there is no overall statistically significant difference across
+ all four models collectively.
+ This result implies that, while certain optimizations improve performance
+ in pairwise comparisons, these differences are not strong enough to conclude
+ a significant variation across the entire set of models.
+ Therefore, the choice of model variant can impact error rates significantly
+ in specific comparisons, but these effects are not uniform across all datasets
+ when considered in aggregate.
 \end_layout
 
 \begin_layout Section
@@ -6919,34 +6779,43 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-A novel method that constructs the architecture of RBF neural networks with assistance was described in the current paper,
- accompanied by the relevant software.
- The method can construct the architecture of RBF networks using a process that incorporates the Grammatical Evolution procedure.
- Also,
- the used method can estimate the parameters of the network,
- which can be further modified by the application of a local optimization procedure.
- The proposed method can be applied without modifications to classification and regression datasets.
- The new method was compared against the traditional method used to train RBF networks and the experimental results validated the efficiency of the proposed work in a wide series of classification and regression datasets found in the recent bibliography.
+A novel method that constructs the architecture of RBF neural networks with
+ assistance was described in the present manuscript, accompanied by the
+ relevant software.
+ The method can construct the architecture of RBF networks using a process
+ that incorporates the Grammatical Evolution procedure.
+ Also, the used method can estimate the parameters of the network, which
+ can be further modified by the application of a local optimization procedure.
+ The proposed method can be applied without modifications to classification
+ and regression datasets.
+ The new method was compared against the traditional method used to train
+ RBF networks and the experimental results validated the efficiency of the
+ proposed work in a wide series of classification and regression datasets
+ found in the recent bibliography.
 \end_layout
 
 \begin_layout Standard
-The used software was coded in ANSI C++ with the assistance of the freely available library of QT,
- in order to be portable on the majority of operating systems.
+The used software was coded in ANSI C++ with the assistance of the freely
+ available library of QT, in order to be portable on the majority of operating
+ systems.
  The user can control the process by a series of simple command line options,
- such as the number of needed chromosomes for the genetic population or the selection rate used.
- Also,
- the software offers the possibility of enhancing the parameters of the RBF network with the application of some local optimization procedures.
- The experimental results clearly indicated that the application of the local optimization algorithm can further reduce the test error in a series of datasets.
+ such as the number of needed chromosomes for the genetic population or
+ the selection rate used.
+ Also, the software offers the possibility of improving the parameters of
+ the RBF network with the application of some local optimization procedures.
+ The experimental results clearly indicated that the application of the
+ local optimization algorithm can further reduce the test error in a series
+ of datasets.
  
 \end_layout
 
 \begin_layout Standard
-Future improvements of the software may include the periodic application of the local search procedure during the execution of the genetic algorithm or even the incorporation of global optimization procedures,
- in order to reduce even further the test error of the current work.
- Also,
- since the method is based on Genetic Algorithms,
- parallel optimization procedures,
- such as MPI 
+Future improvements to the software may include the periodic application
+ of the local search procedure during the execution of the genetic algorithm
+ or even the incorporation of global optimization procedures, in order to
+ reduce even further the test error of the current work.
+ Also, since the method utilizes Genetic Algorithms, parallel optimization
+ procedures, such as MPI 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mpi"
@@ -6963,9 +6832,9 @@ literal "false"
 \end_inset
 
  can be used to reduce the execution time of the method.
- Finally,
- the software could possibly be extended to allow the user to input other grammars as parameters,
- or even to be able to use other output functions besides Gaussian.
+ Finally, the software could possibly be extended to allow the user to input
+ other grammars as parameters, or even to be able to use other output functions
+ besides Gaussian.
 \end_layout
 
 \begin_layout Standard
@@ -6976,9 +6845,10 @@ literal "false"
 \end_layout
 
 \begin_layout Author Contributions
-The proposed software was conceived and implemented by all members of the team.
- The experiments were conducted using various classification and regression datasets,
- and the comparative results were presented by I.G.T and I.V.
+The proposed software was conceived and implemented by all members of the
+ team.
+ The experiments were conducted using various classification and regression
+ datasets, and the comparative results were presented by I.G.T and I.V.
  The statistical analysis was carried out by V.C.
  All authors have reviewed and approved the final published version.
 \end_layout
@@ -6996,11 +6866,11 @@ Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-This research has been financed by the European Union :
- Next Generation EU through the Program Greece 2.0 National Recovery and Resilience Plan ,
- under the call RESEARCH – CREATE – INNOVATE,
- project name “iCREW:
- Intelligent small craft simulator for advanced crew training using Virtual Reality techniques" (project code:TAEDK-06195).
+This research has been financed by the European Union : Next Generation
+ EU through the Program Greece 2.0 National Recovery and Resilience Plan
+ , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
+ small craft simulator for advanced crew training using Virtual Reality
+ techniques" (project code:TAEDK-06195).
 \end_layout
 
 \begin_layout Conflicts of Interest
@@ -7040,7 +6910,8 @@ Appendix A
 \end_inset
 
 ).
- If the appendix sections contain a heading then change the argument to 
+ If the appendix sections contain a heading then change the argument to
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -7052,8 +6923,7 @@ yes
 \end_layout
 
 \begin_layout Plain Layout
-Please,
- note that in LyX a trailing dot is always present and the name 
+Please, note that in LyX a trailing dot is always present and the name 
 \begin_inset Quotes eld
 \end_inset
 
@@ -7105,19 +6975,15 @@ literal "false"
 \end_inset
 
  M.
- Mjahed,
- The use of clustering techniques for the classification of high energy physics data,
- Nuclear Instruments and Methods in Physics Research Section A:
- Accelerators,
- Spectrometers,
- Detectors and Associated Equipment 
+ Mjahed, The use of clustering techniques for the classification of high
+ energy physics data, Nuclear Instruments and Methods in Physics Research
+ Section A: Accelerators, Spectrometers, Detectors and Associated Equipment
+ 
 \series bold
 559
 \series default
-,
- pp.
- 199-202,
- 2006.
+, pp.
+ 199-202, 2006.
 \end_layout
 
 \begin_layout Bibliography
@@ -7128,18 +6994,12 @@ literal "false"
 
 \end_inset
 
-M Andrews,
- M Paulini,
- S Gleyzer,
- B Poczos,
- End-to-End Event Classification of High-Energy Physics Data,
- Journal of Physics:
- Conference Series 
+M Andrews, M Paulini, S Gleyzer, B Poczos, End-to-End Event Classification
+ of High-Energy Physics Data, Journal of Physics: Conference Series 
 \series bold
 1085
 \series default
-,
- 2018.
+, 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -7151,18 +7011,12 @@ literal "false"
 \end_inset
 
 P.
- He,
- C.J.
- Xu,
- Y.Z.
- Liang,
- K.T.
- Fang,
- Improving the classification accuracy in chemistry via boosting technique,
- Chemometrics and Intelligent Laboratory Systems 70,
- pp.
- 39-46,
- 2004.
+ He, C.J.
+ Xu, Y.Z.
+ Liang, K.T.
+ Fang, Improving the classification accuracy in chemistry via boosting technique
+, Chemometrics and Intelligent Laboratory Systems 70, pp.
+ 39-46, 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -7174,18 +7028,14 @@ literal "false"
 \end_inset
 
 J.A.
- Aguiar,
- M.L.
- Gong,
- T.Tasdizen,
- Crystallographic prediction from diffraction and chemistry data for higher throughput classification using machine learning,
- Computational Materials Science 
+ Aguiar, M.L.
+ Gong, T.Tasdizen, Crystallographic prediction from diffraction and chemistry
+ data for higher throughput classification using machine learning, Computational
+ Materials Science 
 \series bold
 173
 \series default
-,
- 109409,
- 2020.
+, 109409, 2020.
 \end_layout
 
 \begin_layout Bibliography
@@ -7197,18 +7047,14 @@ literal "false"
 \end_inset
 
 I.
- Kaastra,
- M.
- Boyd,
- Designing a neural network for forecasting financial and economic time series,
- Neurocomputing 
+ Kaastra, M.
+ Boyd, Designing a neural network for forecasting financial and economic
+ time series, Neurocomputing 
 \series bold
 10
 \series default
-,
- pp.
- 215-236,
- 1996.
+, pp.
+ 215-236, 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -7220,21 +7066,15 @@ literal "false"
 \end_inset
 
 R.
- Hafezi,
- J.
- Shahrabi,
- E.
- Hadavandi,
- A bat-neural network multi-agent system (BNNMAS) for stock price prediction:
- Case study of DAX stock price,
- Applied Soft Computing 
+ Hafezi, J.
+ Shahrabi, E.
+ Hadavandi, A bat-neural network multi-agent system (BNNMAS) for stock price
+ prediction: Case study of DAX stock price, Applied Soft Computing 
 \series bold
 29
 \series default
-,
- pp.
- 196-210,
- 2015.
+, pp.
+ 196-210, 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -7246,17 +7086,14 @@ literal "false"
 \end_inset
 
 S.S.
- Yadav,
- S.M.
- Jadhav,
- Deep convolutional neural network based medical image classification for disease diagnosis.
+ Yadav, S.M.
+ Jadhav, Deep convolutional neural network based medical image classification
+ for disease diagnosis.
  J Big Data 
 \series bold
 6
 \series default
-,
- 113,
- 2019.
+, 113, 2019.
 \end_layout
 
 \begin_layout Bibliography
@@ -7268,19 +7105,14 @@ literal "false"
 \end_inset
 
 L.
- Qing,
- W.
- Linhong ,
- D.
- Xuehai,
- A Novel Neural Network-Based Method for Medical Text Classification,
+ Qing, W.
+ Linhong , D.
+ Xuehai, A Novel Neural Network-Based Method for Medical Text Classification,
  Future Internet 
 \series bold
 11
 \series default
-,
- 255,
- 2019.
+, 255, 2019.
 \end_layout
 
 \begin_layout Bibliography
@@ -7295,16 +7127,13 @@ literal "false"
 J.
  Park and I.
  W.
- Sandberg,
- Universal Approximation Using Radial-Basis-Function Networks,
+ Sandberg, Universal Approximation Using Radial-Basis-Function Networks,
  Neural Computation 
 \series bold
 3
 \series default
-,
- pp.
- 246-257,
- 1991.
+, pp.
+ 246-257, 1991.
 \end_layout
 
 \begin_layout Bibliography
@@ -7316,25 +7145,18 @@ literal "false"
 \end_inset
 
 G.A.
- Montazer,
- D.
- Giveki,
- M.
- Karami,
- H.
- Rastegar,
- Radial basis function neural networks:
- A review.
+ Montazer, D.
+ Giveki, M.
+ Karami, H.
+ Rastegar, Radial basis function neural networks: A review.
  Comput.
  Rev.
  J 
 \series bold
 1
 \series default
-,
- pp.
- 52-74,
- 2018.
+, pp.
+ 52-74, 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -7346,12 +7168,9 @@ literal "false"
 \end_inset
 
 R.
- Fletcher,
- A new approach to variable metric algorithms,
- Computer Journal 13,
- pp.
- 317-322,
- 1970.
+ Fletcher, A new approach to variable metric algorithms, Computer Journal
+ 13, pp.
+ 317-322, 1970.
  
 \end_layout
 
@@ -7365,10 +7184,9 @@ literal "false"
 \end_inset
 
 V.I.
- Gorbachenko,
- M.V.
- Zhukov,
- Solving boundary value problems of mathematical physics using radial basis function networks.
+ Gorbachenko, M.V.
+ Zhukov, Solving boundary value problems of mathematical physics using radial
+ basis function networks.
  Comput.
  Math.
  and Math.
@@ -7377,10 +7195,8 @@ V.I.
 \series bold
 57
 \series default
-,
- pp.
- 145–155,
- 2017.
+, pp.
+ 145–155, 2017.
 \end_layout
 
 \begin_layout Bibliography
@@ -7393,26 +7209,18 @@ literal "false"
 \end_inset
 
 J.
- Määttä,
- V.
- Bazaliy,
- J.
- Kimari,
- F.
- Djurabekova,
- K.
- Nordlund,
- T.
- Roos,
- Gradient-based training and pruning of radial basis function networks with an application in materials physics,
- Neural Networks 
+ Määttä, V.
+ Bazaliy, J.
+ Kimari, F.
+ Djurabekova, K.
+ Nordlund, T.
+ Roos, Gradient-based training and pruning of radial basis function networks
+ with an application in materials physics, Neural Networks 
 \series bold
 133
 \series default
-,
- pp.
- 123-131,
- 2021.
+, pp.
+ 123-131, 2021.
 \end_layout
 
 \begin_layout Bibliography
@@ -7426,16 +7234,14 @@ literal "false"
 
 R.
  -J.
- Lian,
- Adaptive Self-Organizing Fuzzy Sliding-Mode Radial Basis-Function Neural-Network Controller for Robotic Systems,
- IEEE Transactions on Industrial Electronics 
+ Lian, Adaptive Self-Organizing Fuzzy Sliding-Mode Radial Basis-Function
+ Neural-Network Controller for Robotic Systems, IEEE Transactions on Industrial
+ Electronics 
 \series bold
 61
 \series default
-,
- pp.
- 1493-1503,
- 2014.
+, pp.
+ 1493-1503, 2014.
 \end_layout
 
 \begin_layout Bibliography
@@ -7447,18 +7253,15 @@ literal "false"
 \end_inset
 
 M.
- Vijay,
- D.
- Jena,
- Backstepping terminal sliding mode control of robot manipulator using radial basis functional neural networks.
+ Vijay, D.
+ Jena, Backstepping terminal sliding mode control of robot manipulator using
+ radial basis functional neural networks.
  Computers & Electrical Engineering 
 \series bold
 67
 \series default
-,
- pp.
- 690-707,
- 2018.
+, pp.
+ 690-707, 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -7471,20 +7274,15 @@ literal "false"
 \end_inset
 
 U.
- Ravale,
- N.
- Marathe,
- P.
- Padiya,
- Feature Selection Based Hybrid Anomaly Intrusion Detection System Using K Means and RBF Kernel Function,
- Procedia Computer Science 
+ Ravale, N.
+ Marathe, P.
+ Padiya, Feature Selection Based Hybrid Anomaly Intrusion Detection System
+ Using K Means and RBF Kernel Function, Procedia Computer Science 
 \series bold
 45
 \series default
-,
- pp.
- 428-435,
- 2015.
+, pp.
+ 428-435, 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -7496,23 +7294,17 @@ literal "false"
 \end_inset
 
 M.
- Lopez-Martin,
- A.
- Sanchez-Esguevillas,
- J.
+ Lopez-Martin, A.
+ Sanchez-Esguevillas, J.
  I.
- Arribas,
- B.
- Carro,
- Network Intrusion Detection Based on Extended RBF Neural Network With Offline Reinforcement Learning,
- IEEE Access 
+ Arribas, B.
+ Carro, Network Intrusion Detection Based on Extended RBF Neural Network
+ With Offline Reinforcement Learning, IEEE Access 
 \series bold
 9
 \series default
-,
- pp.
- 153153-153170,
- 2021.
+, pp.
+ 153153-153170, 2021.
 \end_layout
 
 \begin_layout Bibliography
@@ -7524,14 +7316,12 @@ literal "false"
 
 \end_inset
 
-Foody,
- G.
+Foody, G.
  M.
  (2004).
- Supervised image classification by MLP and RBF neural networks with and without an exhaustively defined set of classes.
- International Journal of Remote Sensing,
- 25(15),
- 3091-3104.
+ Supervised image classification by MLP and RBF neural networks with and
+ without an exhaustively defined set of classes.
+ International Journal of Remote Sensing, 25(15), 3091-3104.
 \end_layout
 
 \begin_layout Bibliography
@@ -7543,21 +7333,12 @@ literal "false"
 
 \end_inset
 
-Er,
- M.
- J.,
- Wu,
- S.,
- Lu,
- J.,
- & Toh,
- H.
+Er, M.
+ J., Wu, S., Lu, J., & Toh, H.
  L.
  (2002).
  Face recognition with radial basis function (RBF) neural networks.
- IEEE transactions on neural networks,
- 13(3),
- 697-710.
+ IEEE transactions on neural networks, 13(3), 697-710.
 \end_layout
 
 \begin_layout Bibliography
@@ -7570,16 +7351,13 @@ literal "false"
 \end_inset
 
 L.I.
- Kuncheva,
- Initializing of an RBF network by a genetic algorithm,
- Neurocomputing 
+ Kuncheva, Initializing of an RBF network by a genetic algorithm, Neurocomputing
+ 
 \series bold
 14
 \series default
-,
- pp.
- 273-288,
- 1997.
+, pp.
+ 273-288, 1997.
 \end_layout
 
 \begin_layout Bibliography
@@ -7591,22 +7369,16 @@ literal "false"
 \end_inset
 
 F.
- Ros,
- M.
- Pintore,
- A.
- Deman,
- J.R.
- Chrétien,
- Automatical initialization of RBF neural networks,
- Chemometrics and Intelligent Laboratory Systems 
+ Ros, M.
+ Pintore, A.
+ Deman, J.R.
+ Chrétien, Automatical initialization of RBF neural networks, Chemometrics
+ and Intelligent Laboratory Systems 
 \series bold
 87
 \series default
-,
- pp.
- 26-32,
- 2007.
+, pp.
+ 26-32, 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -7618,20 +7390,15 @@ literal "false"
 \end_inset
 
 D.
- Wang,
- X.J.
- Zeng,
- J.A.
- Keane,
- A clustering algorithm for radial basis function neural network initialization,
- Neurocomputing 
+ Wang, X.J.
+ Zeng, J.A.
+ Keane, A clustering algorithm for radial basis function neural network
+ initialization, Neurocomputing 
 \series bold
 77
 \series default
-,
- pp.
- 144-155,
- 2012.
+, pp.
+ 144-155, 2012.
 \end_layout
 
 \begin_layout Bibliography
@@ -7644,18 +7411,14 @@ literal "false"
 \end_inset
 
 E.
- Ricci,
- R.
- Perfetti,
- Improved pruning strategy for radial basis function networks with dynamic decay adjustment,
- Neurocomputing 
+ Ricci, R.
+ Perfetti, Improved pruning strategy for radial basis function networks
+ with dynamic decay adjustment, Neurocomputing 
 \series bold
 69
 \series default
-,
- pp.
- 1728-1732,
- 2006.
+, pp.
+ 1728-1732, 2006.
 \end_layout
 
 \begin_layout Bibliography
@@ -7666,19 +7429,15 @@ literal "false"
 
 \end_inset
 
-Guang-Bin Huang,
- P.
+Guang-Bin Huang, P.
  Saratchandran and N.
- Sundararajan,
- A generalized growing and pruning RBF (GGAP-RBF) neural network for function approximation,
- IEEE Transactions on Neural Networks 
+ Sundararajan, A generalized growing and pruning RBF (GGAP-RBF) neural network
+ for function approximation, IEEE Transactions on Neural Networks 
 \series bold
 16
 \series default
-,
- pp.
- 57-67,
- 2005.
+, pp.
+ 57-67, 2005.
 \end_layout
 
 \begin_layout Bibliography
@@ -7691,16 +7450,13 @@ literal "false"
 
 M.
  Bortman and M.
- Aladjem,
- A Growing and Pruning Method for Radial Basis Function Networks,
+ Aladjem, A Growing and Pruning Method for Radial Basis Function Networks,
  IEEE Transactions on Neural Networks 
 \series bold
 20
 \series default
-,
- pp.
- 1039-1045,
- 2009.
+, pp.
+ 1039-1045, 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -7712,16 +7468,10 @@ literal "false"
 
 \end_inset
 
-Chen,
- J.Y.;
- Qin,
- Z.;
- Jia,
- J.
+Chen, J.Y.; Qin, Z.; Jia, J.
  A PSO-Based Subtractive Clustering Technique for Designing RBF Neural Networks.
- In Proceedings of the 2008 IEEE Congress on Evolutionary Computation (IEEE World Congress on Computational Intelligence),
- Hong Kong,
- 1–6 June 2008;
+ In Proceedings of the 2008 IEEE Congress on Evolutionary Computation (IEEE
+ World Congress on Computational Intelligence), Hong Kong, 1–6 June 2008;
  pp.
  2047–2052.
  [Google Scholar]
@@ -7736,15 +7486,12 @@ literal "false"
 
 \end_inset
 
-Esmaeili,
- A.;
- Mozayani,
- N.
- Adjusting the parameters of radial basis function networks using Particle Swarm Optimization.
- In Proceedings of the 2009 IEEE International Conference on Computational Intelligence for Measurement Systems and Applications,
- Hong Kong,
- 11–13 May 2009;
- pp.
+Esmaeili, A.; Mozayani, N.
+ Adjusting the parameters of radial basis function networks using Particle
+ Swarm Optimization.
+ In Proceedings of the 2009 IEEE International Conference on Computational
+ Intelligence for Measurement Systems and Applications, Hong Kong, 11–13
+ May 2009; pp.
  179–181.
  [Google Scholar]
 \end_layout
@@ -7758,19 +7505,11 @@ literal "false"
 
 \end_inset
 
-O’Hora,
- B.;
- Perera,
- J.;
- Brabazon,
- A.
- Designing Radial Basis Function Networks for Classification Using Differential Evolution.
- In Proceedings of the 2006 IEEE International Joint Conference on Neural Network Proceedings,
- Vancouver,
- BC,
- USA,
- 16–21 July 2006;
- pp.
+O’Hora, B.; Perera, J.; Brabazon, A.
+ Designing Radial Basis Function Networks for Classification Using Differential
+ Evolution.
+ In Proceedings of the 2006 IEEE International Joint Conference on Neural
+ Network Proceedings, Vancouver, BC, USA, 16–21 July 2006; pp.
  2932–2937.
 \end_layout
 
@@ -7783,18 +7522,12 @@ literal "false"
 
 \end_inset
 
-MacQueen,
- J.:
- Some methods for classification and analysis of multivariate observations,
- in:
- Proceedings of the fifth Berkeley symposium on mathematical statistics and probability,
- Vol.
- 1,
- No.
- 14,
- pp.
- 281-297,
- 1967.
+MacQueen, J.: Some methods for classification and analysis of multivariate
+ observations, in: Proceedings of the fifth Berkeley symposium on mathematical
+ statistics and probability, Vol.
+ 1, No.
+ 14, pp.
+ 281-297, 1967.
  
 \end_layout
 
@@ -7808,11 +7541,8 @@ literal "false"
 \end_inset
 
 M.
- O’Neill,
- C.
- Ryan,
- Grammatical evolution,
- IEEE Trans.
+ O’Neill, C.
+ Ryan, Grammatical evolution, IEEE Trans.
  Evol.
  Comput.
  
@@ -7820,8 +7550,7 @@ M.
 5,
 \series default
 pp.
- 349–358,
- 2001.
+ 349–358, 2001.
 \end_layout
 
 \begin_layout Bibliography
@@ -7836,11 +7565,10 @@ literal "false"
 J.
  W.
  Backus.
- The Syntax and Semantics of the Proposed International Algebraic Language of the Zurich ACM-GAMM Conference.
+ The Syntax and Semantics of the Proposed International Algebraic Language
+ of the Zurich ACM-GAMM Conference.
  Proceedings of the International Conference on Information Processing,
- UNESCO,
- 1959,
- pp.125-132.
+ UNESCO, 1959, pp.125-132.
 \end_layout
 
 \begin_layout Bibliography
@@ -7853,14 +7581,10 @@ literal "false"
 \end_inset
 
 C.
- Ryan,
- M.
- O’Neill,
- J.J.
- Collins,
- Grammatical evolution:
- Solving trigonometric identities,
- proceedings of Mendel.
+ Ryan, M.
+ O’Neill, J.J.
+ Collins, Grammatical evolution: Solving trigonometric identities, proceedings
+ of Mendel.
  Vol.
  98.
  1998.
@@ -7876,21 +7600,13 @@ literal "false"
 \end_inset
 
 A.O.
- Puente,
- R.
+ Puente, R.
  S.
- Alfonso,
- M.
+ Alfonso, M.
  A.
- Moreno,
- Automatic composition of music by means of grammatical evolution,
- In:
- APL '02:
- Proceedings of the 2002 conference on APL:
- array processing languages:
- lore,
- problems,
- and applications July 2002 Pages 148–155.
+ Moreno, Automatic composition of music by means of grammatical evolution,
+ In: APL '02: Proceedings of the 2002 conference on APL: array processing
+ languages: lore, problems, and applications July 2002 Pages 148–155.
  
 \end_layout
 
@@ -7903,18 +7619,15 @@ literal "false"
 
 \end_inset
 
-Lídio Mauro Limade Campo,
- R.
- Célio Limã Oliveira,Mauro Roisenberg,
- Optimization of neural networks through grammatical evolution and a genetic algorithm,
- Expert Systems with Applications 
+Lídio Mauro Limade Campo, R.
+ Célio Limã Oliveira,Mauro Roisenberg, Optimization of neural networks through
+ grammatical evolution and a genetic algorithm, Expert Systems with Applications
+ 
 \series bold
 56
 \series default
-,
- pp.
- 368-384,
- 2016.
+, pp.
+ 368-384, 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -7926,19 +7639,14 @@ literal "false"
 \end_inset
 
 K.
- Soltanian,
- A.
- Ebnenasir,
- M.
- Afsharchi,
- Modular Grammatical Evolution for the Generation of Artificial Neural Networks,
- Evolutionary Computation 
+ Soltanian, A.
+ Ebnenasir, M.
+ Afsharchi, Modular Grammatical Evolution for the Generation of Artificial
+ Neural Networks, Evolutionary Computation 
 \series bold
 30
 \series default
-,
- pp 291–327,
- 2022.
+, pp 291–327, 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -7950,23 +7658,13 @@ literal "false"
 \end_inset
 
 H.
- Wang,
- H.
- Gemmeke,
- T.
- Hopp,
- J.
- Hesser,
- Accelerating image reconstruction in ultrasound transmission tomography using L-BFGS algorithm,
- In:
- Medical Imaging 2019:
- Ultrasonic Imaging and Tomography;
- 109550B (2019) https://doi.org/10.1117/12.2512654 Event:
- SPIE Medical Imaging,
- 2019,
- San Diego,
- California,
- United States.
+ Wang, H.
+ Gemmeke, T.
+ Hopp, J.
+ Hesser, Accelerating image reconstruction in ultrasound transmission tomography
+ using L-BFGS algorithm, In: Medical Imaging 2019: Ultrasonic Imaging and
+ Tomography; 109550B (2019) https://doi.org/10.1117/12.2512654 Event: SPIE
+ Medical Imaging, 2019, San Diego, California, United States.
 \end_layout
 
 \begin_layout Bibliography
@@ -7979,26 +7677,16 @@ literal "false"
 \end_inset
 
 E.
- Galván-López,
- J.M.
- Swafford,
- M.
- O’Neill,
- A.
- Brabazon,
- Evolving a Ms.
+ Galván-López, J.M.
+ Swafford, M.
+ O’Neill, A.
+ Brabazon, Evolving a Ms.
  PacMan Controller Using Grammatical Evolution.
- In:
- ,
- et al.
+ In: , et al.
  Applications of Evolutionary Computation.
  EvoApplications 2010.
- Lecture Notes in Computer Science,
- vol 6024.
- Springer,
- Berlin,
- Heidelberg,
- 2010.
+ Lecture Notes in Computer Science, vol 6024.
+ Springer, Berlin, Heidelberg, 2010.
 \end_layout
 
 \begin_layout Bibliography
@@ -8010,19 +7698,13 @@ literal "false"
 \end_inset
 
 N.
- Shaker,
- M.
- Nicolau,
- G.
+ Shaker, M.
+ Nicolau, G.
  N.
- Yannakakis,
- J.
- Togelius,
- M.
- O'Neill,
- Evolving levels for Super Mario Bros using grammatical evolution,
- 2012 IEEE Conference on Computational Intelligence and Games (CIG),
- 2012,
+ Yannakakis, J.
+ Togelius, M.
+ O'Neill, Evolving levels for Super Mario Bros using grammatical evolution,
+ 2012 IEEE Conference on Computational Intelligence and Games (CIG), 2012,
  pp.
  304-31.
 \end_layout
@@ -8037,16 +7719,13 @@ literal "false"
 \end_inset
 
 A.
- Brabazon,
- M.
- O'Neill,
- Credit classification using grammatical evolution,
- Informatica 
+ Brabazon, M.
+ O'Neill, Credit classification using grammatical evolution, Informatica
+ 
 \series bold
 30.3
 \series default
-,
- 2006.
+, 2006.
 \end_layout
 
 \begin_layout Bibliography
@@ -8058,13 +7737,11 @@ literal "false"
 \end_inset
 
 S.
- Şen,
- J.A.
+ Şen, J.A.
  Clark.
- A grammatical evolution approach to intrusion detection on mobile ad hoc networks,
- In:
- Proceedings of the second ACM conference on Wireless network security,
- 2009.
+ A grammatical evolution approach to intrusion detection on mobile ad hoc
+ networks, In: Proceedings of the second ACM conference on Wireless network
+ security, 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -8077,27 +7754,18 @@ literal "false"
 \end_inset
 
 M.
- O'Neill,
- E.
- Hemberg,
- C.
- Gilligan,
- E.
- Bartley,
- J.
- McDermott,
- A.
- Brabazon,
- GEVA:
- grammatical evolution in Java.
+ O'Neill, E.
+ Hemberg, C.
+ Gilligan, E.
+ Bartley, J.
+ McDermott, A.
+ Brabazon, GEVA: grammatical evolution in Java.
  ACM SIGEVOlution 
 \series bold
 3
 \series default
-,
- pp.
- 17-22,
- 2008.
+, pp.
+ 17-22, 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -8109,21 +7777,15 @@ literal "false"
 \end_inset
 
 A.
- Ortega,
- M.
- de la Cruz,
- M.
- Alfonseca,
- Christiansen Grammar Evolution:
- Grammatical Evolution With Semantics,
- IEEE Transactions on Evolutionary Computation 
+ Ortega, M.
+ de la Cruz, M.
+ Alfonseca, Christiansen Grammar Evolution: Grammatical Evolution With Semantics
+, IEEE Transactions on Evolutionary Computation 
 \series bold
 11
 \series default
-,
- pp.
- 77-90,
- Feb.
+, pp.
+ 77-90, Feb.
  2007.
 \end_layout
 
@@ -8136,21 +7798,15 @@ literal "false"
 \end_inset
 
 F.
- Noorian,
- A.M.
- de Silva,
- P.H.W.
- Leong,
- gramEvol:
- Grammatical Evolution in R,
- Journal of Statistical Software 
+ Noorian, A.M.
+ de Silva, P.H.W.
+ Leong, gramEvol: Grammatical Evolution in R, Journal of Statistical Software
+ 
 \series bold
 71
 \series default
-,
- pp.
- 1–26,
- 2016.
+, pp.
+ 1–26, 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -8162,26 +7818,13 @@ literal "false"
 \end_inset
 
 M.A.
- Raja,
- C.
- Ryan,
- GELAB - A Matlab Toolbox for Grammatical Evolution.
- In:
- Yin,
- H.,
- Camacho,
- D.,
- Novais,
- P.,
- Tallón-Ballesteros,
- A.
+ Raja, C.
+ Ryan, GELAB - A Matlab Toolbox for Grammatical Evolution.
+ In: Yin, H., Camacho, D., Novais, P., Tallón-Ballesteros, A.
  (eds) Intelligent Data Engineering and Automated Learning – IDEAL 2018.
  IDEAL 2018.
- Lecture Notes in Computer Science(),
- vol 11315,
- 2018.
- Springer,
- Cham.
+ Lecture Notes in Computer Science(), vol 11315, 2018.
+ Springer, Cham.
  https://doi.org/10.1007/978-3-030-03496-2_22
 \end_layout
 
@@ -8193,20 +7836,14 @@ literal "false"
 
 \end_inset
 
-N.Anastasopoulos,
- I.G.
- Tsoulos,
- A.
- Tzallas,
- GenClass:
- A parallel tool for data classification based on Grammatical Evolution,
- SoftwareX 
+N.Anastasopoulos, I.G.
+ Tsoulos, A.
+ Tzallas, GenClass: A parallel tool for data classification based on Grammatical
+ Evolution, SoftwareX 
 \series bold
 16
 \series default
-,
- 100830,
- 2021.
+, 100830, 2021.
 \end_layout
 
 \begin_layout Bibliography
@@ -8218,17 +7855,12 @@ literal "false"
 \end_inset
 
 I.G.
- Tsoulos,
- QFC:
- A Parallel Software Tool for Feature Construction,
- Based on Grammatical Evolution,
- Algorithms 
+ Tsoulos, QFC: A Parallel Software Tool for Feature Construction, Based
+ on Grammatical Evolution, Algorithms 
 \series bold
 15
 \series default
-,
- 295,
- 2022.
+, 295, 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -8241,13 +7873,8 @@ literal "false"
 \end_inset
 
 D.
- Goldberg,
- Genetic Algorithms in Search,
- Optimization and Machine Learning,
- Addison-Wesley Publishing Company,
- Reading,
- Massachussets,
- 1989.
+ Goldberg, Genetic Algorithms in Search, Optimization and Machine Learning,
+ Addison-Wesley Publishing Company, Reading, Massachussets, 1989.
 \end_layout
 
 \begin_layout Bibliography
@@ -8259,11 +7886,8 @@ literal "true"
 \end_inset
 
 Z.
- Michaelewicz,
- Genetic Algorithms + Data Structures = Evolution Programs.
- Springer - Verlag,
- Berlin,
- 1996.
+ Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag, Berlin, 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -8275,18 +7899,14 @@ literal "false"
 \end_inset
 
 Z.
- Dalvand,
- M.
- Hajarian,
- Solving generalized inverse eigenvalue problems via L-BFGS-B method,
- Inverse Problems in Science and Engineering 
+ Dalvand, M.
+ Hajarian, Solving generalized inverse eigenvalue problems via L-BFGS-B
+ method, Inverse Problems in Science and Engineering 
 \series bold
 28
 \series default
-,
- pp.
- 1719-1746,
- 2020.
+, pp.
+ 1719-1746, 2020.
 \end_layout
 
 \begin_layout Bibliography
@@ -8298,18 +7918,14 @@ literal "false"
 \end_inset
 
 Y.
- Rao,
- Y.
- Wang,
- Seismic waveform tomography with shot-encoding using a restarted L-BFGS algorithm,
- Scientific Reports 
+ Rao, Y.
+ Wang, Seismic waveform tomography with shot-encoding using a restarted
+ L-BFGS algorithm, Scientific Reports 
 \series bold
 7
 \series default
-,
- pp.
- 1-9,
- 2017.
+, pp.
+ 1-9, 2017.
 \end_layout
 
 \begin_layout Bibliography
@@ -8321,21 +7937,14 @@ literal "false"
 
 \end_inset
 
-Yousefi,
- M.,
- Martínez Calomardo,
- Á.
+Yousefi, M., Martínez Calomardo, Á.
  (2022).
  A Stochastic Modified Limited Memory BFGS for Training Deep Neural Networks.
- In:
- Arai,
- K.
+ In: Arai, K.
  (eds) Intelligent Computing.
  SAI 2022.
- Lecture Notes in Networks and Systems,
- vol 507.
- Springer,
- Cham.
+ Lecture Notes in Networks and Systems, vol 507.
+ Springer, Cham.
  https://doi.org/10.1007/978-3-031-10464-0_2
 \end_layout
 
@@ -8348,22 +7957,15 @@ literal "false"
 \end_inset
 
 Y.
- Fei,
- G.
- Rong,
- B.
- Wang,
- W.
- Wang,
- Parallel L-BFGS-B algorithm on GPU,
- Computers & Graphics 
+ Fei, G.
+ Rong, B.
+ Wang, W.
+ Wang, Parallel L-BFGS-B algorithm on GPU, Computers & Graphics 
 \series bold
 40
 \series default
-,
- pp.
- 1-9,
- 2014.
+, pp.
+ 1-9, 2014.
 \end_layout
 
 \begin_layout Bibliography
@@ -8375,25 +7977,18 @@ literal "false"
 \end_inset
 
 L.
- D'Amore,
- G.
- Laccetti,
- D.
- Romano,
- G.
- Scotti,
- A.
- Murli,
- Towards a parallel component in a GPU–CUDA environment:
- a case study with the L-BFGS Harwell routine,
- International Journal of Computer Mathematics 
+ D'Amore, G.
+ Laccetti, D.
+ Romano, G.
+ Scotti, A.
+ Murli, Towards a parallel component in a GPU–CUDA environment: a case study
+ with the L-BFGS Harwell routine, International Journal of Computer Mathematics
+ 
 \series bold
 92
 \series default
-,
- pp.
- 59-76,
- 2015.
+, pp.
+ 59-76, 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -8405,19 +8000,13 @@ literal "false"
 \end_inset
 
 M.M.
- Najafabadi,
- T.M.
- Khoshgoftaar,
- F.
- Villanustre et al,
- Large-scale distributed L-BFGS,
- J Big Data 
+ Najafabadi, T.M.
+ Khoshgoftaar, F.
+ Villanustre et al, Large-scale distributed L-BFGS, J Big Data 
 \series bold
 4
 \series default
-,
- 22,
- 2017.
+, 22, 2017.
 \end_layout
 
 \begin_layout Bibliography
@@ -8429,16 +8018,13 @@ literal "false"
 \end_inset
 
 J.L.
- Morales,
- A numerical study of limited memory BFGS methods,
- Applied Mathematics Letters 
+ Morales, A numerical study of limited memory BFGS methods, Applied Mathematics
+ Letters 
 \series bold
 15
 \series default
-,
- pp.
- 481-487,
- 2002.
+, pp.
+ 481-487, 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -8450,16 +8036,13 @@ literal "false"
 
 \end_inset
 
-M.J.D Powell,
- A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
- Mathematical Programming 
+M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
+ons, Mathematical Programming 
 \series bold
 45
 \series default
-,
- pp.
- 547-566,
- 1989.
+, pp.
+ 547-566, 1989.
  
 \end_layout
 
@@ -8474,17 +8057,11 @@ literal "false"
 
 D.
  P.
- Kingma,
- J.
+ Kingma, J.
  L.
- Ba,
- ADAM:
- a method for stochastic optimization,
- in:
- Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
- pp.
- 1–15,
- 2015.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -8496,14 +8073,11 @@ literal "false"
 
 \end_inset
 
-Amari,
- S.
+Amari, S.
  I.
  (1993).
  Backpropagation and stochastic gradient descent method.
- Neurocomputing,
- 5(4-5),
- 185-196.
+ Neurocomputing, 5(4-5), 185-196.
 \end_layout
 
 \begin_layout Bibliography
@@ -8516,19 +8090,15 @@ literal "false"
 \end_inset
 
 W.H.
- Wolberg,
- O.L.
- Mangasarian,
- Multisurface method of pattern separation for medical diagnosis applied to breast cytology,
- Proc Natl Acad Sci U S A.
+ Wolberg, O.L.
+ Mangasarian, Multisurface method of pattern separation for medical diagnosis
+ applied to breast cytology, Proc Natl Acad Sci U S A.
  
 \series bold
 87
 \series default
-,
- pp.
- 9193–9196,
- 1990.
+, pp.
+ 9193–9196, 1990.
 \end_layout
 
 \begin_layout Bibliography
@@ -8541,13 +8111,9 @@ literal "false"
 \end_inset
 
 M.
- Kelly,
- R.
- Longjohn,
- K.
- Nottingham,
- The UCI Machine Learning Repository,
- https://archive.ics.uci.edu.
+ Kelly, R.
+ Longjohn, K.
+ Nottingham, The UCI Machine Learning Repository, https://archive.ics.uci.edu.
 \end_layout
 
 \begin_layout Bibliography
@@ -8559,26 +8125,17 @@ literal "false"
 \end_inset
 
 J.
- Alcalá-Fdez,
- A.
- Fernandez,
- J.
- Luengo,
- J.
- Derrac,
- S.
- García,
- L.
- Sánchez,
- F.
+ Alcalá-Fdez, A.
+ Fernandez, J.
+ Luengo, J.
+ Derrac, S.
+ García, L.
+ Sánchez, F.
  Herrera.
- KEEL Data-Mining Software Tool:
- Data Set Repository,
- Integration of Algorithms and Experimental Analysis Framework.
- Journal of Multiple-Valued Logic and Soft Computing 17,
- pp.
- 255-287,
- 2011.
+ KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
+ and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17, pp.
+ 255-287, 2011.
 \end_layout
 
 \begin_layout Bibliography
@@ -8590,17 +8147,10 @@ literal "false"
 
 \end_inset
 
-Weiss,
- Sholom M.
- and Kulikowski,
- Casimir A.,
- Computer Systems That Learn:
- Classification and Prediction Methods from Statistics,
- Neural Nets,
- Machine Learning,
- and Expert Systems,
- Morgan Kaufmann Publishers Inc,
- 1991.
+Weiss, Sholom M.
+ and Kulikowski, Casimir A., Computer Systems That Learn: Classification
+ and Prediction Methods from Statistics, Neural Nets, Machine Learning,
+ and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
 \end_layout
 
 \begin_layout Bibliography
@@ -8612,20 +8162,14 @@ literal "false"
 \end_inset
 
 M.
- Wang,
- Y.Y.
- Zhang,
- F.
- Min,
- Active learning through multi-standard optimization,
- IEEE Access 
+ Wang, Y.Y.
+ Zhang, F.
+ Min, Active learning through multi-standard optimization, IEEE Access 
 \series bold
 7
 \series default
-,
- pp.
- 56772–56784,
- 2019.
+, pp.
+ 56772–56784, 2019.
 \end_layout
 
 \begin_layout Bibliography
@@ -8637,22 +8181,11 @@ literal "false"
 
 \end_inset
 
-Tzimourta,
- K.D.;
- Tsoulos,
- I.;
- Bilero,
- I.T.;
- Tzallas,
- A.T.;
- Tsipouras,
- M.G.;
- Giannakeas,
+Tzimourta, K.D.; Tsoulos, I.; Bilero, I.T.; Tzallas, A.T.; Tsipouras, M.G.; Giannakeas,
  N.
- Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer Interfaces and Grammatical Evolution.
- Inventions 2018,
- 3,
- 51.
+ Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer
+ Interfaces and Grammatical Evolution.
+ Inventions 2018, 3, 51.
 \end_layout
 
 \begin_layout Bibliography
@@ -8665,16 +8198,13 @@ literal "false"
 \end_inset
 
 J.R.
- Quinlan,
- Simplifying Decision Trees.
+ Quinlan, Simplifying Decision Trees.
  International Journal of Man-Machine Studies 
 \series bold
 27
 \series default
-,
- pp.
- 221-234,
- 1987.
+, pp.
+ 221-234, 1987.
  
 \end_layout
 
@@ -8688,18 +8218,14 @@ literal "false"
 \end_inset
 
 B.
- Evans,
- D.
- Fisher,
- Overcoming process delays with decision tree induction.
+ Evans, D.
+ Fisher, Overcoming process delays with decision tree induction.
  IEEE Expert 
 \series bold
 9
 \series default
-,
- pp.
- 60-66,
- 1994.
+, pp.
+ 60-66, 1994.
 \end_layout
 
 \begin_layout Bibliography
@@ -8713,16 +8239,13 @@ literal "false"
 
 Z.H.
  Zhou,Y.
- Jiang,
- NeC4.5:
- neural ensemble based C4.5," in IEEE Transactions on Knowledge and Data Engineering 
+ Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
+ and Data Engineering 
 \series bold
 16
 \series default
-,
- pp.
- 770-773,
- 2004.
+, pp.
+ 770-773, 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -8734,19 +8257,14 @@ literal "false"
 \end_inset
 
 R.
- Setiono ,
- W.K.
- Leow,
- FERNN:
- An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Setiono , W.K.
+ Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
  Applied Intelligence 
 \series bold
 12
 \series default
-,
- pp.
- 15-25,
- 2000.
+, pp.
+ 15-25, 2000.
 \end_layout
 
 \begin_layout Bibliography
@@ -8759,21 +8277,16 @@ literal "false"
 \end_inset
 
 G.
- Demiroz,
- H.A.
- Govenir,
- N.
- Ilter,
- Learning Differential Diagnosis of Eryhemato-Squamous Diseases using Voting Feature Intervals,
- Artificial Intelligence in Medicine.
+ Demiroz, H.A.
+ Govenir, N.
+ Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
+ Voting Feature Intervals, Artificial Intelligence in Medicine.
  
 \series bold
 13
 \series default
-,
- pp.
- 147–165,
- 1998.
+, pp.
+ 147–165, 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -8786,18 +8299,14 @@ literal "false"
 \end_inset
 
 P.
- Horton,
- K.Nakai,
- A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins,
- In:
- Proceedings of International Conference on Intelligent Systems for Molecular Biology 
+ Horton, K.Nakai, A Probabilistic Classification System for Predicting the
+ Cellular Localization Sites of Proteins, In: Proceedings of International
+ Conference on Intelligent Systems for Molecular Biology 
 \series bold
 4
 \series default
-,
- pp.
- 109-15,
- 1996.
+, pp.
+ 109-15, 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -8810,19 +8319,15 @@ literal "false"
 \end_inset
 
 B.
- Hayes-Roth,
- B.,
- F.
+ Hayes-Roth, B., F.
  Hayes-Roth.
  Concept learning and the recognition and classification of exemplars.
  Journal of Verbal Learning and Verbal Behavior 
 \series bold
 16
 \series default
-,
- pp.
- 321-338,
- 1977.
+, pp.
+ 321-338, 1977.
 \end_layout
 
 \begin_layout Bibliography
@@ -8835,20 +8340,15 @@ literal "false"
 \end_inset
 
 I.
- Kononenko,
- E.
- Šimec,
- M.
- Robnik-Šikonja,
- Overcoming the Myopia of Inductive Learning Algorithms with RELIEFF,
- Applied Intelligence 
+ Kononenko, E.
+ Šimec, M.
+ Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
+ with RELIEFF, Applied Intelligence 
 \series bold
 7
 \series default
-,
- pp.
- 39–55,
- 1997
+, pp.
+ 39–55, 1997
 \end_layout
 
 \begin_layout Bibliography
@@ -8861,20 +8361,15 @@ literal "false"
 \end_inset
 
 R.M.
- French,
- N.
- Chater,
- Using noise to compute error surfaces in connectionist networks:
- a novel means of reducing catastrophic forgetting,
- Neural Comput.
+ French, N.
+ Chater, Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting, Neural Comput.
  
 \series bold
 14
 \series default
-,
- pp.
- 1755-1769,
- 2002.
+, pp.
+ 1755-1769, 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -8887,17 +8382,13 @@ literal "false"
 \end_inset
 
 J.G.
- Dy ,
- C.E.
- Brodley,
- Feature Selection for Unsupervised Learning,
- The Journal of Machine Learning Research 
+ Dy , C.E.
+ Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
+ Learning Research 
 \series bold
 5
 \series default
-,
- pp 845–889,
- 2004.
+, pp 845–889, 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -8910,17 +8401,13 @@ literal "false"
 
 S.
  J.
- Perantonis,
- V.
- Virvilis,
- Input Feature Extraction for Multilayered Perceptrons Using Supervised Principal Component Analysis,
- Neural Processing Letters 
+ Perantonis, V.
+ Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
+d Principal Component Analysis, Neural Processing Letters 
 \series bold
 10
 \series default
-,
- pp 243–252,
- 1999.
+, pp 243–252, 1999.
 \end_layout
 
 \begin_layout Bibliography
@@ -8933,20 +8420,16 @@ literal "false"
 \end_inset
 
  J.
- Garcke,
- M.
- Griebel,
- Classification with sparse grids using simplicial basis functions,
+ Garcke, M.
+ Griebel, Classification with sparse grids using simplicial basis functions,
  Intell.
  Data Anal.
  
 \series bold
 6
 \series default
-,
- pp.
- 483-502,
- 2002.
+, pp.
+ 483-502, 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -8958,18 +8441,14 @@ literal "false"
 \end_inset
 
 J.
- Mcdermott,
- R.S.
- Forsyth,
- Diagnosing a disorder in a classification benchmark,
- Pattern Recognition Letters 
+ Mcdermott, R.S.
+ Forsyth, Diagnosing a disorder in a classification benchmark, Pattern Recogniti
+on Letters 
 \series bold
 73
 \series default
-,
- pp.
- 41-43,
- 2016.
+, pp.
+ 41-43, 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -8982,25 +8461,13 @@ literal "false"
 \end_inset
 
 G.
- Cestnik,
- I.
- Konenenko,
- I.
- Bratko,
- Assistant-86:
- A Knowledge-Elicitation Tool for Sophisticated Users.
- In:
- Bratko,
- I.
- and Lavrac,
- N.,
- Eds.,
- Progress in Machine Learning,
- Sigma Press,
- Wilmslow,
+ Cestnik, I.
+ Konenenko, I.
+ Bratko, Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
+ In: Bratko, I.
+ and Lavrac, N., Eds., Progress in Machine Learning, Sigma Press, Wilmslow,
  pp.
- 31-45,
- 1987.
+ 31-45, 1987.
  
 \end_layout
 
@@ -9013,20 +8480,10 @@ literal "false"
 
 \end_inset
 
-Heck,
- D.,
- Knapp,
- J.,
- Capdevielle,
- J.
- N.,
- Schatz,
- G.,
- & Thouw,
- T.
+Heck, D., Knapp, J., Capdevielle, J.
+ N., Schatz, G., & Thouw, T.
  (1998).
- CORSIKA:
- A Monte Carlo code to simulate extensive air showers.
+ CORSIKA: A Monte Carlo code to simulate extensive air showers.
 \end_layout
 
 \begin_layout Bibliography
@@ -9039,21 +8496,16 @@ literal "false"
 \end_inset
 
 M.
- Elter,
- R.
- Schulz-Wendtland,
- T.
- Wittenberg,
- The prediction of breast cancer biopsy outcomes using two CAD approaches that both emphasize an intelligible decision process,
- Med Phys.
+ Elter, R.
+ Schulz-Wendtland, T.
+ Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
+ approaches that both emphasize an intelligible decision process, Med Phys.
  
 \series bold
 34
 \series default
-,
- pp.
- 4164-72,
- 2007.
+, pp.
+ 4164-72, 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -9066,18 +8518,14 @@ literal "false"
 \end_inset
 
 M.A.
- Little,
- P.E.
- McSharry,
- S.J Roberts et al,
- Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection.
+ Little, P.E.
+ McSharry, S.J Roberts et al, Exploiting Nonlinear Recurrence and Fractal
+ Scaling Properties for Voice Disorder Detection.
  BioMed Eng OnLine 
 \series bold
 6
 \series default
-,
- 23,
- 2007.
+, 23, 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -9089,25 +8537,19 @@ literal "false"
 \end_inset
 
 M.A.
- Little,
- P.E.
- McSharry,
- E.J.
- Hunter,
- J.
- Spielman,
- L.O.
- Ramig,
- Suitability of dysphonia measurements for telemonitoring of Parkinson's disease.
+ Little, P.E.
+ McSharry, E.J.
+ Hunter, J.
+ Spielman, L.O.
+ Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
  IEEE Trans Biomed Eng.
  
 \series bold
 56
 \series default
-,
- pp.
- 1015-1022,
- 2009.
+, pp.
+ 1015-1022, 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -9120,20 +8562,13 @@ literal "false"
 \end_inset
 
 J.W.
- Smith,
- J.E.
- Everhart,
- W.C.
- Dickson,
- W.C.
- Knowler,
- R.S.
- Johannes,
- Using the ADAP learning algorithm to forecast the onset of diabetes mellitus,
- In:
- Proceedings of the Symposium on Computer Applications and Medical Care IEEE Computer Society Press,
- pp.261-265,
- 1988.
+ Smith, J.E.
+ Everhart, W.C.
+ Dickson, W.C.
+ Knowler, R.S.
+ Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
+ mellitus, In: Proceedings of the Symposium on Computer Applications and
+ Medical Care IEEE Computer Society Press, pp.261-265, 1988.
 \end_layout
 
 \begin_layout Bibliography
@@ -9146,28 +8581,19 @@ literal "false"
 \end_inset
 
 D.D.
- Lucas,
- R.
- Klein,
- J.
- Tannahill,
- D.
- Ivanova,
- S.
- Brandon,
- D.
- Domyancic,
- Y.
- Zhang,
- Failure analysis of parameter-induced simulation crashes in climate models,
- Geoscientific Model Development 
+ Lucas, R.
+ Klein, J.
+ Tannahill, D.
+ Ivanova, S.
+ Brandon, D.
+ Domyancic, Y.
+ Zhang, Failure analysis of parameter-induced simulation crashes in climate
+ models, Geoscientific Model Development 
 \series bold
 6
 \series default
-,
- pp.
- 1157-1171,
- 2013.
+, pp.
+ 1157-1171, 2013.
 \end_layout
 
 \begin_layout Bibliography
@@ -9180,32 +8606,21 @@ literal "false"
 \end_inset
 
 N.
- Giannakeas,
- M.G.
- Tsipouras,
- A.T.
- Tzallas,
- K.
- Kyriakidi,
- Z.E.
- Tsianou,
- P.
- Manousou,
- A.
- Hall,
- E.C.
- Karvounis,
- V.
- Tsianos,
- E.
- Tsianos,
- A clustering based method for collagen proportional area extraction in liver biopsy images (2015) Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society,
- EMBS,
- 2015-November,
+ Giannakeas, M.G.
+ Tsipouras, A.T.
+ Tzallas, K.
+ Kyriakidi, Z.E.
+ Tsianou, P.
+ Manousou, A.
+ Hall, E.C.
+ Karvounis, V.
+ Tsianos, E.
+ Tsianos, A clustering based method for collagen proportional area extraction
+ in liver biopsy images (2015) Proceedings of the Annual International Conferenc
+e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
  art.
  no.
- 7319047,
- pp.
+ 7319047, pp.
  3097-3100.
  
 \end_layout
@@ -9220,18 +8635,14 @@ literal "false"
 \end_inset
 
 T.
- Hastie,
- R.
- Tibshirani,
- Non-parametric logistic and proportional odds regression,
- JRSS-C (Applied Statistics) 
+ Hastie, R.
+ Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
+ (Applied Statistics) 
 \series bold
 36
 \series default
-,
- pp.
- 260–276,
- 1987.
+, pp.
+ 260–276, 1987.
 \end_layout
 
 \begin_layout Bibliography
@@ -9244,15 +8655,13 @@ literal "false"
 \end_inset
 
 P.
- Cortez,
- A.
+ Cortez, A.
  M.
- Gonçalves Silva,
- Using data mining to predict secondary school student performance,
- In Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) (pp.
+ Gonçalves Silva, Using data mining to predict secondary school student
+ performance, In Proceedings of 5th FUture BUsiness TEChnology Conference
+ (FUBUTEC 2008) (pp.
  5–12).
- EUROSIS-ETI,
- 2008.
+ EUROSIS-ETI, 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -9264,18 +8673,13 @@ literal "false"
 
 \end_inset
 
-I-Cheng Yeh,
- King-Jang Yang,
- Tao-Ming Ting,
- Knowledge discovery on RFM model using Bernoulli sequence,
- Expert Systems with Applications 
+I-Cheng Yeh, King-Jang Yang, Tao-Ming Ting, Knowledge discovery on RFM model
+ using Bernoulli sequence, Expert Systems with Applications 
 \series bold
 36
 \series default
-,
- pp.
- 5866-5871,
- 2009.
+, pp.
+ 5866-5871, 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -9287,16 +8691,11 @@ literal "false"
 
 \end_inset
 
-Jeyasingh,
- S.,
- & Veluchamy,
- M.
+Jeyasingh, S., & Veluchamy, M.
  (2017).
- Modified bat algorithm for feature selection with the wisconsin diagnosis breast cancer (WDBC) dataset.
- Asian Pacific journal of cancer prevention:
- APJCP,
- 18(5),
- 1257.
+ Modified bat algorithm for feature selection with the wisconsin diagnosis
+ breast cancer (WDBC) dataset.
+ Asian Pacific journal of cancer prevention: APJCP, 18(5), 1257.
 \end_layout
 
 \begin_layout Bibliography
@@ -9308,19 +8707,12 @@ literal "false"
 
 \end_inset
 
-Alshayeji,
- M.
- H.,
- Ellethy,
- H.,
- & Gupta,
- R.
+Alshayeji, M.
+ H., Ellethy, H., & Gupta, R.
  (2022).
- Computer-aided detection of breast cancer on the Wisconsin dataset:
- An artificial neural networks approach.
- Biomedical signal processing and control,
- 71,
- 103141.
+ Computer-aided detection of breast cancer on the Wisconsin dataset: An
+ artificial neural networks approach.
+ Biomedical signal processing and control, 71, 103141.
 \end_layout
 
 \begin_layout Bibliography
@@ -9333,30 +8725,19 @@ literal "false"
 \end_inset
 
 M.
- Raymer,
- T.E.
- Doom,
- L.A.
- Kuhn,
- W.F.
- Punch,
- Knowledge discovery in medical and biological datasets using a hybrid Bayes classifier/evolutionary algorithm.
- IEEE transactions on systems,
- man,
- and cybernetics.
- Part B,
- Cybernetics :
- a publication of the IEEE Systems,
- Man,
- and Cybernetics Society,
- 
+ Raymer, T.E.
+ Doom, L.A.
+ Kuhn, W.F.
+ Punch, Knowledge discovery in medical and biological datasets using a hybrid
+ Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems, man, and cybernetics.
+ Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
+ Society, 
 \series bold
 33
 \series default
- ,
- pp.
- 802-813,
- 2003.
+ , pp.
+ 802-813, 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -9368,18 +8749,14 @@ literal "false"
 \end_inset
 
 P.
- Zhong,
- M.
- Fukushima,
- Regularized nonsmooth Newton method for multi-class support vector machines,
- Optimization Methods and Software 
+ Zhong, M.
+ Fukushima, Regularized nonsmooth Newton method for multi-class support
+ vector machines, Optimization Methods and Software 
 \series bold
 22
 \series default
-,
- pp.
- 225-236,
- 2007.
+, pp.
+ 225-236, 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -9393,26 +8770,16 @@ literal "false"
 
 R.
  G.
- Andrzejak,
- K.
- Lehnertz,
- F.Mormann,
- C.
- Rieke,
- P.
- David,
- and C.
+ Andrzejak, K.
+ Lehnertz, F.Mormann, C.
+ Rieke, P.
+ David, and C.
  E.
- Elger,
- “Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity:
- dependence on recording region and brain state,” Physical Review E,
- vol.
- 64,
- no.
- 6,
- Article ID 061907,
- 8 pages,
- 2001.
+ Elger, “Indications of nonlinear deterministic and finite-dimensional structure
+s in time series of brain electrical activity: dependence on recording region
+ and brain state,” Physical Review E, vol.
+ 64, no.
+ 6, Article ID 061907, 8 pages, 2001.
  
 \end_layout
 
@@ -9426,19 +8793,14 @@ literal "true"
 
 A.
  T.
- Tzallas,
- M.
+ Tzallas, M.
  G.
- Tsipouras,
- and D.
+ Tsipouras, and D.
  I.
- Fotiadis,
- “Automatic Seizure Detection Based on Time-Frequency Analysis and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ Fotiadis, “Automatic Seizure Detection Based on Time-Frequency Analysis
+ and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
  vol.
- 2007,
- Article ID 80510,
- 13 pages,
- 2007.
+ 2007, Article ID 80510, 13 pages, 2007.
  doi:10.1155/2007/80510
 \end_layout
 
@@ -9452,18 +8814,14 @@ literal "false"
 \end_inset
 
 M.
- Koivisto,
- K.
- Sood,
- Exact Bayesian Structure Discovery in Bayesian Networks,
- The Journal of Machine Learning Research
+ Koivisto, K.
+ Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
+ of Machine Learning Research
 \series bold
  5
 \series default
-,
- pp.
- 549–573,
- 2004.
+, pp.
+ 549–573, 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -9475,29 +8833,14 @@ literal "false"
 
 \end_inset
 
-Nash,
- W.J.;
- Sellers,
- T.L.;
- Talbot,
- S.R.;
- Cawthor,
- A.J.;
- Ford,
- W.B.
+Nash, W.J.; Sellers, T.L.; Talbot, S.R.; Cawthor, A.J.; Ford, W.B.
  The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
  I.
  Blacklip Abalone (_H.
- rubra_) from the North Coast and Islands of Bass Strait,
- Sea Fisheries Division;
- Technical Report No.
- 48;
- Department of Primary Industry and Fisheries,
- Tasmania:
- Hobart,
- Australia,
- 1994;
- ISSN 1034-3288
+ rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
+ Division; Technical Report No.
+ 48; Department of Primary Industry and Fisheries, Tasmania: Hobart, Australia,
+ 1994; ISSN 1034-3288
 \end_layout
 
 \begin_layout Bibliography
@@ -9509,18 +8852,12 @@ literal "false"
 
 \end_inset
 
-Brooks,
- T.F.;
- Pope,
- D.S.;
- Marcolini,
- A.M.
+Brooks, T.F.; Pope, D.S.; Marcolini, A.M.
  Airfoil Self-Noise and Prediction.
- Technical Report,
- NASA RP-1218.
+ Technical Report, NASA RP-1218.
  July 1989.
- Available online:
- https://ntrs.nasa.gov/citations/19890016302 (accessed on 14 November 2024).
+ Available online: https://ntrs.nasa.gov/citations/19890016302 (accessed on
+ 14 November 2024).
 \end_layout
 
 \begin_layout Bibliography
@@ -9532,17 +8869,14 @@ literal "false"
 
 \end_inset
 
-I.Cheng Yeh,
- Modeling of strength of high performance concrete using artificial neural networks,
- Cement and Concrete Research.
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
  
 \series bold
 28
 \series default
-,
- pp.
- 1797-1808,
- 1998.
+, pp.
+ 1797-1808, 1998.
  
 \end_layout
 
@@ -9557,18 +8891,14 @@ literal "false"
 
 D.
  Harrison and D.L.
- Rubinfeld,
- Hedonic prices and the demand for clean ai,
- J.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
  Environ.
  Economics & Management 
 \series bold
 5
 \series default
-,
- pp.
- 81-102,
- 1978.
+, pp.
+ 81-102, 1978.
 \end_layout
 
 \begin_layout Bibliography
@@ -9580,13 +8910,8 @@ literal "false"
 
 \end_inset
 
-Simonoff,
- J.S.
- Smooting Methods in Statistics;
- Springer:
- Berlin/Heidelberg,
- Germany,
- 1996.
+Simonoff, J.S.
+ Smooting Methods in Statistics; Springer: Berlin/Heidelberg, Germany, 1996.
  
 \end_layout
 
@@ -9599,22 +8924,14 @@ literal "false"
 
 \end_inset
 
-Mackowiak,
- P.A.;
- Wasserman,
- S.S.;
- Levine,
- M.M.
- A critical appraisal of 98.6 degrees f,
- the upper limit of the normal body temperature,
- and other legacies of Carl Reinhold August Wunderlich.
+Mackowiak, P.A.; Wasserman, S.S.; Levine, M.M.
+ A critical appraisal of 98.6 degrees f, the upper limit of the normal body
+ temperature, and other legacies of Carl Reinhold August Wunderlich.
  J.
  Am.
  Med.
  Assoc.
- 1992,
- 268,
- 1578–1580.
+ 1992, 268, 1578–1580.
 \end_layout
 
 \begin_layout Bibliography
@@ -9626,20 +8943,11 @@ literal "false"
 
 \end_inset
 
-Gropp,
- W.;
- Lusk,
- E.;
- Doss,
- N.;
- Skjellum,
- A.
- A high-performance,
- portable implementation of the MPI message passing interface standard.
+Gropp, W.; Lusk, E.; Doss, N.; Skjellum, A.
+ A high-performance, portable implementation of the MPI message passing
+ interface standard.
  Parallel Comput.
- 1996,
- 22,
- 789–828.
+ 1996, 22, 789–828.
 \end_layout
 
 \begin_layout Bibliography
@@ -9651,14 +8959,8 @@ literal "false"
 
 \end_inset
 
-Chandra,
- R.
- Parallel Programming in OpenMP;
- Morgan Kaufmann:
- Cambridge,
- MA,
- USA,
- 2001.
+Chandra, R.
+ Parallel Programming in OpenMP; Morgan Kaufmann: Cambridge, MA, USA, 2001.
 \end_layout
 
 \begin_layout End Whole Page
