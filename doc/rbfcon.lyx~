@@ -598,6 +598,30 @@ The software proposed in this work is fully implemented in the programming
  language ANSI C++ and is an executable that has a series of command line
  parameters with which the user can efficiently process the data sets at
  his disposal.
+
+\series bold
+ 
+\series default
+The contribution of the proposed technique and the implemented software
+ can be summarized as follows: 
+\end_layout
+
+\begin_layout Enumerate
+The method can efficiently construct the structure of RBF networks and achieve
+ optimal adjustment of their parameters.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The resulting networks do not have the numerical problems caused by the
+ traditional training technique of RBF networks.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The created software provides an easy user interface for performing experiments
+ and can be installed on almost any operating system.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1128,7 +1152,7 @@ literal "false"
 \series bold
  
 \series default
-a Matalab toolbox named GeLab 
+a Matlab toolbox named GeLab 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gelab"
@@ -1161,8 +1185,8 @@ literal "false"
 
 \begin_layout Standard
 The proposed procedure constructs the structure of an RBF neural network
- using Grammatical Evolution and an appropriately modified Genetic Algorithm
- 
+ using Grammatical Evolution and a BNF grammar and an appropriately modified
+ Genetic Algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "genetic1,genetic2"
@@ -1171,7 +1195,93 @@ literal "false"
 \end_inset
 
  that guides the course of the procedure.
- The required BNF grammar for the current algorithm is outlined in Figure
+ The grammars used in the Grammatical Evolution procedure are BNF grammars
+ expressed as sets
+\series bold
+ 
+\series default
+
+\begin_inset Formula $G=\left(N,T,S,P\right)$
+\end_inset
+
+ where
+\end_layout
+
+\begin_layout Itemize
+The symbol 
+\begin_inset Formula $N$
+\end_inset
+
+ stands for the set of non-terminal symbols.
+\end_layout
+
+\begin_layout Itemize
+The symbol 
+\begin_inset Formula $T$
+\end_inset
+
+ represents the set of terminal symbols.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $S$
+\end_inset
+
+ is a non - terminal symbol, used as the start symbol of the grammar.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ is the set of production rules that are used to produce terminal symbols
+ from non - terminal symbols.
+ 
+\end_layout
+
+\begin_layout Standard
+For each chromosome, Grammatical Evolution initiates from the symbol 
+\begin_inset Formula $S$
+\end_inset
+
+ and through a series of production steps it creates programs with terminal
+ symbols by substituting non-terminal symbols with the right hand of the
+ selected production rule.
+ The selection of the production rule is accomplished in two steps:
+\end_layout
+
+\begin_layout Itemize
+Get the next element 
+\begin_inset Formula $V$
+\end_inset
+
+ from the under - processing chromosome.
+\end_layout
+
+\begin_layout Itemize
+Select the next production rule according to the equation: Rule = 
+\begin_inset Formula $V$
+\end_inset
+
+ mod 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+, where the quantity
+\series bold
+ 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+ 
+\series default
+stands for the total number of production rules for the non – terminal symbol
+ that is under processing.
+\end_layout
+
+\begin_layout Standard
+The required BNF grammar for the current algorithm is outlined in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1192,14 +1302,11 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout LyX-Code
 S:=<rbfexpr>                           
@@ -1305,7 +1412,7 @@ name "fig:The-BNF-grammar"
 
 \end_inset
 
-The steps of the algorithm used to create RBF neural networks are listed
+ The steps of the algorithm used to create RBF neural networks are listed
  below:
 \end_layout
 
@@ -1616,6 +1723,22 @@ Application in test set
 \end_inset
 
  to the test dataset and report the test error.
+ 
+\end_layout
+
+\begin_layout Standard
+The steps of the proposed method are also outlined as a flowchart in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flow"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1623,7 +1746,7 @@ Application in test set
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1654,6 +1777,48 @@ name "fig:onePoint"
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename flowchart.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The steps of the proposed method as a flowchart.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -2101,7 +2266,7 @@ The output of this command is shown below:
 \begin_inset listings
 lstparams "basicstyle={\footnotesize},frame=single"
 inline false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2234,6 +2399,20 @@ The program prints the train error, the test error and the classification
  for every run as well as the averages for these values.
  Also, in each execution the main program shows the constructed RBF network
  as a string value.
+\end_layout
+
+\begin_layout Standard
+The basic elements that the software requires when initializing the process
+ are essentially the file containing the training data as well as the file
+ containing the test data.
+ Both of these files must have the proposed structure but also the same
+ number of patterns.
+ The user can change other elements of the algorithm, such as the number
+ of chromosomes, through a series of parameters, but this is not required.
+ At the end, the software will display the average training error as well
+ as the average error in the test set as well as the average classification
+ error.
+ 
 \end_layout
 
 \begin_layout Section
@@ -3131,7 +3310,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3288,6 +3467,11 @@ generations
 
 \end_inset
 
+ This particular set of parameters has been used in a multitude of scientific
+ publications and can be considered as a compromise between the efficiency
+ of an evolutionary process such as the one proposed in this work and the
+ speed necessary to extract the results of its application within a reasonable
+ time.
  
 \end_layout
 
@@ -3337,6 +3521,18 @@ literal "false"
 \begin_layout Enumerate
 The column MLP(BFGS) stands for the usage of the BFGS optimization method
  
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+ in the training process of an artificial neural network with 
+\begin_inset Formula $k=10$
+\end_inset
+
+ processing nodes.
 \end_layout
 
 \begin_layout Enumerate
@@ -8720,7 +8916,7 @@ ts over the original.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8872,6 +9068,17 @@ ly differentiating it from the others in performance.
  Therefore, the choice of model variant can impact error rates significantly
  in specific comparisons, but these effects are not uniform across all datasets
  when considered in aggregate.
+\end_layout
+
+\begin_layout Standard
+Summarizing the above results, one can see that the proposed technique for
+ building and training RBF networks improves the performance of these networks
+ by more than 20% on average on classification data and by more than 50%
+ on regression data.
+ In all datasets, the proposed method brought about a significant reduction
+ in classification error in 80% of cases and in many datasets the reduction
+ in classification or regression error was extremely significant.
+ 
 \end_layout
 
 \begin_layout Section
