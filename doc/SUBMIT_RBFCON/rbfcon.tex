@@ -1,7 +1,6 @@
-%% LyX 2.4.1 created this file.  For more info, see https://www.lyx.org/.
+%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
-\usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{url}
@@ -35,20 +34,21 @@ of Ioannina, Greece; v.charilog@uoi.gr}
 
 
 \abstract{Radial Basis Function networks considered as a machine learning tool,
-used in classification and regression problems derived from various
-areas of the modern world. However, in many cases, the initial training
-method used to fit the parameters of these models can produce poor
-results either due to unstable numerical operations or its inability
-to effectively locate the global minimum of the error function. The
-current work proposes a novel method that constructs the architecture
-of this model and estimates the values for each parameter of the model
-with the incorporation of Grammatical Evolution. The proposed method
-was coded in ANSI C++ and the suggested software was tested on a wide
-series of problems from various areas. The experimental results certify
-the adequacy of the new method to solve difficult problems and in
-the vast majority of cases the error in classification or approximation
-of functions is significantly lower than the case where the original
-training method was applied.}
+applied on a wide series of classification and regression problems
+that was proposed in various research topics of the modern world.
+However, in many cases, the initial training method used to fit the
+parameters of these models can produce poor results either due to
+unstable numerical operations or its inability to effectively locate
+the lowest value of the error function. The current work proposes
+a novel method that constructs the architecture of this model and
+estimates the values for each parameter of the model with the incorporation
+of Grammatical Evolution. The proposed method was coded in ANSI C++
+and the produced software was tested for its effectiveness on a wide
+series of datasets. The experimental results certify the adequacy
+of the new method to solve difficult problems and in the vast majority
+of cases the error in classification or approximation of functions
+is significantly lower than the case where the original training method
+was applied.}
 
 
 \keyword{Neural networks; Genetic programming; Grammatical Evolution; Evolutionary
@@ -212,7 +212,8 @@ arise in physics \citep{physics-ml1,physics_ml2}, chemistry \citep{chemistry_ml1
 economics \citep{econ_ml1,econ_ml2}, medicine \citep{med_ml1,med_ml2}
 etc. One common machine learning model, that is applied in many areas,
 is the Radial Basis Function (RBF) neural network \citep{rbf1,rbf2}.
-Typically, an RBF network is defined using the following equation:\textbf{
+Commonly these neural networks are formed using the following mathematical
+expression:\textbf{
 \begin{equation}
 y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
@@ -222,8 +223,8 @@ y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overri
 dimension $d$.
 \item The parameter $k$ stands for the number of weights of the model.
 These weights are represented by vector $\overrightarrow{w}$
-\item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ represent the centers
-of this model.
+\item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ represent the so
+- called centers of the network.
 \item The final output of the model for the input pattern $\overrightarrow{x}$
 is denoted by $y\left(\overrightarrow{x}\right)$
 \item The function $\phi(x)$ in most cases is represented by the Gaussian
@@ -231,24 +232,41 @@ function defined as:\textbf{
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
-}This function is selected as the output function, since the value
-$\phi(x)$ depends only on the distance of vectors $x$ and $c$.
+}This function is selected as the output function, since the output
+value $\phi(x)$ uses only the distance of vectors $x$ and $c$.
 \end{enumerate}
-RBF neural networks have been widely used and studied in the relevant
-literature and, among others, one can find applications in problems
-derived from physics \citep{rbfphysics1,rbfphysics2}, robotics \citep{rbfrobotics1,rbfrobotics2},
-security problems \citep{rbf_dos1,rbf_dos2}, image processing \citep{rbf_lmage1,rbf_image2}
-etc. Due to the widespread use of these machine learning models and
-their use in both function learning and data fitting problems, a number
-of techniques have been presented in recent years that seek to more
-accurately identify their parameters. Such methods include techniques
-used to initialize the parameters of these models \citep{rbfinit1,rbfinit2,rbfinit3},
-or pruning methods for the optimal adaptation of the architecture
-of these models \citep{rbfprun1,rbfprun3,rbfprun2}. Also, global
-optimization methods have been proposed to estimate the optimal set
-of parameters of RBF networks in a series of research papers \citep{rbf_go1,rbf_go2,rbf_go3}. 
+RBF neural networks have been extensively used and studied in the
+recent literature and, among others, one can find applications in
+problems derived from physics \citep{rbfphysics1,rbfphysics2}, robotics
+\citep{rbfrobotics1,rbfrobotics2}, security problems \citep{rbf_dos1,rbf_dos2},
+image processing \citep{rbf_lmage1,rbf_image2} etc. Due to the widespread
+use of these machine learning models and their use in both classification
+and data fitting problems, a number of techniques have been presented
+in recent years that seek to more accurately identify their parameters.
+Such methods include techniques used to initialize the parameters
+of these models \citep{rbfinit1,rbfinit2,rbfinit3}, or pruning methods
+for the optimal adaptation of the architecture of these models \citep{rbfprun1,rbfprun3,rbfprun2}.
+Also, global optimization methods have been proposed to estimate the
+optimal set of parameters of RBF networks in a series of research
+papers \citep{rbf_go1,rbf_go2,rbf_go3}. 
 
-In most cases, the parameters of an RBF neural network are calculated
+Furthermore, a discussion on the kernel widths of RBF networks is
+provided in the work of Benoudjit et al \citep{rbfkernel}. Paetz
+proposed a method \citep{rbfgen} that can reduce the number of neurons
+in RBF networks with dynamic decay adjustment, in order to increase
+the generalization abilities of these networks. Yu et al. in their
+work \citep{rbfcon} proposed an incremental design technique for
+RBF networks in order to estimate the optimal architecture of these
+networks. Moreover, Alexandridis et al. \citep{rbfpso} proposed the
+incorporation of the Particle Swarm Optimization method to effectively
+estimate the weights of RBF networks. Also, Neruda et al \citep{rbflearn}
+provided a detailed comparison of methods used to estimate the parameters
+of RBF networks. Additionally, due to the widespread usage of parallel
+programming techniques, a series of techniques that exploit parallel
+computing units have been suggested in recent years for RBF network
+training\textbf{ }\citep{rbfpar1,rbfpar2}.
+
+In most cases, the set of the parameters of the model is estimated
 using a two phase method: during the first phase, the set of centers
 and variances of equation \ref{eq:firstrbf} are calculated using
 the K-Means algorithm \citep{kmeans}. In the second phase, the set
@@ -256,43 +274,54 @@ of weights $\overrightarrow{w}$ is obtained by solving a linear system
 of equations. Although the previous procedure is capable of estimating
 the optimal set of parameters in a very short time, it nevertheless
 has a number of problems such as numerical stability, accurate determination
-of the number of weights, over - fitting problems, etc. To tackle
-such problems, a novel method is proposed here that constructs the
-optimal architecture of RBF networks using a method that incorporates
-the Grammatical Evolution procedure \citep{geMain}. The proposed
-technique is able to estimate both the optimal architecture of the
-neural network and the numerical values of its parameters, and in
-this paper both the algorithm used and the software created for this
-process, which is freely available from the internet, will be presented
-in detail. 
+of the number of weights, over - fitting problems, etc. To calculate
+these parameters with the classical calculation method, it is necessary
+to solve a system of equations, but in many cases the solution of
+such a system leads to numerical problems as determinants appear with
+a value quite close to zero. To tackle such problems, a novel method
+is proposed here that constructs the optimal architecture of RBF networks
+using a method that incorporates the Grammatical Evolution procedure
+\citep{geMain}. The proposed technique is able to estimate both the
+optimal architecture of the neural network and the numerical values
+of its parameters, and in this paper both the algorithm used and the
+software created for this process, which is freely available from
+the internet, will be presented in detail. 
 
 The software proposed in this work is fully implemented in the programming
 language ANSI C++ and is an executable that has a series of command
 line parameters with which the user can efficiently process the data
-sets at his disposal.
-
+sets at his disposal.\textbf{ }The contribution of the proposed technique
+and the implemented software can be summarized as follows: 
+\begin{enumerate}
+\item The method can efficiently construct the structure of RBF networks
+and achieve optimal adjustment of their parameters. 
+\item The resulting networks do not have the numerical problems caused by
+the traditional training technique of RBF networks. 
+\item The created software provides an easy user interface for performing
+experiments and can be installed on almost any operating system. 
+\end{enumerate}
 The rest of this article is divided in the following sections: in
 section \ref{sec:Materials-and-Methods} the proposed methodology
 and the used software are thoroughly discussed, in section \ref{sec:Results}
-the datasets used in the experiments are presented followed by the
-experimental results and finally in section \ref{sec:Conclusions}
-some conclusions are discussed.
+the datasets incorporated in the conducted experiments are listed
+followed by the experimental results, in section \ref{sec:Discussion}
+a discussion on the experimental results is provided and finally in
+section \ref{sec:Conclusions} a series of conclusions is presented.
 
-\section{Materials and Methods\protect\label{sec:Materials-and-Methods}}
+\section{Materials and Methods\label{sec:Materials-and-Methods}}
 
-This section starts with a description of the original training procedure
-for RBF neural networks and afterwards it provides a presentation
-of the Grammatical Evolution procedure and continues with a detail
-description of the proposed method. Finally, the proposed software
-is presented and a full working example of execution is shown.
+The original training method of RBF networks is presented here followed
+by the detail presentation of the Grammatical Evolution procedure.
+Afterwards, the proposed method is fully described accompanied by
+a full working example of the proposed software.
 
-\subsection{The original training procedure of RBF neural networks\protect\label{subsec:The-original-training}}
+\subsection{The original training procedure of RBF neural networks\label{subsec:The-original-training}}
 
 The typical training procedure of an RBF network $y(x)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert x-c_{i}\right\Vert \right)$
 involves two major steps: in first step the centers $\overrightarrow{c_{i}}$
 and the variances are calculated using the K-means procedure, which
 is outlined in Algorithm \ref{alg:K-means-Algorithm}. During the
-second step a system of equations should be solved in order to obtain
+second step a system of equations should be solved in order to calculate
 the values for weights $w_{i},\ i=1,\ldots,k$ as follows:
 \begin{enumerate}
 \item \textbf{Set} $W=w_{kj}$ the matrix of $k$ weights, $\Phi=\phi_{j}\left(x_{i}\right)$
@@ -340,92 +369,117 @@ c_{j}=\frac{1}{M_{j}}\sum_{x_{i}\in S_{j}}x_{i}
 \item \textbf{If} the centers $c_{j}$ did not change then terminate else
 goto step \ref{enu:For-every-pattern}
 \end{enumerate}
-\caption{The used K-means Algorithm\protect\label{alg:K-means-Algorithm}}
+\caption{The used K-means Algorithm\label{alg:K-means-Algorithm}}
 \end{algorithm}
 
 
 \subsection{The used construction procedure}
 
 The Grammatical Evolution procedure is able to construct programs
-in the provided Backus Naur Form (BNF) grammar \citep{bnf1} using
-a genetic algorithm with integer chromosomes. These chromosomes represent
-rule numbers from the underlying grammar and the method has been used
-successfully in a variety of problems, such as: trigonometric problems
-\citep{ge_trig}, production of music\textbf{ }\citep{ge_music},
-construction of neural networks\textbf{ }\citep{ge_nn,ge_nn2},\textbf{
+in the provided Backus Naur Form (BNF) grammar \citep{bnf1} with
+the assistance of a genetic algorithm that utilizes integer chromosomes.
+These chromosomes represent rule numbers from the underlying grammar
+and the method has been used successfully in a series of cases, such
+as: trigonometric problems \citep{ge_trig}, production of music\textbf{
+}\citep{ge_music}, construction of neural networks\textbf{ }\citep{ge_nn,ge_nn2},\textbf{
 }video games \citep{ge_pacman,ge_supermario}\textbf{,} credit classification
 \citep{ge_credit}, network security \citep{ge_intrusion} etc. Furthermore,
 many researchers have developed and published a series of software
 regarding Grammatical Evolution, such as\textbf{ }the GEVA \citep{ge_geva}
 which suggests a GUI environment, a statistical software written in
-R named gramEvol \citep{ge_gramevol},\textbf{ }a Matalab toolbox
-named GeLab \citep{ge_gelab}, the GenClass software used in classification
+R named gramEvol \citep{ge_gramevol},\textbf{ }a Matlab toolbox named
+GeLab \citep{ge_gelab}, the GenClass software used in classification
 problems\textbf{ }\citep{ge_genclass}, the QFc software \citep{ge_qfc}
 used to construct artificial features etc.
 
 The proposed procedure constructs the structure of an RBF neural network
-using Grammatical Evolution and an appropriately modified Genetic
-Algorithm \citep{genetic1,genetic2} that guides the course of the
-procedure. The required BNF grammar for the current algorithm is outlined
-in Figure \ref{fig:The-BNF-grammar}. The terminal symbol exp represents
+using Grammatical Evolution and a BNF grammar and an appropriately
+modified Genetic Algorithm \citep{genetic1,genetic2} that guides
+the course of the procedure. The grammars used in the Grammatical
+Evolution procedure are BNF grammars expressed as sets\textbf{ }$G=\left(N,T,S,P\right)$
+where
+\begin{itemize}
+\item The symbol $N$ stands for the set of non-terminal symbols.
+\item The symbol $T$ represents the set of terminal symbols. 
+\item $S$ is a non - terminal symbol, used as the start symbol of the grammar.
+\item $P$ is the set of production rules that are used to produce terminal
+symbols from non - terminal symbols. 
+\end{itemize}
+For each chromosome, Grammatical Evolution initiates from the symbol
+$S$ and through a series of production steps it creates programs
+with terminal symbols by substituting non-terminal symbols with the
+right hand of the selected production rule. The selection of the production
+rule is accomplished in two steps:
+\begin{itemize}
+\item Get the next element $V$ from the under - processing chromosome.
+\item Select the next production rule according to the equation: Rule =
+$V$ mod $N_{R}$, where the quantity\textbf{ $N_{R}$ }stands for
+the total number of production rules for the non -- terminal symbol
+that is under processing.
+\end{itemize}
+The required BNF grammar for the current algorithm is outlined in
+Figure \ref{fig:The-BNF-grammar}. The terminal symbol exp represents
 the function $\exp(x)$ and the terminal symbol pow stands for the
 power operator $x^{y}$.
-
 \begin{figure}[H]
 \begin{lyxcode}
 S:=\textless rbfexpr\textgreater ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\textless rbfexpr\textgreater ::=\textless Node\textgreater ~~~~~~~~~~~~~~~~~~~~~
+\textless rbfexpr\textgreater ::=\textless Node\textgreater ~~~~~~~~~~~~~~~~~~~~(0)~~~~~~~~~~~~
 
-~~~~~~~~~~~\textbar ~\textless Node\textgreater ~+~\textless rbfexpr\textgreater ~~~~~~~~
+~~~~~~~~~~~\textbar ~\textless Node\textgreater ~+~\textless rbfexpr\textgreater ~~~~~~~(1)
 
-\textless Node\textgreater ::=\textless number\textgreater{*}exp(\textless sum\textgreater )+\textless number\textgreater ~~
+\textless Node\textgreater ::=\textless number\textgreater{*}exp(\textless sum\textgreater )+\textless number\textgreater ~(0)~
 
-\textless sum\textgreater ::=~(~-\textless dist\textgreater /(pow(\textless number\textgreater ,2)))
+\textless sum\textgreater ::=~(~-\textless dist\textgreater /(pow(\textless number\textgreater ,2)))~(0)
 
-~~~~~~~~~~~\textbar ~~~~\textless sum\textgreater +\textless sum\textgreater ~~~~~~~~~~~~
+~~~~~~~~~~~\textbar ~~~~\textless sum\textgreater +\textless sum\textgreater ~~~~~~~~~~~(1)
 
-\textless dist\textgreater ::=~pow(\textless xxlist\textgreater -\textless number\textgreater ,2)~~~~~~~~~~~~~~
+\textless dist\textgreater ::=~pow(\textless xxlist\textgreater -\textless number\textgreater ,2)~~~~(0)~~~~~~~~~~
 
-\textless xxlist\textgreater ::=~x1~~~~~~~~
+\textless xxlist\textgreater ::=~x1~~~~~~~~~~~~~~~~~~~~~~~~(0)
 
-~~~~~~~~~~~~~\textbar ~~~~x2~~
+~~~~~~~~~~~~~\textbar ~~~~x2~~~~~~~~~~~~~~~~~~(1)
 
-~~~~~~~~~~~~~..............
+~~~~~~~~~~~~~..............~~~~~~~~~~~...
 
-~~~~~~~~~~~~~\textbar ~~~~xd~~
+~~~~~~~~~~~~~\textbar ~~~~xd~~~~~~~~~~~~~~~~~~(d-1)
 
-\textless number\textgreater ::=~(\textless digitlist\textgreater .\textless digitlist\textgreater )~~~~~~~~
+\textless number\textgreater ::=~(\textless digitlist\textgreater .\textless digitlist\textgreater )~~~~~~~~~(0)~~~~~~
 
-~~~~~~~~~~~~~\textbar ~~~~(-\textless digitlist\textgreater .\textless digitlist\textgreater )~
+~~~~~~~~~~~~~\textbar ~~~~(-\textless digitlist\textgreater .\textless digitlist\textgreater )~~(1)
 
-\textless digitlist\textgreater ::=~\textless digit\textgreater ~~~~~~~~~~~~
+\textless digitlist\textgreater ::=~\textless digit\textgreater ~~~~~~~~~~~~~~~~~~~~~~~~(0)
 
-~~~~~~~~~~~~~\textbar ~\textless digit\textgreater\textless digitlist\textgreater ~
+~~~~~~~~~~~~~\textbar ~\textless digit\textgreater\textless digitlist\textgreater ~~~~~~~~~~~~~(1)
 
-\textless digit\textgreater ::=~0~~~~~~
+\textless digit\textgreater ::=~0~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(0)
 
-~~~~~~~~~~~~~\textbar ~~1
+~~~~~~~~~~~~~\textbar ~~1~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(1)
 
-~~~~~~~~~~~~~...........
+~~~~~~~~~~~~~...........~~~~~~~~~~~~~~~~~~~~~~....
 
-~~~~~~~~~~~~~\textbar ~~9~
+~~~~~~~~~~~~~\textbar ~~9~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(9)
 \end{lyxcode}
-\caption{The BNF grammar of the proposed method.\protect\label{fig:The-BNF-grammar}}
+\caption{The BNF grammar that is used by the proposed method to create RBF
+networks. Every non - terminal symbol is associated with a series
+of production rules that will produce terminal symbols. The numbers
+in the parentheses denote the sequential number of each production
+rule, used by the Grammatical Evolution technique during the creation
+of RBF networks.\label{fig:The-BNF-grammar}}
 \end{figure}
-The steps of the method used to create RBF neural networks are listed
-below:
+ The steps of the algorithm used to create RBF neural networks are
+listed below:
 \begin{enumerate}
 \item \textbf{Initialization Step}.
 \begin{enumerate}
-\item \textbf{Set} the number of chromosomes $N_{c}$ and the maximum number
-of allowed generations $N_{g}$.
+\item \textbf{Set} the number of chromosomes $N_{c}$ and the number of
+allowed generations $N_{g}$.
 \item \textbf{Set} the selection rate of the genetic algorithm, denoted
 as $p_{c}$ where $p_{c}\le1$.
 \item \textbf{Set} the mutation rate of the genetic algorithm, denoted as
 $p_{m}$, with $p_{m}\le$1.
-\item \textbf{Initialize} randomly each element of each chromosome as a
-positive random integer number.
+\item \textbf{Initialize} the chromosomes as sets of positive random integers.
 \item \textbf{Set} k=0, the generation number.
 \end{enumerate}
 \item \textbf{Main loop step}.\label{enu:Main-loop-step.}
@@ -435,12 +489,12 @@ positive random integer number.
 \item For every chromosome $C_{i},\ i=1,\ldots,N_{c}$ \textbf{create} the
 corresponding neural network using the grammar of Figure \ref{fig:The-BNF-grammar}.
 Denote this network as $y_{i}(x)$.
-\item \textbf{Calculate} the fitness $f_{i}$ for the the train set as:
+\item \textbf{Compute} the fitness $f_{i}$ for the train set as:
 \begin{equation}
 f_{i}=\sum_{j=1}^{M}\left(y_{i}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1}
 \end{equation}
-where the set $\left(\overrightarrow{x_{j}},t_{j}\right),\ j=1,...,M$
-denotes the train dataset of the objective problem.
+The set $\left(\overrightarrow{x_{j}},t_{j}\right),\ j=1,...,M$ represents
+the train dataset of the objective problem.
 \end{enumerate}
 \item Apply the selection operator.\textbf{ }A sorting of the chromosomes
 is performed according to their fitness values. The best $\left(1-p_{s}\right)\times N_{c}$
@@ -451,12 +505,12 @@ during the crossover procedure.
 of $p_{s}\times N_{c}$ offsprings will be produced. For each pair
 of offsprings denoted as\textbf{ $\tilde{z}$ }and\textbf{ $\tilde{w}$},
 two chromosomes $(z,w)$ should be selected from the original population
-using tournament selection. The new chromosomes are produced from
-$(z,w)$ using the one - point crossover procedure. An example of
-the one - point crossover graphically presented in Figure \ref{fig:onePoint}.
+using tournament selection. The production of the new chromosomes
+is conducted using the one -point crossover procedure. An example
+of this process is graphically outlined in Figure \ref{fig:onePoint}.
 \item Perform mutation.\textbf{ }For each element of every chromosome, draw
 randomly a number $r\in\left[0,1\right]$. If $r\le p_{m}$ then the
-corresponding element is altered randomly.
+corresponding element is replaced by a new randomly produced element.
 \item \textbf{Set} k=k+1
 \end{enumerate}
 \item \textbf{Check for termination step}. If $k\le N_{g}$ then \textbf{goto}
@@ -469,26 +523,36 @@ search procedure the training error defined as:
 E\left(y^{*}(x)\right)=\sum_{j=1}^{M}\left(y^{*}\left(\overrightarrow{x}_{j}\right)-t_{j}\right)^{2}\label{eq:eq1-1}
 \end{equation}
 \item \textbf{Application in test set}. Apply the final model $y^{*}(x)$
-to the test dataset and report the test error.
+to the test dataset and report the test error. 
 \end{enumerate}
+The steps of the proposed method are also outlined as a flowchart
+in Figure \ref{fig:flow}.
+
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{onepoint_crossover}
 \par\end{centering}
-\caption{An example for the procedure of one - point crossover, as used in
-the Grammatical Evolution procedure.\protect\label{fig:onePoint}}
+\caption{A graphical example of the one - point crossover. This procedure is
+used in the Grammatical Evolution method to produce new chromosomes.\label{fig:onePoint}}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.7]{flowchart}
+\par\end{centering}
+\caption{The steps of the proposed method as a flowchart.\label{fig:flow}}
+
 \end{figure}
 
 
 \subsection{Installation procedure}
 
-The software was coded entirelly in ANSI C++ and the software can
-be downloaded freely from the following URL: \url{https://github.com/itsoulos/RbfCon}
+The software was coded entirely in ANSI C++ and the software is available
+freely from the following URL: \url{https://github.com/itsoulos/RbfCon}
 (accessed on 14 November 2024). The user should install the QT Library,
-which is freely available from \url{https://qt.io} (accessed on 14
-November 2024) in order to compile the software. After downloading
-the RbfCon-master.zip file, the user should execute the following
-commands, under any Unix - based system:
+which is accessible from \url{https://qt.io} (accessed on 14 November
+2024) in order to compile the software. After downloading the RbfCon-master.zip
+file, the user should execute the following commands, under any Unix
+- based system:
 \begin{enumerate}
 \item unzip RbfCon-master.zip.
 \item cd RbfCon-master
@@ -511,30 +575,30 @@ dataset for the software. The user is required to provide this parameter
 to start the process. The format for this file is shown in Figure
 \ref{fig:datasetFormat}. The first number denoted as D in this figure
 determines the dimension of the input dataset and the second number
-denoted as M stands for the number of input patterns. Every line in
+denoted as M represents the number of input patterns. Every line in
 the file contains a pattern and the required desired output.
 \item $--$testfile=\textless filename\textgreater{} The string parameter
 \emph{filename} stands for the name of the test dataset used by the
 software. The user should provide at least the parameters \emph{trainfile}
 and \emph{testfile} in order to initiate the method. The format of
 the test dataset is the same as the training dataset.
-\item $--$chromosome\_count=\textless count\textgreater{} The integer
-parameter \emph{count }represents the number of chromosomes that the
-genetic algorithm will contain. The default value for this parameter
-is 500.
+\item $--$chromosome\_count=\textless count\textgreater{} This integer
+parameter denotes the number of chromosomes in the genetic algorithm
+(parameter $N_{c}$ of the algorithm). The default value for this
+parameter is 500.
 \item $--$chromosome\_size=\textless size\textgreater{} The integer parameter
 \emph{size} determines the size of each chromosome for the Grammatical
 Evolution process. The default value for this parameter is 100.
 \item $--$selection\_rate=\textless rate\textgreater{} The double precision
 parameter \emph{rate} stands for the selection rate of the Grammatical
-Evolution process. The default value for this parameter is 0.10 (10\%).
+Evolution process . The default value for this parameter is 0.10 (10\%).
 \item $--$mutation\_rate=\textless rate\textgreater{} The double precision
 parameter \emph{rate} represents the mutation rate for the Grammatical
 Evolution process. The default value for this parameter is 0.05 (5\%).
 \item $--$generations=\textless gens\textgreater{} The integer parameter
 \emph{gens} stands for the maximum number of allowed generations for
-the Grammatical Evolution procedure. The default value for this parameter
-is 500.
+the Grammatical Evolution procedure (parameter $N_{g}$ of the current
+algorithm). The original value is 500.
 \item $--$local\_method=\textless method\textgreater{} The used local
 optimization method, that will be applied to the parameters of the
 RBF model when the Grammatical Evolution procedure finished. The available
@@ -564,8 +628,6 @@ determines the number of consecutive applications of the proposed
 technique to the original data set. The default value is 30.
 \end{enumerate}
 \begin{figure}[H]
-\caption{The format for the used datasets.\protect\label{fig:datasetFormat}}
-
 $ $
 
 D
@@ -578,25 +640,24 @@ x_{21} & x_{22} & \ldots & x_{2D} & y_{2}\\
 \vdots & \vdots & \vdots & \vdots & \vdots\\
 x_{M1} & x_{M2} & \ldots & x_{MD} & y_{M}
 \end{array}$
+
+\caption{The format for the used datasets.\label{fig:datasetFormat}}
 \end{figure}
 
 
 \subsection{Example of execution}
 
-As an example of execution consider the Wdbc dataset \citep{Wdbc}
+As a full working example, consider the Wdbc dataset \citep{Wdbc}
 which is located under EXAMPLES subdirectory. This dataset is used
 for the detection of breast tumors. An example of execution could
 be the following:
 
-\bgroup\inputencoding{latin9}
-\begin{lstlisting}[basicstyle={\scriptsize}]
+\inputencoding{latin9}\begin{lstlisting}[basicstyle={\scriptsize}]
 ./RbfCon --trainfile=EXAMPLES/wdbc.train --testfile=EXAMPLES/wdbc.test --iterations=2
 \end{lstlisting}
-\leavevmode\egroup
-The output of this command is shown below:
+\inputencoding{utf8}The output of this command is shown below:
 
-\bgroup\inputencoding{latin9}
-\begin{lstlisting}[basicstyle={\footnotesize},frame=single]
+\inputencoding{latin9}\begin{lstlisting}[basicstyle={\footnotesize},frame=single]
 Iteration:    1 TRAIN ERROR:          20.40039584
 Iteration:    1 TEST  ERROR:        0.07733519754
 Iteration:    1 CLASS ERROR:                 9.12%
@@ -623,18 +684,26 @@ Average Train Error:          18.23372501
 Average Test  Error:        0.06694023954
 Average Class Error:                 6.84%
 \end{lstlisting}
-\leavevmode\egroup
-The program prints the train error, the test error and the classification
+\inputencoding{utf8}The program prints the train error, the test error and the classification
 for every run as well as the averages for these values. Also, in each
 execution the main program shows the constructed RBF network as a
 string value.
 
-\section{Results\protect\label{sec:Results}}
+The basic elements that the software requires when initializing the
+process are essentially the file containing the training data as well
+as the file containing the test data. Both of these files must have
+the proposed structure but also the same number of patterns. The user
+can change other elements of the algorithm, such as the number of
+chromosomes, through a series of parameters, but this is not required.
+At the end, the software will display the average training error as
+well as the average error in the test set as well as the average classification
+error. 
+
+\section{Results\label{sec:Results}}
 
 The new technique can be used to construct RBF networks for both classification
 and data fitting problems. For this reason, datasets covering many
-scientific areas and freely available from the following websites
-were used:
+scientific areas are used from the following websites:
 \begin{enumerate}
 \item The UCI repository, \url{https://archive.ics.uci.edu/}(accessed on
 14 November 2024)\citep{uci}
@@ -646,16 +715,15 @@ on 14 November 2024).
 
 \subsection{The used datasets }
 
-The following list of classification datasets was used in the conducted
-experiments:
+The following list contains the used classification datasets for the
+the conducted experiments:
 \begin{enumerate}
 \item \textbf{Appendicitis}, a medical dataset that was studied in \citep{appendicitis,appendicitis2}.
 This problem has 2 distinct classes.
 \item \textbf{Alcohol}, a dataset related to alcohol consumption \citep{alcohol}.
 This dataset contains 4 distinct classes.
-\item \textbf{Australian}, an economic dataset \citep{australian}, related
-to the risk in bank transactions. The number of classes for this dataset
-is 2.
+\item \textbf{Australian}, an economic dataset \citep{australian}. The
+number of classes for this dataset is 2.
 \item \textbf{Bands}, related to problems occurred in printing \citep{bands}
 and it has two classes.
 \item \textbf{Cleveland}, a medical dataset proposed in a series of research
@@ -670,8 +738,8 @@ and it has 8 classes.
 cancer. This dataset has two classes.
 \item \textbf{Hayes-roth} dataset \citep{hayes-roth}. This dataset has
 3 classes.
-\item \textbf{Heart}, which is a medical dataset related to heart diseases
-\citep{heart} with two classes.
+\item \textbf{Heart}, a medical dataset about heart diseases \citep{heart}.
+This dataset has two classes.
 \item \textbf{HeartAttack}, which is a medical dataset related to heart
 diseases having two distinct classes.
 \item \textbf{Hepatitis}, a dataset used for the detection of hepatitis. 
@@ -683,7 +751,7 @@ with two classes.
 \item \textbf{Lymography} \citep{lymography}, that has 4 classes.
 \item \textbf{Magic}, this dataset contains generated data to simulate registration
 of high energy gamma particles \citep{magic} and it has two classes.
-\item \textbf{Mammographic}, a medical dataset used for the prediction of
+\item \textbf{Mammographic}, a medical dataset related to the presence of
 breast cancer \citep{mammographic}.
 \item \textbf{Parkinsons}, a dataset used for the detection of Parkinson's
 disease \citep{parkinsons1,parkinsons2}.
@@ -693,8 +761,8 @@ of diabetes \citep{pima}.
 and it has two classes.
 \item \textbf{Regions2}, a medical dataset that contains measurements from
 liver biopsy images \citep{regions2} and it has five classes.
-\item \textbf{Ring}, which is a problem with 20 dimensions and two classes.
-Each class is drawn from a multivariate normal distribution. 
+\item \textbf{Ring}, which is a problem with 20 dimensions and two classes,
+related to a series of multivariate normal distributions. 
 \item \textbf{Saheart}, a medical dataset related to heart diseases with
 2 classes \citep{saheart}.
 \item \textbf{Statheart}, which is a also a medical dataset related to heart
@@ -708,7 +776,7 @@ in schools \citep{student}.
 and it has 3 classes.
 \item \textbf{Transfusion}, which is a medical dataset \citep{transfusion}.
 \item \textbf{Wdbc}, a medical dataset used to detect the presence of breast
-cancer that studied in a series of research papers \citep{wdbc1,wdbc2}.
+cancer\citep{wdbc1,wdbc2}.
 \item \textbf{Wine}, a dataset contains measurements about the quality of
 wines \citep{wine1,wine2}, with 3 distinct classes.
 \item \textbf{EEG} dataset, which is a medical dataset about EEG measurements
@@ -718,8 +786,8 @@ and ZONF\_S.
 \item \textbf{Zoo}, that used to detect the class of some animals \citep{zoo}
 and it contains seven classes.
 \end{enumerate}
-Also the following list of regression datasets was used in the conducted
-experiments:
+The next list provided the regression datasets that was incorporated
+during the conducted experiments:
 \begin{enumerate}
 \item \textbf{Abalone}, a dataset that used to predict the age of abalones
 with 8 features.
@@ -777,19 +845,18 @@ error is measured as:
 E_{C}\left(M(x)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(M\left(x_{i}\right)\right)-y_{i}\right)}{N}
 \end{equation}
 where $M(x)$ denotes the used machine learning model and set $T$
-is defined as $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$, that denotes
-the used testing dataset.\textbf{ }On the other hand, the regression
+denotes the train dataset.\textbf{ }On the other hand, the regression
 error is calculated as: 
 \begin{equation}
 E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
 \end{equation}
-The well - known method of ten - fold cross validation was used to
-validate the experimental results. All the experiments were carried
-out on an AMD Ryzen 5950X with 128GB of RAM. The used operating system
-was Debian Linux. The values for the parameters of the proposed method
-are listed in Table \ref{tab:expValues}. 
+The well - known technique of ten - fold cross validation was incorporated
+for the validation of the experimental results. The experiments were
+executed on an AMD Ryzen 5950X with 128GB of RAM, running as the operating
+system the Debian Linux. The values for the parameters of the algorithm
+are presented in Table \ref{tab:expValues}. 
 \begin{table}[H]
-\caption{The values for the parameters, as used in the conducted experiments.\protect\label{tab:expValues}}
+\caption{The values for the experimental parameters.\label{tab:expValues}}
 
 \centering{}%
 \begin{tabular}{|c|c|}
@@ -809,313 +876,366 @@ generations & 500\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
- 
+ This particular set of parameters has been used in a multitude of
+scientific publications and can be considered as a compromise between
+the efficiency of an evolutionary process such as the one proposed
+in this work and the speed necessary to extract the results of its
+application within a reasonable time. 
 
-The experimental results for the classification datasets are shown
-in Table \ref{tab:expClass} and for the regression datasets in \ref{tab:expRegression}The
-following notation was used in these tables:
+The experimental results from the application of various method on
+the classification datasets are shown in Table \ref{tab:expClass}
+and for the regression datasets in \ref{tab:expRegression}. For all
+tables the following notation was used:
 \begin{enumerate}
-\item The column RBF denotes the application of the original two - phase
-method for the training of an RBF neural network with $k=10$ weights.
-This method was described previously in subsection \ref{subsec:The-original-training}.
-\item The column CONRBF denotes the application of the current software
+\item The column MLP(ADAM) represents the usage of the ADAM optimization
+method \citep{Adam} to train an artificial neural network with $k=10$
+processing nodes.
+\item The column MLP(BFGS) stands for the usage of the BFGS optimization
+method \citep{powell} in the training process of an artificial neural
+network with $k=10$ processing nodes.
+\item The column RBF denotes the usage of the original two - phase method
+for the training of an RBF neural network with $k=10$ weights. This
+method was described previously in subsection \ref{subsec:The-original-training}.
+\item The column CRBF stands for the utilization of the current software
 using the parameters of Table \ref{tab:expValues} and as local search
 procedure the \emph{none} option was selected.
-\item The column CONRBF(LBFGS) denotes the application of the current method
+\item The column CRBF(LBFGS) denotes the application of the current method
 using as local search procedure the L-Bfgs method.
-\item The column CONRBF(BFGS) stands for the application of the current
-work using as local search procedure the Bfgs method.
-\item The row AVERAGE represents the average classification or regression
-error for all datasets in the corresponding table.
+\item The column CRBF(BFGS) stands for the application of the current work
+using as local search procedure the Bfgs method.
+\item The row denoted as AVERAGE, outlines the average classification or
+regression error for all datasets in the corresponding table.
+\item The row denoted as STDEV depicts the standard deviation for all datasets
+in the corresponding table.
 \end{enumerate}
 \begin{table}[H]
-\caption{Experimental results using the original training method and the proposed
-one for the classification datasets.\protect\label{tab:expClass}}
+\caption{Experimental results for the classification datasets using the mentioned
+machine learning models.\label{tab:expClass}}
 
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\raggedright{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & RBF & CONRBF & CONRBF(LBFGS) & CONRBF(BFGS)\tabularnewline
+{\footnotesize{}DATASET} & {\footnotesize{}MLP(ADAM)} & {\footnotesize{}MLP(BFGS)} & {\footnotesize{}RBF} & {\footnotesize{}CRBF} & {\footnotesize{}CRBF(LBFGS)} & {\footnotesize{}CRBF(BFGS)}\tabularnewline
 \hline 
 \hline 
-APPENDICITIS & 12.23\% & 13.60\% & 14.10\% & 13.60\%\tabularnewline
+{\footnotesize{}APPENDICITIS} & {\footnotesize{}16.50\%} & {\footnotesize{}18.00\%} & {\footnotesize{}12.23\%} & {\footnotesize{}13.60\%} & {\footnotesize{}14.10\%} & {\footnotesize{}13.60\%}\tabularnewline
 \hline 
-ALCOHOL & 49.38\% & 51.24\% & 49.32\% & 45.11\%\tabularnewline
+{\footnotesize{}ALCOHOL} & {\footnotesize{}57.78\%} & {\footnotesize{}41.50\%} & {\footnotesize{}49.38\%} & {\footnotesize{}51.24\%} & {\footnotesize{}49.32\%} & {\footnotesize{}45.11\%}\tabularnewline
 \hline 
-AUSTRALIAN & 34.89\% & 14.14\% & 14.26\% & 14.23\%\tabularnewline
+{\footnotesize{}AUSTRALIAN} & {\footnotesize{}35.65\%} & {\footnotesize{}38.13\%} & {\footnotesize{}34.89\%} & {\footnotesize{}14.14\%} & {\footnotesize{}14.26\%} & {\footnotesize{}14.23\%}\tabularnewline
 \hline 
-BANDS & 37.17\% & 35.75\% & 36.58\% & 36.03\%\tabularnewline
+{\footnotesize{}BANDS} & {\footnotesize{}36.92\%} & {\footnotesize{}36.67\%} & {\footnotesize{}37.17\%} & {\footnotesize{}35.75\%} & {\footnotesize{}36.58\%} & {\footnotesize{}36.03\%}\tabularnewline
 \hline 
-CLEVELAND & 67.10\% & 49.14\% & 49.52\% & 50.28\%\tabularnewline
+{\footnotesize{}CLEVELAND} & {\footnotesize{}67.55\%} & {\footnotesize{}77.55\%} & {\footnotesize{}67.10\%} & {\footnotesize{}49.14\%} & {\footnotesize{}49.52\%} & {\footnotesize{}50.28\%}\tabularnewline
 \hline 
-DERMATOLOGY & 62.34\% & 45.20\% & 38.43\% & 36.66\%\tabularnewline
+{\footnotesize{}DERMATOLOGY} & {\footnotesize{}26.14\%} & {\footnotesize{}52.92\%} & {\footnotesize{}62.34\%} & {\footnotesize{}45.20\%} & {\footnotesize{}38.43\%} & {\footnotesize{}36.66\%}\tabularnewline
 \hline 
-ECOLI & 59.48\% & 54.18\% & 54.39\% & 53.03\%\tabularnewline
+{\footnotesize{}ECOLI} & {\footnotesize{}64.43\%} & {\footnotesize{}69.52\%} & {\footnotesize{}59.48\%} & {\footnotesize{}54.18\%} & {\footnotesize{}54.39\%} & {\footnotesize{}53.03\%}\tabularnewline
 \hline 
-FERT & 15.00\% & 15.20\% & 15.50\% & 15.90\%\tabularnewline
+{\footnotesize{}FERT} & {\footnotesize{}23.98\%} & {\footnotesize{}23.20\%} & {\footnotesize{}15.00\%} & {\footnotesize{}15.20\%} & {\footnotesize{}15.50\%} & {\footnotesize{}15.90\%}\tabularnewline
 \hline 
-HABERMAN & 25.10\% & 26.27\% & 27.07\% & 26.40\%\tabularnewline
+{\footnotesize{}HABERMAN} & {\footnotesize{}29.00\%} & {\footnotesize{}29.34\%} & {\footnotesize{}25.10\%} & {\footnotesize{}26.27\%} & {\footnotesize{}27.07\%} & {\footnotesize{}26.40\%}\tabularnewline
 \hline 
-HAYES-ROTH & 64.36\% & 34.54\% & 39.00\% & 36.76\%\tabularnewline
+{\footnotesize{}HAYES-ROTH} & {\footnotesize{}59.70\%} & {\footnotesize{}37.33\%} & {\footnotesize{}64.36\%} & {\footnotesize{}34.54\%} & {\footnotesize{}39.00\%} & {\footnotesize{}36.76\%}\tabularnewline
 \hline 
-HEART & 31.20\% & 17.22\% & 17.44\% & 16.96\%\tabularnewline
+{\footnotesize{}HEART} & {\footnotesize{}38.53\%} & {\footnotesize{}39.44\%} & {\footnotesize{}31.20\%} & {\footnotesize{}17.22\%} & {\footnotesize{}17.44\%} & {\footnotesize{}16.96\%}\tabularnewline
 \hline 
-HEARTATTACK & 29.00\% & 22.60\% & 21.83\% & 21.53\%\tabularnewline
+{\footnotesize{}HEARTATTACK} & {\footnotesize{}45.55\%} & {\footnotesize{}46.67\%} & {\footnotesize{}29.00\%} & {\footnotesize{}22.60\%} & {\footnotesize{}21.83\%} & {\footnotesize{}21.53\%}\tabularnewline
 \hline 
-HEPATITIS & 64.63\% & 54.25\% & 47.50\% & 48.75\%\tabularnewline
+{\footnotesize{}HEPATITIS} & {\footnotesize{}68.13\%} & {\footnotesize{}72.47\%} & {\footnotesize{}64.63\%} & {\footnotesize{}54.25\%} & {\footnotesize{}47.50\%} & {\footnotesize{}48.75\%}\tabularnewline
 \hline 
-HOUSEVOTES & 6.13\% & 3.05\% & 3.65\% & 3.05\%\tabularnewline
+{\footnotesize{}HOUSEVOTES} & {\footnotesize{}7.48\%} & {\footnotesize{}7.13\%} & {\footnotesize{}6.13\%} & {\footnotesize{}3.05\%} & {\footnotesize{}3.65\%} & {\footnotesize{}3.05\%}\tabularnewline
 \hline 
-IONOSPHERE & 16.22\% & 14.32\% & 13.40\% & 12.37\%\tabularnewline
+{\footnotesize{}IONOSPHERE} & {\footnotesize{}16.64\%} & {\footnotesize{}15.29\%} & {\footnotesize{}16.22\%} & {\footnotesize{}14.32\%} & {\footnotesize{}13.40\%} & {\footnotesize{}12.37\%}\tabularnewline
 \hline 
-LIVERDISORDER & 30.84\% & 32.21\% & 31.71\% & 31.35\%\tabularnewline
+{\footnotesize{}LIVERDISORDER} & {\footnotesize{}41.53\%} & {\footnotesize{}42.59\%} & {\footnotesize{}30.84\%} & {\footnotesize{}32.21\%} & {\footnotesize{}31.71\%} & {\footnotesize{}31.35\%}\tabularnewline
 \hline 
-LYMOGRAPHY & 25.50\% & 26.36\% & 25.71\% & 21.49\%\tabularnewline
+{\footnotesize{}LYMOGRAPHY} & {\footnotesize{}39.79\%} & {\footnotesize{}35.43\%} & {\footnotesize{}25.50\%} & {\footnotesize{}26.36\%} & {\footnotesize{}25.71\%} & {\footnotesize{}21.49\%}\tabularnewline
 \hline 
-MAGIC & 21.28\% & 22.18\% & 19.62\% & 20.35\%\tabularnewline
+{\footnotesize{}MAGIC} & {\footnotesize{}40.55\%} & {\footnotesize{}17.30\%} & {\footnotesize{}21.28\%} & {\footnotesize{}22.18\%} & {\footnotesize{}19.62\%} & {\footnotesize{}20.35\%}\tabularnewline
 \hline 
-MAMMOGRAPHIC & 21.38\% & 17.67\% & 19.02\% & 17.30\%\tabularnewline
+{\footnotesize{}MAMMOGRAPHIC} & {\footnotesize{}46.25\%} & {\footnotesize{}17.24\%} & {\footnotesize{}21.38\%} & {\footnotesize{}17.67\%} & {\footnotesize{}19.02\%} & {\footnotesize{}17.30\%}\tabularnewline
 \hline 
-PARKINSONS & 17.41\% & 12.79\% & 13.37\% & 12.47\%\tabularnewline
+{\footnotesize{}PARKINSONS} & {\footnotesize{}24.06\%} & {\footnotesize{}27.58\%} & {\footnotesize{}17.41\%} & {\footnotesize{}12.79\%} & {\footnotesize{}13.37\%} & {\footnotesize{}12.47\%}\tabularnewline
 \hline 
-PIMA & 25.78\% & 24.13\% & 24.90\% & 24.15\%\tabularnewline
+{\footnotesize{}PIMA} & {\footnotesize{}34.85\%} & {\footnotesize{}35.59\%} & {\footnotesize{}25.78\%} & {\footnotesize{}24.13\%} & {\footnotesize{}24.90\%} & {\footnotesize{}24.15\%}\tabularnewline
 \hline 
-POPFAILURES & 7.04\% & 6.98\% & 6.94\% & 6.80\%\tabularnewline
+{\footnotesize{}POPFAILURES} & {\footnotesize{}5.18\%} & {\footnotesize{}5.24\%} & {\footnotesize{}7.04\%} & {\footnotesize{}6.98\%} & {\footnotesize{}6.94\%} & {\footnotesize{}6.80\%}\tabularnewline
 \hline 
-REGIONS2 & 38.29\% & 26.34\% & 26.81\% & 26.55\%\tabularnewline
+{\footnotesize{}REGIONS2} & {\footnotesize{}29.85\%} & {\footnotesize{}36.28\%} & {\footnotesize{}38.29\%} & {\footnotesize{}26.34\%} & {\footnotesize{}26.81\%} & {\footnotesize{}26.55\%}\tabularnewline
 \hline 
-RING & 21.67\% & 11.08\% & 10.13\% & 10.33\%\tabularnewline
+{\footnotesize{}RING} & {\footnotesize{}28.80\%} & {\footnotesize{}29.24\%} & {\footnotesize{}21.67\%} & {\footnotesize{}11.08\%} & {\footnotesize{}10.13\%} & {\footnotesize{}10.33\%}\tabularnewline
 \hline 
-SAHEART & 32.19\% & 29.52\% & 29.28\% & 29.19\%\tabularnewline
+{\footnotesize{}SAHEART} & {\footnotesize{}34.04\%} & {\footnotesize{}37.48\%} & {\footnotesize{}32.19\%} & {\footnotesize{}29.52\%} & {\footnotesize{}29.28\%} & {\footnotesize{}29.19\%}\tabularnewline
 \hline 
-SPAMBASE & 29.35\% & 16.95\% & 15.53\% & 15.60\%\tabularnewline
+{\footnotesize{}SPAMBASE} & {\footnotesize{}48.05\%} & {\footnotesize{}18.16\%} & {\footnotesize{}29.35\%} & {\footnotesize{}16.95\%} & {\footnotesize{}15.53\%} & {\footnotesize{}15.60\%}\tabularnewline
 \hline 
-SPIRAL & 44.87\% & 42.14\% & 43.88\% & 43.05\%\tabularnewline
+{\footnotesize{}SPIRAL} & {\footnotesize{}47.67\%} & {\footnotesize{}47.99\%} & {\footnotesize{}44.87\%} & {\footnotesize{}42.14\%} & {\footnotesize{}43.88\%} & {\footnotesize{}43.05\%}\tabularnewline
 \hline 
-STATHEART & 31.36\% & 19.22\% & 19.15\% & 18.19\%\tabularnewline
+{\footnotesize{}STATHEART} & {\footnotesize{}44.04\%} & {\footnotesize{}39.65\%} & {\footnotesize{}31.36\%} & {\footnotesize{}19.22\%} & {\footnotesize{}19.15\%} & {\footnotesize{}18.19\%}\tabularnewline
 \hline 
-STUDENT & 5.49\% & 7.63\% & 6.33\% & 4.32\%\tabularnewline
+{\footnotesize{}STUDENT} & {\footnotesize{}5.13\%} & {\footnotesize{}7.14\%} & {\footnotesize{}5.49\%} & {\footnotesize{}7.63\%} & {\footnotesize{}6.33\%} & {\footnotesize{}4.32\%}\tabularnewline
 \hline 
-TAE & 60.02\% & 56.73\% & 56.33\% & 56.40\%\tabularnewline
+{\footnotesize{}TAE} & {\footnotesize{}60.20\%} & {\footnotesize{}51.58\%} & {\footnotesize{}60.02\%} & {\footnotesize{}56.73\%} & {\footnotesize{}56.33\%} & {\footnotesize{}56.40\%}\tabularnewline
 \hline 
-TRANSFUSION & 26.41\% & 25.15\% & 24.70\% & 24.36\%\tabularnewline
+{\footnotesize{}TRANSFUSION} & {\footnotesize{}25.68\%} & {\footnotesize{}25.84\%} & {\footnotesize{}26.41\%} & {\footnotesize{}25.15\%} & {\footnotesize{}24.70\%} & {\footnotesize{}24.36\%}\tabularnewline
 \hline 
-WDBC & 7.27\% & 6.77\% & 6.52\% & 6.36\%\tabularnewline
+{\footnotesize{}WDBC} & {\footnotesize{}35.35\%} & {\footnotesize{}29.91\%} & {\footnotesize{}7.27\%} & {\footnotesize{}6.77\%} & {\footnotesize{}6.52\%} & {\footnotesize{}6.36\%}\tabularnewline
 \hline 
-WINE & 31.41\% & 11.00\% & 11.65\% & 10.71\%\tabularnewline
+{\footnotesize{}WINE} & {\footnotesize{}29.40\%} & {\footnotesize{}59.71\%} & {\footnotesize{}31.41\%} & {\footnotesize{}11.00\%} & {\footnotesize{}11.65\%} & {\footnotesize{}10.71\%}\tabularnewline
 \hline 
-Z\_F\_S & 13.16\% & 11.13\% & 11.47\% & 10.57\%\tabularnewline
+{\footnotesize{}Z\_F\_S} & {\footnotesize{}47.81\%} & {\footnotesize{}39.37\%} & {\footnotesize{}13.16\%} & {\footnotesize{}11.13\%} & {\footnotesize{}11.47\%} & {\footnotesize{}10.57\%}\tabularnewline
 \hline 
-Z\_O\_N\_F\_S & 48.70\% & 52.34\% & 49.32\% & 46.22\%\tabularnewline
+{\footnotesize{}Z\_O\_N\_F\_S} & {\footnotesize{}78.79\%} & {\footnotesize{}65.67\%} & {\footnotesize{}48.70\%} & {\footnotesize{}52.34\%} & {\footnotesize{}49.32\%} & {\footnotesize{}46.22\%}\tabularnewline
 \hline 
-ZO\_NF\_S & 9.02\% & 11.08\% & 11.18\% & 8.90\%\tabularnewline
+{\footnotesize{}ZO\_NF\_S} & {\footnotesize{}47.43\%} & {\footnotesize{}43.04\%} & {\footnotesize{}9.02\%} & {\footnotesize{}11.08\%} & {\footnotesize{}11.18\%} & {\footnotesize{}8.90\%}\tabularnewline
 \hline 
-ZONF\_S & 4.03\% & 4.14\% & 3.94\% & 3.58\%\tabularnewline
+{\footnotesize{}ZONF\_S} & {\footnotesize{}11.99\%} & {\footnotesize{}15.62\%} & {\footnotesize{}4.03\%} & {\footnotesize{}4.14\%} & {\footnotesize{}3.94\%} & {\footnotesize{}3.58\%}\tabularnewline
 \hline 
-ZOO & 21.93\% & 11.60\% & 9.00\% & 10.90\%\tabularnewline
+{\footnotesize{}ZOO} & {\footnotesize{}14.13\%} & {\footnotesize{}10.70\%} & {\footnotesize{}21.93\%} & {\footnotesize{}11.60\%} & {\footnotesize{}9.00\%} & {\footnotesize{}10.90\%}\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{30.23\%} & \textbf{24.63\%} & \textbf{24.17\%} & \textbf{23.42\%}\tabularnewline
+\textbf{\footnotesize{}AVERAGE} & \textbf{\footnotesize{}37.23\%} & \textbf{\footnotesize{}35.36\%} & \textbf{\footnotesize{}30.23\%} & \textbf{\footnotesize{}24.63\%} & \textbf{\footnotesize{}24.17\%} & \textbf{\footnotesize{}23.42\%}\tabularnewline
+\hline 
+\textbf{\footnotesize{}STDEV} & \textbf{\footnotesize{}18.25\%} & \textbf{\footnotesize{}18.36\%} & \textbf{\footnotesize{}18.41\%} & \textbf{\footnotesize{}15.92\%} & \textbf{\footnotesize{}15.46\%} & \textbf{\footnotesize{}15.25\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
-\caption{Experimental results using the original train method and the proposed
-one for a series of regression datasets.\protect\label{tab:expRegression}}
+\caption{Experimental results for the regression datasets using the series
+of mentioned machine learning models.\label{tab:expRegression}}
 
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\raggedright{}%
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & RBF & CONRBF & CONRBF(LBFGS) & CONRBF(BFGS)\tabularnewline
+{\footnotesize{}DATASET} & {\footnotesize{}MLP(ADAM)} & {\footnotesize{}MLP(BFGS)} & {\footnotesize{}RBF} & {\footnotesize{}CRBF} & {\footnotesize{}CRBF(LBFGS)} & {\footnotesize{}CRBF(BFGS)}\tabularnewline
 \hline 
 \hline 
-ABALONE & 7.37 & 6.14 & 5.35 & 5.32\tabularnewline
+{\footnotesize{}ABALONE} & {\footnotesize{}4.30} & {\footnotesize{}5.69} & {\footnotesize{}7.37} & {\footnotesize{}6.14} & {\footnotesize{}5.35} & {\footnotesize{}5.32}\tabularnewline
 \hline 
-AIRFOIL & 0.27 & 0.004 & 0.004 & 0.002\tabularnewline
+{\footnotesize{}AIRFOIL} & {\footnotesize{}0.005} & {\footnotesize{}0.003} & {\footnotesize{}0.27} & {\footnotesize{}0.004} & {\footnotesize{}0.004} & {\footnotesize{}0.002}\tabularnewline
 \hline 
-AUTO & 17.87 & 11.03 & 10.03 & 9.45\tabularnewline
+{\footnotesize{}AUTO} & {\footnotesize{}70.84} & {\footnotesize{}60.97} & {\footnotesize{}17.87} & {\footnotesize{}11.03} & {\footnotesize{}10.03} & {\footnotesize{}9.45}\tabularnewline
 \hline 
-BK & 0.02 & 0.02 & 0.02 & 0.03\tabularnewline
+{\footnotesize{}BK} & {\footnotesize{}0.025} & {\footnotesize{}0.28} & {\footnotesize{}0.02} & {\footnotesize{}0.02} & {\footnotesize{}0.02} & {\footnotesize{}0.03}\tabularnewline
 \hline 
-BL & 0.013 & 0.04 & 0.024 & 0.01\tabularnewline
+{\footnotesize{}BL} & {\footnotesize{}0.62} & {\footnotesize{}2.55} & {\footnotesize{}0.013} & {\footnotesize{}0.04} & {\footnotesize{}0.024} & {\footnotesize{}0.01}\tabularnewline
 \hline 
-BASEBALL & 93.02 & 66.74 & 65.80 & 64.52\tabularnewline
+{\footnotesize{}BASEBALL} & {\footnotesize{}77.90} & {\footnotesize{}119.63} & {\footnotesize{}93.02} & {\footnotesize{}66.74} & {\footnotesize{}65.80} & {\footnotesize{}64.52}\tabularnewline
 \hline 
-CONCRETE & 0.011 & 0.012 & 0.010 & 0.009\tabularnewline
+{\footnotesize{}CONCRETE} & {\footnotesize{}0.078} & {\footnotesize{}0.066} & {\footnotesize{}0.011} & {\footnotesize{}0.012} & {\footnotesize{}0.010} & {\footnotesize{}0.009}\tabularnewline
 \hline 
-DEE & 0.17 & 0.23 & 0.22 & 0.20\tabularnewline
+{\footnotesize{}DEE} & {\footnotesize{}0.63} & {\footnotesize{}2.36} & {\footnotesize{}0.17} & {\footnotesize{}0.23} & {\footnotesize{}0.22} & {\footnotesize{}0.20}\tabularnewline
 \hline 
-FA & 0.015 & 0.013 & 0.014 & 0.011\tabularnewline
+{\footnotesize{}FA} & {\footnotesize{}0.048} & {\footnotesize{}0.43} & {\footnotesize{}0.015} & {\footnotesize{}0.013} & {\footnotesize{}0.014} & {\footnotesize{}0.011}\tabularnewline
 \hline 
-HO & 0.03 & 0.013 & 0.015 & 0.012\tabularnewline
+{\footnotesize{}HO} & {\footnotesize{}0.035} & {\footnotesize{}0.62} & {\footnotesize{}0.03} & {\footnotesize{}0.013} & {\footnotesize{}0.015} & {\footnotesize{}0.012}\tabularnewline
 \hline 
-HOUSING & 57.68 & 20.60 & 19.02 & 18.40\tabularnewline
+{\footnotesize{}HOUSING} & {\footnotesize{}81.00} & {\footnotesize{}97.38} & {\footnotesize{}57.68} & {\footnotesize{}20.60} & {\footnotesize{}19.02} & {\footnotesize{}18.40}\tabularnewline
 \hline 
-LASER & 0.03 & 0.06 & 0.05 & 0.03\tabularnewline
+{\footnotesize{}LASER} & {\footnotesize{}0.03} & {\footnotesize{}0.015} & {\footnotesize{}0.03} & {\footnotesize{}0.06} & {\footnotesize{}0.05} & {\footnotesize{}0.03}\tabularnewline
 \hline 
-LW & 0.03 & 0.011 & 0.011 & 0.011\tabularnewline
+{\footnotesize{}LW} & {\footnotesize{}0.028} & {\footnotesize{}2.98} & {\footnotesize{}0.03} & {\footnotesize{}0.011} & {\footnotesize{}0.011} & {\footnotesize{}0.011}\tabularnewline
 \hline 
-MB & 5.43 & 0.055 & 0.06 & 0.12\tabularnewline
+{\footnotesize{}MB} & {\footnotesize{}0.06} & {\footnotesize{}0.129} & {\footnotesize{}5.43} & {\footnotesize{}0.055} & {\footnotesize{}0.06} & {\footnotesize{}0.12}\tabularnewline
 \hline 
-MORTGAGE & 1.45 & 0.165 & 0.18 & 0.074\tabularnewline
+{\footnotesize{}MORTGAGE} & {\footnotesize{}9.24} & {\footnotesize{}8.23} & {\footnotesize{}1.45} & {\footnotesize{}0.165} & {\footnotesize{}0.18} & {\footnotesize{}0.074}\tabularnewline
 \hline 
-NT & 13.97 & 0.006 & 0.006 & 0.006\tabularnewline
+{\footnotesize{}NT} & {\footnotesize{}0.006} & {\footnotesize{}0.129} & {\footnotesize{}13.97} & {\footnotesize{}0.006} & {\footnotesize{}0.006} & {\footnotesize{}0.006}\tabularnewline
 \hline 
-PLASTIC & 8.62 & 3.58 & 2.86 & 2.43\tabularnewline
+{\footnotesize{}PLASTIC} & {\footnotesize{}11.71} & {\footnotesize{}20.32} & {\footnotesize{}8.62} & {\footnotesize{}3.58} & {\footnotesize{}2.86} & {\footnotesize{}2.43}\tabularnewline
 \hline 
-PL & 2.118 & 0.064 & 0.026 & 0.024\tabularnewline
+{\footnotesize{}PL} & {\footnotesize{}0.32} & {\footnotesize{}0.58} & {\footnotesize{}2.118} & {\footnotesize{}0.064} & {\footnotesize{}0.026} & {\footnotesize{}0.024}\tabularnewline
 \hline 
-QUAKE & 0.07 & 0.036 & 0.036 & 0.036\tabularnewline
+{\footnotesize{}QUAKE} & {\footnotesize{}0.117} & {\footnotesize{}0.29} & {\footnotesize{}0.07} & {\footnotesize{}0.036} & {\footnotesize{}0.036} & {\footnotesize{}0.036}\tabularnewline
 \hline 
-SN & 0.027 & 0.025 & 0.026 & 0.025\tabularnewline
+{\footnotesize{}SN} & {\footnotesize{}0.026} & {\footnotesize{}0.4} & {\footnotesize{}0.027} & {\footnotesize{}0.025} & {\footnotesize{}0.026} & {\footnotesize{}0.025}\tabularnewline
 \hline 
-STOCK & 12.23 & 8.31 & 6.90 & 6.25\tabularnewline
+{\footnotesize{}STOCK} & {\footnotesize{}180.89} & {\footnotesize{}302.43} & {\footnotesize{}12.23} & {\footnotesize{}8.31} & {\footnotesize{}6.90} & {\footnotesize{}6.25}\tabularnewline
 \hline 
-TREASURY & 2.02 & 0.0027 & 0.12 & 0.10\tabularnewline
+{\footnotesize{}TREASURY} & {\footnotesize{}11.16} & {\footnotesize{}9.91} & {\footnotesize{}2.02} & {\footnotesize{}0.0027} & {\footnotesize{}0.12} & {\footnotesize{}0.10}\tabularnewline
 \hline 
-TZ & 0.036 & 0.036 & 0.036 & 0.035\tabularnewline
+{\footnotesize{}TZ} & {\footnotesize{}0.43} & {\footnotesize{}0.22} & {\footnotesize{}0.036} & {\footnotesize{}0.036} & {\footnotesize{}0.036} & {\footnotesize{}0.035}\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{9.67} & \textbf{5.10} & \textbf{4.82} & \textbf{4.66}\tabularnewline
+\textbf{\footnotesize{}AVERAGE} & \textbf{\footnotesize{}19.54} & \textbf{\footnotesize{}27.64} & \textbf{\footnotesize{}9.67} & \textbf{\footnotesize{}5.10} & \textbf{\footnotesize{}4.82} & \textbf{\footnotesize{}4.66}\tabularnewline
+\hline 
+\textbf{\footnotesize{}STDEV} & \textbf{\footnotesize{}43.67} & \textbf{\footnotesize{}68.11} & \textbf{\footnotesize{}22.01} & \textbf{\footnotesize{}14.34} & \textbf{\footnotesize{}14.05} & \textbf{\footnotesize{}13.76}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
-In table \ref{tab:expClass}, the four models were evaluated based
-on their error rates across 40 different datasets. It was observed
-that the error rate varied significantly between datasets, reflecting
-differences in each model’s performance depending on the dataset.
-In general, the models CONRBF, CONRBF(LBFGS), and CONRBF(BFGS) showed
-lower error rates compared to RBF in many datasets, suggesting that
-the parameterized versions of CONRBF have better adaptability. In
-several datasets, CONRBF outperformed the original RBF in terms of
-error rate. For example, in datasets such as AUSTRALIAN and SPAMBASE,
-CONRBF shows a markedly lower error rate compared to RBF. The models
-CONRBF(LBFGS) and CONRBF(BFGS) frequently demonstrate improved error
-rates relative to the original CONRBF, although these differences
-are not always significant. In datasets such as HEPATITIS, TAE, and
-WINE, both CONRBF(LBFGS) and CONRBF(BFGS) outperform the simple CONRBF
-model. Despite the general trend of improved performance in the parameterized
-versions of CONRBF, exceptions do exist. For instance, in the dataset
-Z\_O\_N\_F\_S, RBF performs better than the other models, while in
-ZO\_NF\_S and ZONF\_S, the differences between models are minimal.
-CONRBF with LBFGS and CONRBF with BFGS exhibit similar performance,
-although one model occasionally outperforms the other in certain datasets.
-In DERMATOLOGY and ZOO, CONRBF(LBFGS) achieves a lower error rate
-than CONRBF(BFGS), whereas in datasets like HEARTATTACK, the differences
-are very small. In conclusion, the comparison of models reveals that
-the parameterized versions of CONRBF, especially with the LBFGS and
-BFGS optimization methods, generally outperform the simple RBF model
-in many datasets. 
 
-The results shown in Table \ref{tab:expRegression} include the error
-values for various datasets, where different training methods were
-applied. The values in the tables represent errors (not percentages)
-obtained by applying each model to each dataset. The CONRBF method
-shows lower error rates compared to the original RBF in almost all
-datasets, indicating that the proposed method provides improvements
-over the original. For example, in the HOUSING dataset, the error
-is reduced from 57.68 (RBF) to 20.6 (CONRBF), while in the BASEBALL
-dataset, the error decreases from 93.02 (RBF) to 66.74 (CONRBF). The
-LBFGS and BFGS variations of the CONRBF method further reduce errors
-compared to the original CONRBF in certain datasets. For instance,
-in the AUTO dataset, the error decreases from 11.03 (CONRBF) to 10.03
-(CONRBF with LBFGS) and 9.45 (CONRBF with BFGS). Similarly, in the
-STOCK dataset, the error drops from 8.31 (CONRBF) to 6.9 (CONRBF with
-LBFGS) and 6.25 (CONRBF with BFGS), demonstrating that the addition
-of these optimization methods can further enhance the model's performance.
-In summary, the results indicate that the proposed CONRBF method,
-along with its LBFGS and BFGS optimized variants, has the potential
-to reduce error rates compared to the original RBF method. 
+
+\section{Discussion\label{sec:Discussion}}
+
+In Table \ref{tab:expClass}, for the APPENDICITIS dataset, the low
+error rates of the RBF and CRBF models (12.23\% and 13.60\%, respectively)
+indicate that Radial Basis Function-based models are well-suited for
+this problem. This performance may be linked to their ability to handle
+non-linear relationships in the data. The higher error rates of the
+MLP models (above 16\%) suggest they might require more tuning or
+larger datasets for optimal performance. In the ALCOHOL dataset, error
+rates range from 41.50\% (MLP(BFGS)) to 57.78\% (MLP(ADAM)). This
+wide variation implies that the dataset’s features are particularly
+challenging for most models, likely due to noise or high dimensionality.
+The intermediate error rates of the CRBF model (49.38\%) show that
+while RBF-based models can handle some complexity, further adjustments
+are needed to make them competitive. In the AUSTRALIAN dataset, CRBF
+and its variations achieve exceptionally low error rates (14\%), highlighting
+their strong adaptation to the dataset’s characteristics. In contrast,
+MLP(ADAM) and MLP(BFGS) exhibit significantly higher errors (35\%-38\%),
+demonstrating their struggles to perform effectively on this problem.
+The CLEVELAND dataset, on the other hand, exemplifies complexity.
+MLP models show error rates as high as 77.55\%, while CRBF models
+reduce the error to about 49\%. This gap underscores the superiority
+of RBF-based approaches for data with complex, non-linear structures.
+Overall, the analysis reveals that CRBF models have a clear advantage
+in datasets with non-linear relationships and lower dimensionality.
+While MLP models are more flexible, they seem to require extensive
+parameter tuning to achieve comparable performance. Employing an RBF
+model with appropriate customization may often be the optimal choice
+for many of the examined problems.
+
+In Table \ref{tab:expRegression}, for the ABALONE dataset, MLP models
+show higher values, such as 4.3 for MLP(ADAM) and 5.69 for MLP(BFGS),
+while CRBF models perform better. The best result comes from CRBF(BFGS),
+with a value of 5.32, indicating that CRBF models adapt better to
+this dataset. In the AIRFOIL dataset, CRBF-based models exhibit exceptional
+performance, with CRBF(BFGS) achieving the best value of 0.002. In
+contrast, MLP models show higher values, such as 0.005 for MLP(ADAM),
+demonstrating that RBF-based models are more accurate in this case.
+In the AUTO dataset, there is a clear superiority of CRBF models.
+CRBF(BFGS) achieves the best value of 9.45, while MLP models record
+significantly higher values, such as 70.84 for MLP(ADAM). This indicates
+that MLP struggles to adapt effectively to this problem. In the BASEBALL
+dataset, CRBF models achieve lower error values, with the best result
+being 64.52 for CRBF(BFGS). In comparison, MLP(ADAM) shows a much
+higher value of 77.9, highlighting the advantage of CRBF models in
+this dataset. In the HOUSING dataset, the differences are even more
+pronounced. CRBF(BFGS) achieves the best performance with a value
+of 18.4, while MLP(ADAM) records 81, and MLP(BFGS) reaches 97.38.
+This stark contrast emphasizes the inability of MLP models to perform
+effectively on this dataset. In the PLASTIC dataset, CRBF models also
+deliver excellent performance. CRBF(BFGS) achieves the best result
+at 2.43, while MLP models show much higher values, such as 11.71 for
+MLP(ADAM). Overall, CRBF-based models demonstrate significantly lower
+error values across most datasets, indicating their ability to adapt
+to various data types. MLP models, although flexible, struggle in
+many cases, possibly due to the need for extensive parameter tuning
+or limitations in generalization. The overall analysis suggests that
+CRBF models are more reliable for regression problems, especially
+when the datasets involve non-linear relationships or high complexity.
+
+Also, in Figures \ref{fig:statClass}, \ref{fig:statRegression} a
+statistical comparison between all method is depicted.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{t1}
 \par\end{centering}
 \caption{Statistical comparison for the used methods and the classification
-datasets.\protect\label{fig:statClass}}
-
+datasets.\label{fig:statClass}}
 \end{figure}
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{t2}
 \par\end{centering}
-\caption{Statistical test for the regression datasets and the used methods.\protect\label{fig:statRegression}}
-
+\caption{Statistical test for the regression datasets and the used methods.\label{fig:statRegression}}
 \end{figure}
-In Figure \ref{fig:statClass}, paired comparisons were subsequently
-performed between individual pairs of models using the paired t-test.
-For RBF vs. CONRBF: p = 9.8 \texttimes{} 10\textsuperscript{-}\textsuperscript{5}
--- there is a statistically significant difference between the two
-models (p \textless{} 0.05), indicating that the CONRBF model exhibits
-a significantly different error rate compared to RBF. For CONRBF vs.
-CONRBF(LBFGS): p = 0.16 -- there is no statistically significant
-difference between these two models at the 0.05 significance level,
-suggesting that the two versions of CONRBF have similar error rates.
-For CONRBF vs. CONRBF(BFGS): p = 0.002 -- there is a statistically
-significant difference (p \textless{} 0.05) between these two variants,
-indicating that the BFGS method yields a different error rate compared
-to the original CONRBF. For CONRBF(LBFGS) vs. CONRBF(BFGS): p = 0.0008
--- the difference between these two methods is also statistically
-significant (p \textless{} 0.05), showing that CONRBF(BFGS) has a
-different performance from CONRBF(LBFGS) in terms of error rate. In
-summary, the results of the paired comparisons indicate that the differences
-between some models are statistically significant, suggesting that
-the choice of model variant can substantially impact the error rate.
-However, the overall analysis using the Kruskal-Wallis test did not
-find a statistically significant difference between the groups as
-a whole.
+In Figure \ref{fig:statClass}, the Kruskal-Wallis test revealed statistically
+significant differences among the methods overall, with a general
+p-value of 0.0007, indicating that at least one method differs significantly
+from the others in terms of classification error rates. Pairwise comparisons
+provide further insights into the differences between specific methods.
+The comparison between MLP(ADAM) and MLP(BFGS) showed no statistically
+significant difference (p = 0.34), suggesting that the two methods
+perform similarly. In contrast, the comparison between MLP(ADAM) and
+RBF revealed a statistically significant difference (p = 0.0026),
+indicating that RBF achieves distinct error rates compared to MLP(ADAM).
+The comparison of MLP(ADAM) with CRBF showed a highly significant
+difference (p = 1.8e-07), highlighting the superiority of CRBF over
+MLP(ADAM). Similarly, the comparison between MLP(ADAM) and CRBF(LBFGS)
+demonstrated even greater statistical significance, with p = 4.6e-08,
+confirming the advantage of CRBF(LBFGS). Additionally, the comparison
+of MLP(ADAM) with CRBF(BFGS) exhibited extremely high statistical
+significance (p = 1.8e-08), favoring CRBF(BFGS). The subsequent comparisons
+of MLP(BFGS) with other methods also revealed statistically significant
+differences. The comparison between MLP(BFGS) and RBF yielded p =
+0.011, indicating a notable difference, while the comparison of MLP(BFGS)
+with CRBF had p = 3.8e-06, clearly demonstrating the superiority of
+CRBF. Comparisons of MLP(BFGS) with CRBF(LBFGS) and CRBF(BFGS) resulted
+in p-values of 1.9e-06 and 5.3e-07, respectively, confirming the statistical
+significance of the differences. Furthermore, comparisons of RBF with
+CRBF, CRBF(LBFGS), and CRBF(BFGS) all showed statistically significant
+differences, with p-values of 9.8e-05, 3.9e-05, and 4.3e-06, respectively.
+Finally, the comparison between CRBF(LBFGS) and CRBF(BFGS) also revealed
+a statistically significant difference, with p = 0.0008. Overall,
+the results demonstrate clear performance differences among the methods,
+with CRBF consistently achieving superior results.
 
-The statistical analysis conducted in Figure \ref{fig:statRegression}
-to compare the different machine learning models shows distinct patterns
-in their error rates. Paired comparisons were performed between each
-model using a paired t-test, and the significance levels for each
-pair are as follows: for RBF vs. CONRBF, p=0.028 for CONRBF vs. CONRBF(LBFGS),
-p=0.016 for CONRBF vs. CONRBF(BFGS), p=0.015 and for CONRBF(LBFGS)
-vs. CONRBF(BFGS), p=0.028. All comparisons resulted in p\textless 0.05,
-indicating that there are statistically significant differences between
-each pair of models. This suggests that each variant of the CONRBF
-model, including the LBFGS and BFGS optimizations, provides a unique
-effect on the error rate, significantly differentiating it from the
-others in performance. However, when analyzing the groups as a whole
-using the Kruskal-Wallis test, the result was p=0.27, which is greater
-than the standard significance level of 0.05. This indicates that,
-while there are significant differences between individual pairs,
-there is no overall statistically significant difference across all
-four models collectively. This result implies that, while certain
-optimizations improve performance in pairwise comparisons, these differences
-are not strong enough to conclude a significant variation across the
-entire set of models. Therefore, the choice of model variant can impact
-error rates significantly in specific comparisons, but these effects
-are not uniform across all datasets when considered in aggregate.
+In Figure \ref{fig:statRegression}, The Kruskal-Wallis test revealed
+statistically significant differences among the methods on regression
+datasets, with an overall Kruskal-Wallis p-value of 0.0019. This indicates
+that at least one method performs significantly differently from the
+others. However, pairwise comparisons show mixed results. The comparison
+between MLP(ADAM) and MLP(BFGS) did not show a statistically significant
+difference (p = 0.17), suggesting similar performance between these
+two methods. Similarly, the comparison between MLP(ADAM) and RBF was
+not significant (p = 0.21). Comparisons of MLP(ADAM) with CRBF, CRBF(LBFGS),
+and CRBF(BFGS) yielded p-values of 0.086, 0.083, and 0.081, respectively,
+indicating trends toward differences but without statistical significance.
+The comparisons involving MLP(BFGS) against other methods yielded
+more pronounced results. Specifically, differences with CRBF, CRBF(LBFGS),
+and CRBF(BFGS) were statistically significant, with p = 0.034 for
+all three cases, indicating the superiority of the CRBF methods over
+MLP(BFGS). For the comparisons between RBF and the CRBF methods, statistically
+significant differences were observed. The comparison between RBF
+and CRBF had a p-value of 0.028, while comparisons with CRBF(LBFGS)
+and CRBF(BFGS) had p-values of 0.025 and 0.024, respectively, confirming
+the superior performance of the CRBF methods. Finally, the comparison
+between CRBF(LBFGS) and CRBF(BFGS) revealed a statistically significant
+difference, with p = 0.028, highlighting a notable distinction in
+the performance of these two methods. Overall, the results suggest
+that while MLP methods perform similarly, CRBF methods consistently
+achieve better results, with statistically significant differences
+observed in most comparisons against the other methods.
 
-\section{Conclusions\protect\label{sec:Conclusions}}
+Summarizing the above results, one can see that the proposed technique
+for building and training RBF networks improves the performance of
+these networks by more than 20\% on average on classification data
+and by more than 50\% on regression data. In all datasets, the proposed
+method brought about a significant reduction in classification error
+in 80\% of cases and in many datasets the reduction in classification
+or regression error was extremely significant. 
+
+\section{Conclusions\label{sec:Conclusions}}
 
 A novel method that constructs the architecture of RBF neural networks
-with assistance was described in the current paper, accompanied by
-the relevant software. The method can construct the architecture of
-RBF networks using a process that incorporates the Grammatical Evolution
-procedure. Also, the used method can estimate the parameters of the
-network, which can be further modified by the application of a local
-optimization procedure. The proposed method can be applied without
-modifications to classification and regression datasets. The new method
-was compared against the traditional method used to train RBF networks
-and the experimental results validated the efficiency of the proposed
-work in a wide series of classification and regression datasets found
-in the recent bibliography.
+with assistance was described in the present manuscript, accompanied
+by the relevant software. The method can construct the architecture
+of RBF networks using a process that incorporates the Grammatical
+Evolution procedure. Also, the used method can estimate the parameters
+of the network, which can be further modified by the application of
+a local optimization procedure. The proposed method can be applied
+without modifications to classification and regression datasets. The
+new method was compared against the traditional method used to train
+RBF networks and the experimental results validated the efficiency
+of the proposed work in a wide series of classification and regression
+datasets found in the recent bibliography.
 
 The used software was coded in ANSI C++ with the assistance of the
 freely available library of QT, in order to be portable on the majority
 of operating systems. The user can control the process by a series
 of simple command line options, such as the number of needed chromosomes
 for the genetic population or the selection rate used. Also, the software
-offers the possibility of enhancing the parameters of the RBF network
+offers the possibility of improving the parameters of the RBF network
 with the application of some local optimization procedures. The experimental
-results clearly indicated that the application of the local optimization
+results  indicated that the application of the local optimization
 algorithm can further reduce the test error in a series of datasets. 
 
 Future improvements to the software may include the periodic application
 of the local search procedure during the execution of the genetic
 algorithm or even the incorporation of global optimization procedures,
 in order to reduce even further the test error of the current work.
-Also, since the method is based on Genetic Algorithms, parallel optimization
+Also, since the method utilizes Genetic Algorithms, parallel optimization
 procedures, such as MPI \citep{mpi} or OpenMP \citep{openmp} can
 be used to reduce the execution time of the method. Finally, the software
 could possibly be extended to allow the user to input other grammars
@@ -1276,6 +1396,36 @@ Radial Basis Function Networks for Classification Using Differential
 Evolution. In Proceedings of the 2006 IEEE International Joint Conference
 on Neural Network Proceedings, Vancouver, BC, USA, 16--21 July 2006;
 pp. 2932--2937.
+
+\bibitem{rbfkernel}N. Benoudjit, M. Verleysen, On the Kernel Widths
+in Radial-Basis Function Networks, Neural Processing Letters \textbf{18},
+pp. 139--154, 2003.
+
+\bibitem{rbfgen}J. Paetz, Reducing the number of neurons in radial
+basis function networks with dynamic decay adjustment, Neurocomputing
+\textbf{62}, pp. 79-91, 2004.
+
+\bibitem{rbfcon}H. Yu, P. D. Reiner, T. Xie, T. Bartczak, B. M. Wilamowski,
+An Incremental Design of Radial Basis Function Networks, IEEE Transactions
+on Neural Networks and Learning Systems \textbf{25}, pp. 1793-1803,
+2014.
+
+\bibitem{rbfpso}A. Alexandridis, E. Chondrodima, H. Sarimveis, Cooperative
+learning for radial basis function networks using particle swarm optimization,
+Applied Soft Computing \textbf{49}, pp. 485-497, 2016.
+
+\bibitem{rbflearn}R. Neruda, P. Kudova, Learning methods for radial
+basis function networks, Future Generation Computer Systems \textbf{21},
+pp. 1131--1142, 2005.
+
+\bibitem{rbfpar1}R. Yokota, L.A. Barba, M. G. Knepley, PetRBF ---
+A parallel O(N) algorithm for radial basis function interpolation
+with Gaussians, Computer Methods in Applied Mechanics and Engineering
+\textbf{199}, pp. 1793-1804, 2010.
+
+\bibitem{rbfpar2}C. Lu, N. Ma, Z. Wang, Fault detection for hydraulic
+pump based on chaotic parallel RBF network, EURASIP J. Adv. Signal
+Process. \textbf{2011}, 49, 2011.
 
 \bibitem[(1991)]{kmeans}MacQueen, J.: Some methods for classification
 and analysis of multivariate observations, in: Proceedings of the

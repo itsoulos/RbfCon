@@ -3668,8 +3668,13 @@ The column CRBF(BFGS) stands for the application of the current work using
 \end_layout
 
 \begin_layout Enumerate
-The  row denoted as AVERAGE, outlines the average classification or regression
+The row denoted as AVERAGE, outlines the average classification or regression
  error for all datasets in the corresponding table.
+\end_layout
+
+\begin_layout Enumerate
+The row denoted as STDEV depicts the standard deviation for all datasets
+ in the corresponding table.
 \end_layout
 
 \begin_layout Standard
@@ -3677,7 +3682,7 @@ The  row denoted as AVERAGE, outlines the average classification or regression
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6978,7 +6983,7 @@ STDEV
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9089,7 +9094,22 @@ STDEV
 
 \end_inset
 
-In table 
+
+\end_layout
+
+\begin_layout Section
+Discussion
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Discussion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClass"
@@ -9099,40 +9119,41 @@ noprefix "false"
 
 \end_inset
 
-, the four models were evaluated based on their error rates across 40 different
- datasets.
- It was observed that the error rate varied significantly between datasets,
- reflecting differences in each model’s performance depending on the dataset.
- In general, the models CONRBF, CONRBF(LBFGS), and CONRBF(BFGS) showed lower
- error rates compared to RBF in many datasets, suggesting that the parameterized
- versions of CONRBF have better adaptability.
- In several datasets, CONRBF outperformed the original RBF in terms of error
- rate.
- For example, in datasets such as AUSTRALIAN and SPAMBASE, CONRBF shows
- a markedly lower error rate compared to RBF.
- The models CONRBF(LBFGS) and CONRBF(BFGS) frequently demonstrate improved
- error rates relative to the original CONRBF, although these differences
- are not always significant.
- In datasets such as HEPATITIS, TAE, and WINE, both CONRBF(LBFGS) and CONRBF(BFG
-S) outperform the simple CONRBF model.
- Despite the general trend of improved performance in the parameterized
- versions of CONRBF, exceptions do exist.
- For instance, in the dataset Z_O_N_F_S, RBF performs better than the other
- models, while in ZO_NF_S and ZONF_S, the differences between models are
- minimal.
- CONRBF with LBFGS and CONRBF with BFGS exhibit similar performance, although
- one model occasionally outperforms the other in certain datasets.
- In DERMATOLOGY and ZOO, CONRBF(LBFGS) achieves a lower error rate than
- CONRBF(BFGS), whereas in datasets like HEARTATTACK, the differences are
- very small.
- In conclusion, the comparison of models reveals that the parameterized
- versions of CONRBF, especially with the LBFGS and BFGS optimization methods,
- generally outperform the simple RBF model in many datasets.
- 
+, for the APPENDICITIS dataset, the low error rates of the RBF and CRBF
+ models (12.23% and 13.60%, respectively) indicate that Radial Basis Function-base
+d models are well-suited for this problem.
+ This performance may be linked to their ability to handle non-linear relationsh
+ips in the data.
+ The higher error rates of the MLP models (above 16%) suggest they might
+ require more tuning or larger datasets for optimal performance.
+ In the ALCOHOL dataset, error rates range from 41.50% (MLP(BFGS)) to 57.78%
+ (MLP(ADAM)).
+ This wide variation implies that the dataset’s features are particularly
+ challenging for most models, likely due to noise or high dimensionality.
+ The intermediate error rates of the CRBF model (49.38%) show that while
+ RBF-based models can handle some complexity, further adjustments are needed
+ to make them competitive.
+ In the AUSTRALIAN dataset, CRBF and its variations achieve exceptionally
+ low error rates (14%), highlighting their strong adaptation to the dataset’s
+ characteristics.
+ In contrast, MLP(ADAM) and MLP(BFGS) exhibit significantly higher errors
+ (35%-38%), demonstrating their struggles to perform effectively on this
+ problem.
+ The CLEVELAND dataset, on the other hand, exemplifies complexity.
+ MLP models show error rates as high as 77.55%, while CRBF models reduce
+ the error to about 49%.
+ This gap underscores the superiority of RBF-based approaches for data with
+ complex, non-linear structures.
+ Overall, the analysis reveals that CRBF models have a clear advantage in
+ datasets with non-linear relationships and lower dimensionality.
+ While MLP models are more flexible, they seem to require extensive parameter
+ tuning to achieve comparable performance.
+ Employing an RBF model with appropriate customization may often be the
+ optimal choice for many of the examined problems.
 \end_layout
 
 \begin_layout Standard
-The results shown in Table 
+In Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expRegression"
@@ -9142,28 +9163,62 @@ noprefix "false"
 
 \end_inset
 
- include the error values for various datasets, where different training
- methods were applied.
- The values in the tables represent errors (not percentages) obtained by
- applying each model to each dataset.
- The CONRBF method shows lower error rates compared to the original RBF
- in almost all datasets, indicating that the proposed method provides improvemen
-ts over the original.
- For example, in the HOUSING dataset, the error is reduced from 57.68 (RBF)
- to 20.6 (CONRBF), while in the BASEBALL dataset, the error decreases from
- 93.02 (RBF) to 66.74 (CONRBF).
- The LBFGS and BFGS variations of the CONRBF method further reduce errors
- compared to the original CONRBF in certain datasets.
- For instance, in the AUTO dataset, the error decreases from 11.03 (CONRBF)
- to 10.03 (CONRBF with LBFGS) and 9.45 (CONRBF with BFGS).
- Similarly, in the STOCK dataset, the error drops from 8.31 (CONRBF) to 6.9
- (CONRBF with LBFGS) and 6.25 (CONRBF with BFGS), demonstrating that the
- addition of these optimization methods can further enhance the model's
- performance.
- In summary, the results indicate that the proposed CONRBF method, along
- with its LBFGS and BFGS optimized variants, has the potential to reduce
- error rates compared to the original RBF method.
- 
+, for the ABALONE dataset, MLP models show higher values, such as 4.3 for
+ MLP(ADAM) and 5.69 for MLP(BFGS), while CRBF models perform better.
+ The best result comes from CRBF(BFGS), with a value of 5.32, indicating
+ that CRBF models adapt better to this dataset.
+ In the AIRFOIL dataset, CRBF-based models exhibit exceptional performance,
+ with CRBF(BFGS) achieving the best value of 0.002.
+ In contrast, MLP models show higher values, such as 0.005 for MLP(ADAM),
+ demonstrating that RBF-based models are more accurate in this case.
+ In the AUTO dataset, there is a clear superiority of CRBF models.
+ CRBF(BFGS) achieves the best value of 9.45, while MLP models record significantl
+y higher values, such as 70.84 for MLP(ADAM).
+ This indicates that MLP struggles to adapt effectively to this problem.
+ In the BASEBALL dataset, CRBF models achieve lower error values, with the
+ best result being 64.52 for CRBF(BFGS).
+ In comparison, MLP(ADAM) shows a much higher value of 77.9, highlighting
+ the advantage of CRBF models in this dataset.
+ In the HOUSING dataset, the differences are even more pronounced.
+ CRBF(BFGS) achieves the best performance with a value of 18.4, while MLP(ADAM)
+ records 81, and MLP(BFGS) reaches 97.38.
+ This stark contrast emphasizes the inability of MLP models to perform effective
+ly on this dataset.
+ In the PLASTIC dataset, CRBF models also deliver excellent performance.
+ CRBF(BFGS) achieves the best result at 2.43, while MLP models show much
+ higher values, such as 11.71 for MLP(ADAM).
+ Overall, CRBF-based models demonstrate significantly lower error values
+ across most datasets, indicating their ability to adapt to various data
+ types.
+ MLP models, although flexible, struggle in many cases, possibly due to
+ the need for extensive parameter tuning or limitations in generalization.
+ The overall analysis suggests that CRBF models are more reliable for regression
+ problems, especially when the datasets involve non-linear relationships
+ or high complexity.
+\end_layout
+
+\begin_layout Standard
+Also, in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ a statistical comparison between all method is depicted.
 \end_layout
 
 \begin_layout Standard
@@ -9200,10 +9255,6 @@ name "fig:statClass"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -9246,10 +9297,6 @@ name "fig:statRegression"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 In Figure 
@@ -9262,33 +9309,44 @@ noprefix "false"
 
 \end_inset
 
-, paired comparisons were subsequently performed between individual pairs
- of models using the paired t-test.
- For RBF vs.
- CONRBF: p = 9.8 × 10⁻⁵ – there is a statistically significant difference
- between the two models (p < 0.05), indicating that the CONRBF model exhibits
- a significantly different error rate compared to RBF.
- For CONRBF vs.
- CONRBF(LBFGS): p = 0.16 – there is no statistically significant difference
- between these two models at the 0.05 significance level, suggesting that
- the two versions of CONRBF have similar error rates.
- For CONRBF vs.
- CONRBF(BFGS): p = 0.002 – there is a statistically significant difference
- (p < 0.05) between these two variants, indicating that the BFGS method yields
- a different error rate compared to the original CONRBF.
- For CONRBF(LBFGS) vs.
- CONRBF(BFGS): p = 0.0008 – the difference between these two methods is also
- statistically significant (p < 0.05), showing that CONRBF(BFGS) has a different
- performance from CONRBF(LBFGS) in terms of error rate.
- In summary, the results of the paired comparisons indicate that the differences
- between some models are statistically significant, suggesting that the
- choice of model variant can substantially impact the error rate.
- However, the overall analysis using the Kruskal-Wallis test did not find
- a statistically significant difference between the groups as a whole.
+, the Kruskal-Wallis test revealed statistically significant differences
+ among the methods overall, with a general p-value of 0.0007, indicating
+ that at least one method differs significantly from the others in terms
+ of classification error rates.
+ Pairwise comparisons provide further insights into the differences between
+ specific methods.
+ The comparison between MLP(ADAM) and MLP(BFGS) showed no statistically
+ significant difference (p = 0.34), suggesting that the two methods perform
+ similarly.
+ In contrast, the comparison between MLP(ADAM) and RBF revealed a statistically
+ significant difference (p = 0.0026), indicating that RBF achieves distinct
+ error rates compared to MLP(ADAM).
+ The comparison of MLP(ADAM) with CRBF showed a highly significant difference
+ (p = 1.8e-07), highlighting the superiority of CRBF over MLP(ADAM).
+ Similarly, the comparison between MLP(ADAM) and CRBF(LBFGS) demonstrated
+ even greater statistical significance, with p = 4.6e-08, confirming the
+ advantage of CRBF(LBFGS).
+ Additionally, the comparison of MLP(ADAM) with CRBF(BFGS) exhibited extremely
+ high statistical significance (p = 1.8e-08), favoring CRBF(BFGS).
+ The subsequent comparisons of MLP(BFGS) with other methods also revealed
+ statistically significant differences.
+ The comparison between MLP(BFGS) and RBF yielded p = 0.011, indicating a
+ notable difference, while the comparison of MLP(BFGS) with CRBF had p =
+ 3.8e-06, clearly demonstrating the superiority of CRBF.
+ Comparisons of MLP(BFGS) with CRBF(LBFGS) and CRBF(BFGS) resulted in p-values
+ of 1.9e-06 and 5.3e-07, respectively, confirming the statistical significance
+ of the differences.
+ Furthermore, comparisons of RBF with CRBF, CRBF(LBFGS), and CRBF(BFGS)
+ all showed statistically significant differences, with p-values of 9.8e-05,
+ 3.9e-05, and 4.3e-06, respectively.
+ Finally, the comparison between CRBF(LBFGS) and CRBF(BFGS) also revealed
+ a statistically significant difference, with p = 0.0008.
+ Overall, the results demonstrate clear performance differences among the
+ methods, with CRBF consistently achieving superior results.
 \end_layout
 
 \begin_layout Standard
-The statistical analysis conducted in Figure 
+In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegression"
@@ -9298,31 +9356,36 @@ noprefix "false"
 
 \end_inset
 
- to compare the different machine learning models shows distinct patterns
- in their error rates.
- Paired comparisons were performed between each model using a paired t-test,
- and the significance levels for each pair are as follows: for RBF vs.
- CONRBF, p=0.028 for CONRBF vs.
- CONRBF(LBFGS), p=0.016 for CONRBF vs.
- CONRBF(BFGS), p=0.015 and for CONRBF(LBFGS) vs.
- CONRBF(BFGS), p=0.028.
- All comparisons resulted in p<0.05, indicating that there are statistically
- significant differences between each pair of models.
- This suggests that each variant of the CONRBF model, including the LBFGS
- and BFGS optimizations, provides a unique effect on the error rate, significant
-ly differentiating it from the others in performance.
- However, when analyzing the groups as a whole using the Kruskal-Wallis
- test, the result was p=0.27, which is greater than the standard significance
- level of 0.05.
- This indicates that, while there are significant differences between individual
- pairs, there is no overall statistically significant difference across
- all four models collectively.
- This result implies that, while certain optimizations improve performance
- in pairwise comparisons, these differences are not strong enough to conclude
- a significant variation across the entire set of models.
- Therefore, the choice of model variant can impact error rates significantly
- in specific comparisons, but these effects are not uniform across all datasets
- when considered in aggregate.
+, The Kruskal-Wallis test revealed statistically significant differences
+ among the methods on regression datasets, with an overall Kruskal-Wallis
+ p-value of 0.0019.
+ This indicates that at least one method performs significantly differently
+ from the others.
+ However, pairwise comparisons show mixed results.
+ The comparison between MLP(ADAM) and MLP(BFGS) did not show a statistically
+ significant difference (p = 0.17), suggesting similar performance between
+ these two methods.
+ Similarly, the comparison between MLP(ADAM) and RBF was not significant
+ (p = 0.21).
+ Comparisons of MLP(ADAM) with CRBF, CRBF(LBFGS), and CRBF(BFGS) yielded
+ p-values of 0.086, 0.083, and 0.081, respectively, indicating trends toward
+ differences but without statistical significance.
+ The comparisons involving MLP(BFGS) against other methods yielded more
+ pronounced results.
+ Specifically, differences with CRBF, CRBF(LBFGS), and CRBF(BFGS) were statistic
+ally significant, with p = 0.034 for all three cases, indicating the superiority
+ of the CRBF methods over MLP(BFGS).
+ For the comparisons between RBF and the CRBF methods, statistically significant
+ differences were observed.
+ The comparison between RBF and CRBF had a p-value of 0.028, while comparisons
+ with CRBF(LBFGS) and CRBF(BFGS) had p-values of 0.025 and 0.024, respectively,
+ confirming the superior performance of the CRBF methods.
+ Finally, the comparison between CRBF(LBFGS) and CRBF(BFGS) revealed a statistic
+ally significant difference, with p = 0.028, highlighting a notable distinction
+ in the performance of these two methods.
+ Overall, the results suggest that while MLP methods perform similarly,
+ CRBF methods consistently achieve better results, with statistically significan
+t differences observed in most comparisons against the other methods.
 \end_layout
 
 \begin_layout Standard
@@ -9334,17 +9397,6 @@ Summarizing the above results, one can see that the proposed technique for
  in classification error in 80% of cases and in many datasets the reduction
  in classification or regression error was extremely significant.
  
-\end_layout
-
-\begin_layout Section
-Discussion
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Discussion"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
